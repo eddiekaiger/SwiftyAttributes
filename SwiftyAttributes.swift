@@ -125,104 +125,231 @@ public extension NSAttributedString {
 
 }
 
-public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
-    let combinedString = lhs.mutableString
-    combinedString.appendAttributedString(rhs)
-    return combinedString
-}
-
 public extension String {
 
     private var attributedString: NSAttributedString {
         return NSAttributedString(string: self)
     }
 
+    /**
+     Creates an attributed string with a specific font.
+     
+     :param: font   The font to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withFont(font: UIFont) -> NSAttributedString {
         return attributedString.withFont(font)
     }
 
+    /**
+     Creates an attributed string with a specific paragraph style.
+
+     :param: style  The font to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withParagraphStyle(style: NSParagraphStyle) -> NSAttributedString {
         return attributedString.withParagraphStyle(style)
     }
 
+    /**
+     Creates an attributed string with a specific text color.
+
+     :param: color  The text color to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withTextColor(color: UIColor) -> NSAttributedString {
         return attributedString.withTextColor(color)
     }
 
+    /**
+     Creates an attributed string with a specific background color.
+
+     :param: color  The background color to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withBackgroundColor(color: UIColor) -> NSAttributedString {
         return attributedString.withBackgroundColor(color)
     }
 
+    /**
+     Creates an attributed string with a specific ligature.
+
+     :param: ligatureValue  The font to set for the attributed string.
+     :return:               A new attributed string with the newly added attribute.
+    */
     public func withLigature(ligatureValue: NSNumber) -> NSAttributedString {
         return attributedString.withLigature(ligatureValue)
     }
 
+    /**
+     Creates an attributed string with a specific kern.
+
+     :param: kernValue  The kern value to set for the attributed string.
+     :return:           A new attributed string with the newly added attribute.
+    */
     public func withKern(kernValue: NSNumber) -> NSAttributedString {
         return attributedString.withKern(kernValue)
     }
 
+    /**
+     Creates an attributed string with a specific strikethrough style.
+
+     :param: style  The strikethrough style to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withStrikethroughStyle(style: NSUnderlineStyle) -> NSAttributedString {
         return attributedString.withStrikethroughStyle(style)
     }
 
+    /**
+     Creates an attributed string with a specific underline style.
+
+     :param: style  The underline style to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withUnderlineStyle(style: NSUnderlineStyle) -> NSAttributedString {
         return attributedString.withUnderlineStyle(style)
     }
 
+    /**
+     Creates an attributed string with a specific stroke color.
+
+     :param: color  The stroke color to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withStrokeColor(color: UIColor) -> NSAttributedString {
         return attributedString.withStrokeColor(color)
     }
 
+    /**
+     Creates an attributed string with a specific stroke width.
+
+     :param: width  The stroke width to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withStrokeWidth(width: NSNumber) -> NSAttributedString {
         return attributedString.withStrokeWidth(width)
     }
 
+    /**
+     Creates an attributed string with a specific shadow.
+
+     :param: shadow The shadow to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withShadow(shadow: NSShadow) -> NSAttributedString {
         return attributedString.withShadow(shadow)
     }
 
+    /**
+     Creates an attributed string with a specific text effect.
+
+     :param: effect The text effect to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withTextEffect(effect: String) -> NSAttributedString {
         return attributedString.withTextEffect(effect)
     }
 
+    /**
+     Creates an attributed string with a specific attachment.
+
+     :param: attachment The attachment to set for the attributed string.
+     :return:           A new attributed string with the newly added attribute.
+    */
     public func withAttachment(attachment: NSTextAttachment) -> NSAttributedString {
         return attributedString.withAttachment(attachment)
     }
 
+    /**
+     Creates an attributed string with a specific link.
+
+     :param: link   The URL link to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withLink(link: NSURL) -> NSAttributedString {
         return attributedString.withLink(link)
     }
 
+    /**
+     Creates an attributed string with a specific baseline offset.
+
+     :param: offset The baseline offset to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withBaselineOffset(offset: NSNumber) -> NSAttributedString {
         return attributedString.withBaselineOffset(offset)
     }
 
+    /**
+     Creates an attributed string with a specific underline color.
+
+     :param: color  The underline color to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withUnderlineColor(color: UIColor) -> NSAttributedString {
         return attributedString.withUnderlineColor(color)
     }
 
+    /**
+     Creates an attributed string with a specific underline style.
+
+     :param: color  The underline style to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withStrikethroughColor(color: UIColor) -> NSAttributedString {
         return attributedString.withStrikethroughColor(color)
     }
 
+    /**
+     Creates an attributed string with a specific obliqueness.
+
+     :param: obliquenessValue   The obliqueness value to set for the attributed string.
+     :return:                   A new attributed string with the newly added attribute.
+    */
     public func withObliqueness(obliquenessValue: NSNumber) -> NSAttributedString {
         return attributedString.withObliqueness(obliquenessValue)
     }
 
+    /**
+     Creates an attributed string with a specific expansion.
+
+     :param: expansion  The expansion value to set for the attributed string.
+     :return:           A new attributed string with the newly added attribute.
+     */
     public func withExpansion(expansion: NSNumber) -> NSAttributedString {
         return attributedString.withExpansion(expansion)
     }
 
+    /**
+     Creates an attributed string with a specific writing direction.
+
+     :param: direction  The direction to set for the attributed string.
+     :return:           A new attributed string with the newly added attribute.
+    */
     public func withWritingDirection(direction: [NSNumber]) -> NSAttributedString {
         return attributedString.withWritingDirection(direction)
     }
 
+    /**
+     Creates an attributed string with a specific vertical glyph form.
+
+     :param: form   The vertical glyph form to set for the attributed string.
+     :return:       A new attributed string with the newly added attribute.
+    */
     public func withVerticalGlyphForm(form: NSNumber) -> NSAttributedString {
         return attributedString.withVerticalGlyphForm(form)
     }
 }
 
-
+/** 
+ Overloaded addition operator for attributed strings. Creates a concatenated NSAttributedString.
+*/
+public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
+    let combinedString = lhs.mutableString
+    combinedString.appendAttributedString(rhs)
+    return combinedString
+}
 
 
 
