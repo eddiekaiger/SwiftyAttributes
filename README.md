@@ -1,3 +1,5 @@
+# SwiftyAttributes
+
 ###### *Swift extensions that make it a breeze to work with attributed strings.*
 
 The **original** way to create an attributed string in Swift:
