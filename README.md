@@ -20,6 +20,6 @@ let fancyString = "Hello World!".withTextColor(UIColor.blueColor()).withUnderlin
 You can also easily combine attributed strings using a plus sign:
 
 ````swift
-let fancyString = "Hello ".withFont(UIFont.systemFontOfSize(12)) + " World!".withFont(UIFont.systemFontOfSize(18))
+let fancyString = "Hello".withFont(UIFont.systemFontOfSize(12)) + " World!".withFont(UIFont.systemFontOfSize(18))
 ````
 
