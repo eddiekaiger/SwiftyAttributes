@@ -23,3 +23,16 @@ You can also easily combine attributed strings using a plus sign:
 let fancyString = "Hello".withFont(UIFont.systemFontOfSize(12)) + " World!".withFont(UIFont.systemFontOfSize(18))
 ````
 
+### Installation
+
+**With CocoaPods:**
+
+`pod 'SwiftyAttributes'`
+
+**Manually:**
+
+Download the zip file (or clone the project), and drag `SwiftyAttributes.swift` into your project.
+
+
+
+
