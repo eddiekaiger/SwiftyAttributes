@@ -106,7 +106,7 @@ public extension NSAttributedString {
      - Returns: A new attributed string with the newly added attribute.
     */
     public func withStrikethroughStyle(style: NSUnderlineStyle) -> NSAttributedString {
-        return withNewAttribute(NSStrikethroughColorAttributeName, value: NSNumber(integer: style.rawValue))
+        return withNewAttribute(NSStrikethroughStyleAttributeName, value: NSNumber(integer: style.rawValue))
     }
 
     /**
