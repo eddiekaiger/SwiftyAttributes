@@ -6,21 +6,21 @@ The **original** way to create an attributed string in Swift:
 
 ````swift
 let attributes: [String: AnyObject] = 
-	[NSForegroundColorAttributeName: UIColor.blueColor(), 
-     NSUnderlineStyleAttributeName:  NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue)]
+	[NSForegroundColorAttributeName: UIColor.blue, 
+     NSUnderlineStyleAttributeName:  NSNumber(integer: NSUnderlineStyle.styleSingle.rawValue)]
 let fancyString = NSAttributedString(string: "Hello World!", attributes: attributes) 
 ````
 
 With **SwiftyAttributes**, you can write the same thing like this:
 
 ````swift
-let fancyString = "Hello World!".withTextColor(UIColor.blueColor()).withUnderlineStyle(.StyleSingle)
+let fancyString = "Hello World!".withTextColor(.blue).withUnderlineStyle(.styleSingle)
 ````
 
 You can also easily combine attributed strings using a plus sign:
 
 ````swift
-let fancyString = "Hello".withFont(UIFont.systemFontOfSize(12)) + " World!".withFont(UIFont.systemFontOfSize(18))
+let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont(.systemFont(ofSize: 18))
 ````
 
 **SwiftyAttributes** Has support for *every* attribute that can be used in iOS.
