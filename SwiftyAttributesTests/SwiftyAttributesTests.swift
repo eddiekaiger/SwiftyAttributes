@@ -39,8 +39,8 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_ligature() {
-        let subject = "Hello".withLigature(5)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSLigatureAttributeName: NSNumber(value: 5)])
+        let subject = "Hello".withLigatures(.none)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSLigatureAttributeName: NSNumber(value: Ligatures.none.rawValue)])
         XCTAssertEqual(subject, expected)
     }
 

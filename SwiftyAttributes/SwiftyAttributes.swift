@@ -85,8 +85,8 @@ public extension NSAttributedString {
      - Parameter ligatureValue: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withLigature(_ ligatureValue: NSNumber) -> NSAttributedString {
-        return withNewAttribute(NSLigatureAttributeName, value: ligatureValue)
+    public func withLigatures(_ ligatures: Ligatures) -> NSAttributedString {
+        return withNewAttribute(NSLigatureAttributeName, value: NSNumber(value: ligatures.rawValue))
     }
 
     /**
@@ -95,8 +95,8 @@ public extension NSAttributedString {
      - Parameter kernValue: The kern value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withKern(_ kernValue: NSNumber) -> NSAttributedString {
-        return withNewAttribute(NSKernAttributeName, value: kernValue)
+    public func withKern(_ kernValue: Double) -> NSAttributedString {
+        return withNewAttribute(NSKernAttributeName, value: NSNumber(value: kernValue))
     }
 
     /**
@@ -135,8 +135,8 @@ public extension NSAttributedString {
      - Parameter width The stroke width to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrokeWidth(_ width: NSNumber) -> NSAttributedString {
-        return withNewAttribute(NSStrokeWidthAttributeName, value: width)
+    public func withStrokeWidth(_ width: Double) -> NSAttributedString {
+        return withNewAttribute(NSStrokeWidthAttributeName, value: NSNumber(value: width))
     }
 
     /**
@@ -292,8 +292,8 @@ public extension String {
      - Parameter ligatureValue: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withLigature(_ ligatureValue: NSNumber) -> NSAttributedString {
-        return attributedString.withLigature(ligatureValue)
+    public func withLigatures(_ ligatures: Ligatures) -> NSAttributedString {
+        return attributedString.withLigatures(ligatures)
     }
 
     /**
@@ -302,7 +302,7 @@ public extension String {
      - Parameter kernValue: The kern value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withKern(_ kernValue: NSNumber) -> NSAttributedString {
+    public func withKern(_ kernValue: Double) -> NSAttributedString {
         return attributedString.withKern(kernValue)
     }
 
@@ -342,7 +342,7 @@ public extension String {
      - Parameter width The stroke width to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrokeWidth(_ width: NSNumber) -> NSAttributedString {
+    public func withStrokeWidth(_ width: Double) -> NSAttributedString {
         return attributedString.withStrokeWidth(width)
     }
 
