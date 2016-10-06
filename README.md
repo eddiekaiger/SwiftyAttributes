@@ -5,9 +5,10 @@
 The **original** way to create an attributed string in Swift:
 
 ````swift
-let attributes: [String: AnyObject] = 
-	[NSForegroundColorAttributeName: UIColor.blue, 
-     NSUnderlineStyleAttributeName:  NSNumber(integer: NSUnderlineStyle.styleSingle.rawValue)]
+let attributes: [String: AnyObject] = [
+    NSForegroundColorAttributeName: UIColor.blue, 
+    NSUnderlineStyleAttributeName:  NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)
+]
 let fancyString = NSAttributedString(string: "Hello World!", attributes: attributes) 
 ````
 
@@ -33,7 +34,7 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 **Manually:**
 
-Download the zip file (or clone the project), and drag `SwiftyAttributes.swift` into your project.
+Download the zip file (or clone the project), and drag all of the swift files from the *SwiftyAttributes* folder into your project.
 
 
 # Contact
