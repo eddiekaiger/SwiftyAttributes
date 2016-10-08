@@ -35,7 +35,7 @@ public extension NSAttributedString {
 
     private func withNewAttribute(_ attributeName: String, value: Any) -> NSAttributedString {
         let newString = mutableString
-        newString.addAttributes([attributeName: value], range: NSMakeRange(0, newString.length))
+        newString.addAttributes([attributeName: value], range: NSRange(location: 0, length: newString.length))
         return newString
     }
 
