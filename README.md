@@ -47,11 +47,9 @@ Download the zip file (or clone the project), and drag all of the swift files fr
 * Add Carthage support
 * Write tests for overloaded addition operator
 
-# Contact
+# Support
 
-Eddie Kaiger
-* www.github.com/eddiekaiger
-* eddiekaiger@gmail.com
+For questions and support, please open up an issue.
 
 # License
 
