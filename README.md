@@ -1,6 +1,12 @@
 # SwiftyAttributes
 
-###### *Swift extensions that make it a breeze to work with attributed strings.*
+#### *Swift extensions that make it a breeze to work with attributed strings.*
+
+![Swift Version](https://img.shields.io/badge/swift-3.0-orange.svg?style=flat)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftyAttributes.svg?style=flat)](http://cocoapods.org/pods/SwiftyAttributes)
+
+---
 
 The **original** way to create an attributed string in Swift:
 
@@ -36,12 +42,14 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 Download the zip file (or clone the project), and drag all of the swift files from the *SwiftyAttributes* folder into your project.
 
+# TODO
 
-# Contact
+* Add Carthage support
+* Write tests for overloaded addition operator
 
-Eddie Kaiger
-* www.github.com/eddiekaiger
-* eddiekaiger@gmail.com
+# Support
+
+For questions and support, please open up an issue.
 
 # License
 
