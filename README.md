@@ -42,6 +42,10 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 Download the zip file (or clone the project), and drag all of the swift files from the *SwiftyAttributes* folder into your project.
 
+# TODO
+
+* Add Carthage support
+* Write tests for overloaded addition operator
 
 # Contact
 
