@@ -32,6 +32,10 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 **SwiftyAttributes** Has support for *every* attribute that can be used in iOS.
 
+# Requirements
+
+* iOS 9.0+
+
 # Installation
 
 ### With CocoaPods
