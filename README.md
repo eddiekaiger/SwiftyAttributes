@@ -34,13 +34,27 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 # Installation
 
-**With CocoaPods:**
+### With CocoaPods:
+
+#### For **Swift 3**:
 
 `pod 'SwiftyAttributes'`
 
-**Manually:**
+> For **Swift 2.3**:
 
-Download the zip file (or clone the project), and drag all of the swift files from the *SwiftyAttributes* folder into your project.
+> `pod 'SwiftyAttributes', '1.1'`
+
+> If using Xcode 8, you may need to add this to end of your Podfile:
+
+> ```swift
+> post_install do |installer|
+>     installer.pods_project.targets.each do |target| 
+>         target.build_configurations.each do |config| 
+>             config.build_settings["SWIFT_VERSION"] = "2.3"
+>         end
+>     end
+> end
+> ```
 
 # TODO
 
