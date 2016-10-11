@@ -34,7 +34,7 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 # Installation
 
-### With CocoaPods:
+### With CocoaPods
 
 #### For **Swift 3**:
 
