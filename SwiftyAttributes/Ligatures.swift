@@ -10,5 +10,5 @@ import Foundation
 
 public enum Ligatures: Int {
     case none
-    case `default`
+    case`default`
 }

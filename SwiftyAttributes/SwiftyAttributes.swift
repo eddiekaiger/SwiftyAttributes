@@ -29,13 +29,13 @@ import UIKit
 
 public extension NSAttributedString {
 
-    fileprivate var mutableString: NSMutableAttributedString {
+    private var mutableString: NSMutableAttributedString {
         return self is NSMutableAttributedString ? self as! NSMutableAttributedString : mutableCopy() as! NSMutableAttributedString
     }
 
-    private func withNewAttribute(_ attributeName: String, value: Any) -> NSAttributedString {
+    private func withNewAttribute(attributeName: String, value: AnyObject) -> NSAttributedString {
         let newString = mutableString
-        newString.addAttributes([attributeName: value], range: NSMakeRange(0, newString.length))
+        newString.addAttributes([attributeName: value], range: NSRange(location: 0, length: newString.length))
         return newString
     }
 
@@ -45,7 +45,7 @@ public extension NSAttributedString {
      - Parameter font: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withFont(_ font: UIFont) -> NSAttributedString {
+    public func withFont(font: UIFont) -> NSAttributedString {
         return withNewAttribute(NSFontAttributeName, value: font)
     }
 
@@ -55,7 +55,7 @@ public extension NSAttributedString {
      - Parameter style: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withParagraphStyle(_ style: NSParagraphStyle) -> NSAttributedString {
+    public func withParagraphStyle(style: NSParagraphStyle) -> NSAttributedString {
         return withNewAttribute(NSParagraphStyleAttributeName, value: style)
     }
 
@@ -65,7 +65,7 @@ public extension NSAttributedString {
      - Parameter color: The text color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withTextColor(_ color: UIColor) -> NSAttributedString {
+    public func withTextColor(color: UIColor) -> NSAttributedString {
         return withNewAttribute(NSForegroundColorAttributeName, value: color)
     }
 
@@ -75,7 +75,7 @@ public extension NSAttributedString {
      - Parameter color: The background color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withBackgroundColor(_ color: UIColor) -> NSAttributedString {
+    public func withBackgroundColor(color: UIColor) -> NSAttributedString {
         return withNewAttribute(NSBackgroundColorAttributeName, value: color)
     }
 
@@ -85,8 +85,8 @@ public extension NSAttributedString {
      - Parameter ligatureValue: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withLigatures(_ ligatures: Ligatures) -> NSAttributedString {
-        return withNewAttribute(NSLigatureAttributeName, value: NSNumber(value: ligatures.rawValue))
+    public func withLigatures(ligatures: Ligatures) -> NSAttributedString {
+        return withNewAttribute(NSLigatureAttributeName, value: NSNumber(integer: ligatures.rawValue))
     }
 
     /**
@@ -95,8 +95,8 @@ public extension NSAttributedString {
      - Parameter kernValue: The kern value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withKern(_ kernValue: Double) -> NSAttributedString {
-        return withNewAttribute(NSKernAttributeName, value: NSNumber(value: kernValue))
+    public func withKern(kernValue: Double) -> NSAttributedString {
+        return withNewAttribute(NSKernAttributeName, value: NSNumber(double: kernValue))
     }
 
     /**
@@ -105,8 +105,8 @@ public extension NSAttributedString {
      - Parameter style: The strikethrough style to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrikethroughStyle(_ style: NSUnderlineStyle) -> NSAttributedString {
-        return withNewAttribute(NSStrikethroughStyleAttributeName, value: NSNumber(value: style.rawValue))
+    public func withStrikethroughStyle(style: NSUnderlineStyle) -> NSAttributedString {
+        return withNewAttribute(NSStrikethroughStyleAttributeName, value: NSNumber(integer: style.rawValue))
     }
 
     /**
@@ -115,8 +115,8 @@ public extension NSAttributedString {
      - Parameter style: The underline style to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withUnderlineStyle(_ style: NSUnderlineStyle) -> NSAttributedString {
-        return withNewAttribute(NSUnderlineStyleAttributeName, value: NSNumber(value: style.rawValue))
+    public func withUnderlineStyle(style: NSUnderlineStyle) -> NSAttributedString {
+        return withNewAttribute(NSUnderlineStyleAttributeName, value: NSNumber(integer: style.rawValue))
     }
 
     /**
@@ -125,7 +125,7 @@ public extension NSAttributedString {
      - Parameter color: The stroke color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrokeColor(_ color: UIColor) -> NSAttributedString {
+    public func withStrokeColor(color: UIColor) -> NSAttributedString {
         return withNewAttribute(NSStrokeColorAttributeName, value: color)
     }
 
@@ -135,8 +135,8 @@ public extension NSAttributedString {
      - Parameter width The stroke width to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrokeWidth(_ width: Double) -> NSAttributedString {
-        return withNewAttribute(NSStrokeWidthAttributeName, value: NSNumber(value: width))
+    public func withStrokeWidth(width: Double) -> NSAttributedString {
+        return withNewAttribute(NSStrokeWidthAttributeName, value: NSNumber(double: width))
     }
 
     /**
@@ -145,7 +145,7 @@ public extension NSAttributedString {
      - Parameter shadow: The shadow to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withShadow(_ shadow: NSShadow) -> NSAttributedString {
+    public func withShadow(shadow: NSShadow) -> NSAttributedString {
         return withNewAttribute(NSShadowAttributeName, value: shadow)
     }
 
@@ -155,7 +155,7 @@ public extension NSAttributedString {
      - Parameter effect: The text effect to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withTextEffect(_ effect: String) -> NSAttributedString {
+    public func withTextEffect(effect: String) -> NSAttributedString {
         return withNewAttribute(NSTextEffectAttributeName, value: effect)
     }
 
@@ -165,7 +165,7 @@ public extension NSAttributedString {
      - Parameter attachment: The attachment to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withAttachment(_ attachment: NSTextAttachment) -> NSAttributedString {
+    public func withAttachment(attachment: NSTextAttachment) -> NSAttributedString {
         return withNewAttribute(NSTextEffectAttributeName, value: attachment)
     }
 
@@ -175,7 +175,7 @@ public extension NSAttributedString {
      - Parameter link: The URL link to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withLink(_ link: URL) -> NSAttributedString {
+    public func withLink(link: NSURL) -> NSAttributedString {
         return withNewAttribute(NSLinkAttributeName, value: link)
     }
 
@@ -185,8 +185,8 @@ public extension NSAttributedString {
      - Parameter offset: The baseline offset to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withBaselineOffset(_ offset: Double) -> NSAttributedString {
-        return withNewAttribute(NSBaselineOffsetAttributeName, value: NSNumber(value: offset))
+    public func withBaselineOffset(offset: Double) -> NSAttributedString {
+        return withNewAttribute(NSBaselineOffsetAttributeName, value: NSNumber(double: offset))
     }
 
     /**
@@ -195,7 +195,7 @@ public extension NSAttributedString {
      - Parameter color: The underline color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withUnderlineColor(_ color: UIColor) -> NSAttributedString {
+    public func withUnderlineColor(color: UIColor) -> NSAttributedString {
         return withNewAttribute(NSUnderlineColorAttributeName, value: color)
     }
 
@@ -205,7 +205,7 @@ public extension NSAttributedString {
      - Parameter color: The underline style to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrikethroughColor(_ color: UIColor) -> NSAttributedString {
+    public func withStrikethroughColor(color: UIColor) -> NSAttributedString {
         return withNewAttribute(NSStrikethroughColorAttributeName, value: color)
     }
 
@@ -215,8 +215,8 @@ public extension NSAttributedString {
      - Parameter obliquenessValue: The obliqueness value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withObliqueness(_ obliquenessValue: Double) -> NSAttributedString {
-        return withNewAttribute(NSObliquenessAttributeName, value: NSNumber(value: obliquenessValue))
+    public func withObliqueness(obliquenessValue: Double) -> NSAttributedString {
+        return withNewAttribute(NSObliquenessAttributeName, value: NSNumber(double: obliquenessValue))
     }
 
     /**
@@ -225,8 +225,8 @@ public extension NSAttributedString {
      - Parameter expansion: The expansion value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withExpansion(_ expansion: Double) -> NSAttributedString {
-        return withNewAttribute(NSExpansionAttributeName, value: NSNumber(value: expansion))
+    public func withExpansion(expansion: Double) -> NSAttributedString {
+        return withNewAttribute(NSExpansionAttributeName, value: NSNumber(double: expansion))
     }
 
     /**
@@ -235,14 +235,14 @@ public extension NSAttributedString {
      - Parameter directions: The direction(s) to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withWritingDirections(_ directions: [WritingDirection]) -> NSAttributedString {
-        return withNewAttribute(NSWritingDirectionAttributeName, value: directions.map { NSNumber(value: $0.rawValue) })
+    public func withWritingDirections(directions: [WritingDirection]) -> NSAttributedString {
+        return withNewAttribute(NSWritingDirectionAttributeName, value: directions.map { NSNumber(integer: $0.rawValue) })
     }
 }
 
 public extension String {
 
-    fileprivate var attributedString: NSAttributedString {
+    private var attributedString: NSAttributedString {
         return NSAttributedString(string: self)
     }
 
@@ -252,7 +252,7 @@ public extension String {
      - Parameter font: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withFont(_ font: UIFont) -> NSAttributedString {
+    public func withFont(font: UIFont) -> NSAttributedString {
         return attributedString.withFont(font)
     }
 
@@ -262,7 +262,7 @@ public extension String {
      - Parameter style: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withParagraphStyle(_ style: NSParagraphStyle) -> NSAttributedString {
+    public func withParagraphStyle(style: NSParagraphStyle) -> NSAttributedString {
         return attributedString.withParagraphStyle(style)
     }
 
@@ -272,7 +272,7 @@ public extension String {
      - Parameter color: The text color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withTextColor(_ color: UIColor) -> NSAttributedString {
+    public func withTextColor(color: UIColor) -> NSAttributedString {
         return attributedString.withTextColor(color)
     }
 
@@ -282,7 +282,7 @@ public extension String {
      - Parameter color: The background color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withBackgroundColor(_ color: UIColor) -> NSAttributedString {
+    public func withBackgroundColor(color: UIColor) -> NSAttributedString {
         return attributedString.withBackgroundColor(color)
     }
 
@@ -292,7 +292,7 @@ public extension String {
      - Parameter ligatureValue: The font to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withLigatures(_ ligatures: Ligatures) -> NSAttributedString {
+    public func withLigatures(ligatures: Ligatures) -> NSAttributedString {
         return attributedString.withLigatures(ligatures)
     }
 
@@ -302,7 +302,7 @@ public extension String {
      - Parameter kernValue: The kern value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withKern(_ kernValue: Double) -> NSAttributedString {
+    public func withKern(kernValue: Double) -> NSAttributedString {
         return attributedString.withKern(kernValue)
     }
 
@@ -312,7 +312,7 @@ public extension String {
      - Parameter style: The strikethrough style to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrikethroughStyle(_ style: NSUnderlineStyle) -> NSAttributedString {
+    public func withStrikethroughStyle(style: NSUnderlineStyle) -> NSAttributedString {
         return attributedString.withStrikethroughStyle(style)
     }
 
@@ -322,7 +322,7 @@ public extension String {
      - Parameter style: The underline style to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withUnderlineStyle(_ style: NSUnderlineStyle) -> NSAttributedString {
+    public func withUnderlineStyle(style: NSUnderlineStyle) -> NSAttributedString {
         return attributedString.withUnderlineStyle(style)
     }
 
@@ -332,7 +332,7 @@ public extension String {
      - Parameter color: The stroke color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrokeColor(_ color: UIColor) -> NSAttributedString {
+    public func withStrokeColor(color: UIColor) -> NSAttributedString {
         return attributedString.withStrokeColor(color)
     }
 
@@ -342,7 +342,7 @@ public extension String {
      - Parameter width The stroke width to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrokeWidth(_ width: Double) -> NSAttributedString {
+    public func withStrokeWidth(width: Double) -> NSAttributedString {
         return attributedString.withStrokeWidth(width)
     }
 
@@ -352,7 +352,7 @@ public extension String {
      - Parameter shadow: The shadow to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withShadow(_ shadow: NSShadow) -> NSAttributedString {
+    public func withShadow(shadow: NSShadow) -> NSAttributedString {
         return attributedString.withShadow(shadow)
     }
 
@@ -362,7 +362,7 @@ public extension String {
      - Parameter effect: The text effect to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withTextEffect(_ effect: String) -> NSAttributedString {
+    public func withTextEffect(effect: String) -> NSAttributedString {
         return attributedString.withTextEffect(effect)
     }
 
@@ -372,7 +372,7 @@ public extension String {
      - Parameter attachment: The attachment to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withAttachment(_ attachment: NSTextAttachment) -> NSAttributedString {
+    public func withAttachment(attachment: NSTextAttachment) -> NSAttributedString {
         return attributedString.withAttachment(attachment)
     }
 
@@ -382,7 +382,7 @@ public extension String {
      - Parameter link: The URL link to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withLink(_ link: URL) -> NSAttributedString {
+    public func withLink(link: NSURL) -> NSAttributedString {
         return attributedString.withLink(link)
     }
 
@@ -392,7 +392,7 @@ public extension String {
      - Parameter offset: The baseline offset to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withBaselineOffset(_ offset: Double) -> NSAttributedString {
+    public func withBaselineOffset(offset: Double) -> NSAttributedString {
         return attributedString.withBaselineOffset(offset)
     }
 
@@ -402,7 +402,7 @@ public extension String {
      - Parameter color: The underline color to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withUnderlineColor(_ color: UIColor) -> NSAttributedString {
+    public func withUnderlineColor(color: UIColor) -> NSAttributedString {
         return attributedString.withUnderlineColor(color)
     }
 
@@ -412,7 +412,7 @@ public extension String {
      - Parameter color: The underline style to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withStrikethroughColor(_ color: UIColor) -> NSAttributedString {
+    public func withStrikethroughColor(color: UIColor) -> NSAttributedString {
         return attributedString.withStrikethroughColor(color)
     }
 
@@ -422,7 +422,7 @@ public extension String {
      - Parameter obliquenessValue: The obliqueness value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withObliqueness(_ obliquenessValue: Double) -> NSAttributedString {
+    public func withObliqueness(obliquenessValue: Double) -> NSAttributedString {
         return attributedString.withObliqueness(obliquenessValue)
     }
 
@@ -432,7 +432,7 @@ public extension String {
      - Parameter expansion: The expansion value to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
      */
-    public func withExpansion(_ expansion: Double) -> NSAttributedString {
+    public func withExpansion(expansion: Double) -> NSAttributedString {
         return attributedString.withExpansion(expansion)
     }
 
@@ -442,7 +442,7 @@ public extension String {
      - Parameter directions: The direction(s) to set for the attributed string.
      - Returns: A new attributed string with the newly added attribute.
     */
-    public func withWritingDirections(_ directions: [WritingDirection]) -> NSAttributedString {
+    public func withWritingDirections(directions: [WritingDirection]) -> NSAttributedString {
         return attributedString.withWritingDirections(directions)
     }
 }
@@ -452,6 +452,6 @@ public extension String {
 */
 public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
     let combinedString = lhs.mutableString
-    combinedString.append(rhs)
+    combinedString.appendAttributedString(rhs)
     return combinedString
 }

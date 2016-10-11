@@ -12,60 +12,60 @@ import XCTest
 class SwiftyAttributesTests: XCTestCase {
     
     func testAttribute_font() {
-        let subject = "Hello".withFont(UIFont.boldSystemFont(ofSize: 26))
-        let expected = NSAttributedString(string: "Hello", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 26)])
+        let subject = "Hello".withFont(UIFont.boldSystemFontOfSize(26))
+        let expected = NSAttributedString(string: "Hello", attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(26)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_paragraphStyle() {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 4
-        style.lineBreakMode = .byTruncatingMiddle
+        style.lineBreakMode = .ByTruncatingMiddle
         let subject = "Hello".withParagraphStyle(style)
         let expected = NSAttributedString(string: "Hello", attributes: [NSParagraphStyleAttributeName: style])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_textColor() {
-        let subject = "Hello".withTextColor(.magenta)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSForegroundColorAttributeName: UIColor.magenta])
+        let subject = "Hello".withTextColor(.magentaColor())
+        let expected = NSAttributedString(string: "Hello", attributes: [NSForegroundColorAttributeName: UIColor.magentaColor()])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_backgroundColor() {
-        let subject = "Hello".withBackgroundColor(.cyan)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSBackgroundColorAttributeName: UIColor.cyan])
+        let subject = "Hello".withBackgroundColor(.cyanColor())
+        let expected = NSAttributedString(string: "Hello", attributes: [NSBackgroundColorAttributeName: UIColor.cyanColor()])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_ligature() {
         let subject = "Hello".withLigatures(.none)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSLigatureAttributeName: NSNumber(value: Ligatures.none.rawValue)])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSLigatureAttributeName: NSNumber(integer: Ligatures.none.rawValue)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_kern() {
         let subject = "Hello".withKern(12)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSKernAttributeName: NSNumber(value: 12)])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSKernAttributeName: NSNumber(double: 12)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_strikethroughStyle() {
-        let subject = "Hello".withStrikethroughStyle(.patternDashDot)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.patternDashDot.rawValue)])
+        let subject = "Hello".withStrikethroughStyle(.PatternDashDot)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.PatternDashDot.rawValue)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_strokeColor() {
-        let subject = "Hello".withStrokeColor(.orange)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSStrokeColorAttributeName: UIColor.orange])
+        let subject = "Hello".withStrokeColor(.orangeColor())
+        let expected = NSAttributedString(string: "Hello", attributes: [NSStrokeColorAttributeName: UIColor.orangeColor()])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_shadow() {
         let shadow = NSShadow()
         shadow.shadowBlurRadius = 4
-        shadow.shadowColor = UIColor.brown
+        shadow.shadowColor = UIColor.brownColor()
         let subject = "Hello".withShadow(shadow)
         let expected = NSAttributedString(string: "Hello", attributes: [NSShadowAttributeName: shadow])
         XCTAssertEqual(subject, expected)
@@ -85,7 +85,7 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_link() {
-        let url = URL(string: "https://google.com")!
+        let url = NSURL(string: "https://google.com")!
         let subject = "Hello".withLink(url)
         let expected = NSAttributedString(string: "Hello", attributes: [NSLinkAttributeName: url])
         XCTAssertEqual(subject, expected)
@@ -93,39 +93,39 @@ class SwiftyAttributesTests: XCTestCase {
 
     func testAttribute_baselineOffset() {
         let subject = "Hello".withBaselineOffset(5)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSBaselineOffsetAttributeName: NSNumber(value: 5)])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSBaselineOffsetAttributeName: NSNumber(double: 5)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_underlineColor() {
-        let subject = "Hello".withUnderlineColor(.magenta)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSUnderlineColorAttributeName: UIColor.magenta])
+        let subject = "Hello".withUnderlineColor(.magentaColor())
+        let expected = NSAttributedString(string: "Hello", attributes: [NSUnderlineColorAttributeName: UIColor.magentaColor()])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_strikethroughColor() {
-        let subject = "Hello".withStrikethroughColor(.brown)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSStrikethroughColorAttributeName: UIColor.brown])
+        let subject = "Hello".withStrikethroughColor(.brownColor())
+        let expected = NSAttributedString(string: "Hello", attributes: [NSStrikethroughColorAttributeName: UIColor.brownColor()])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_obliqueness() {
         let subject = "Hello".withObliqueness(4.5)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSObliquenessAttributeName: NSNumber(value: 4.5)])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSObliquenessAttributeName: NSNumber(double: 4.5)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_expansion() {
         let subject = "Hello".withExpansion(7)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSExpansionAttributeName: NSNumber(value: 7)])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSExpansionAttributeName: NSNumber(double: 7)])
         XCTAssertEqual(subject, expected)
     }
 
     func testAttribute_writingDirection() {
-        let subject = "Hello".withWritingDirections([.leftToRightOverride, .rightToLeftEmbedding])
+        let subject = "Hello".withWritingDirections([.LeftToRightOverride, .RightToLeftEmbedding])
         let directions = [
-            NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.override.rawValue,
-            NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue
+            NSWritingDirection.LeftToRight.rawValue | NSWritingDirectionFormatType.Override.rawValue,
+            NSWritingDirection.RightToLeft.rawValue | NSWritingDirectionFormatType.Embedding.rawValue
         ]
         let expected = NSAttributedString(string: "Hello", attributes: [NSWritingDirectionAttributeName: directions])
         XCTAssertEqual(subject, expected)

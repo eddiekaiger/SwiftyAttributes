@@ -8,32 +8,32 @@
 
 import UIKit
 
-private func mappingValue(direction: NSWritingDirection, formatType: NSWritingDirectionFormatType) -> Int {
+private func mappingValueForDirection(direction: NSWritingDirection, formatType: NSWritingDirectionFormatType) -> Int {
     return direction.rawValue | formatType.rawValue
 }
 
 public enum WritingDirection: RawRepresentable {
-    case leftToRightOverride
-    case rightToLeftOverride
-    case leftToRightEmbedding
-    case rightToLeftEmbedding
+    case LeftToRightOverride
+    case RightToLeftOverride
+    case LeftToRightEmbedding
+    case RightToLeftEmbedding
 
     public init?(rawValue: Int) {
         switch rawValue {
-        case mappingValue(direction: .leftToRight, formatType: .override): self = .leftToRightOverride
-        case mappingValue(direction: .rightToLeft, formatType: .override): self = .rightToLeftOverride
-        case mappingValue(direction: .leftToRight, formatType: .embedding): self = .leftToRightEmbedding
-        case mappingValue(direction: .rightToLeft, formatType: .embedding): self = .rightToLeftEmbedding
+        case mappingValueForDirection(.LeftToRight, formatType: .Override): self = .LeftToRightOverride
+        case mappingValueForDirection(.RightToLeft, formatType: .Override): self = .RightToLeftOverride
+        case mappingValueForDirection(.LeftToRight, formatType: .Embedding): self = .LeftToRightEmbedding
+        case mappingValueForDirection(.RightToLeft, formatType: .Embedding): self = .RightToLeftEmbedding
         default: return nil
         }
     }
 
     public var rawValue: Int {
         switch self {
-        case .leftToRightOverride: return mappingValue(direction: .leftToRight, formatType: .override)
-        case .rightToLeftOverride: return mappingValue(direction: .rightToLeft, formatType: .override)
-        case .leftToRightEmbedding: return mappingValue(direction: .leftToRight, formatType: .embedding)
-        case .rightToLeftEmbedding: return mappingValue(direction: .rightToLeft, formatType: .embedding)
+        case .LeftToRightOverride: return mappingValueForDirection(.LeftToRight, formatType: .Override)
+        case .RightToLeftOverride: return mappingValueForDirection(.RightToLeft, formatType: .Override)
+        case .LeftToRightEmbedding: return mappingValueForDirection(.LeftToRight, formatType: .Embedding)
+        case .RightToLeftEmbedding: return mappingValueForDirection(.RightToLeft, formatType: .Embedding)
         }
     }
 
