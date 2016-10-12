@@ -451,7 +451,7 @@ public extension String {
  Overloaded addition operator for attributed strings. Creates a concatenated NSAttributedString.
 */
 public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
-    let combinedString = lhs.mutableString
+    let combinedString = lhs.mutableCopy() as! NSMutableAttributedString
     combinedString.append(rhs)
     return combinedString
 }
