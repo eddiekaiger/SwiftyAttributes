@@ -60,9 +60,18 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 > end
 > ```
 
+### With Carthage
+
+#### For **Swift 3**:
+
+`github "eddiekaiger/SwiftyAttributes"`
+
+> For **Swift 2.3**:
+
+> `github "eddiekaiger/SwiftyAttributes" == 1.1`
+
 # TODO
 
-* Add Carthage support
 * Write tests for overloaded addition operator
 
 # Support
