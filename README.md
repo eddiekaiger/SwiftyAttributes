@@ -69,7 +69,7 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 > For **Swift 2.3**:
 
-> `github "eddiekaiger/SwiftyAttributes" == 1.1`
+> `github "eddiekaiger/SwiftyAttributes" == 1.1.1`
 
 # TODO
 
