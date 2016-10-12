@@ -3,6 +3,7 @@
 #### *Swift extensions that make it a breeze to work with attributed strings.*
 
 ![Swift Version](https://img.shields.io/badge/swift-3.0-orange.svg?style=flat)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyAttributes.svg?style=flat)](http://cocoapods.org/pods/SwiftyAttributes)
 
