@@ -130,5 +130,17 @@ class SwiftyAttributesTests: XCTestCase {
         let expected = NSAttributedString(string: "Hello", attributes: [NSWritingDirectionAttributeName: directions])
         XCTAssertEqual(subject, expected)
     }
+
+    func testOverloadedAdditionOperator() {
+        let lhs = "Hello".withFont(UIFont.systemFontOfSize(19))
+        let rhs = "World".withTextColor(.magentaColor()).withBackgroundColor(.orangeColor()).withFont(.boldSystemFontOfSize(24))
+        let newString = lhs + rhs
+        let leftAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(19)] as [String: NSObject]
+        XCTAssertEqual(newString.attributesAtIndex(0, effectiveRange: nil) as! [String: NSObject], leftAttributes)
+        let rightAttributes = [NSForegroundColorAttributeName: UIColor.magentaColor(),
+                               NSBackgroundColorAttributeName: UIColor.orangeColor(),
+                               NSFontAttributeName: UIFont.boldSystemFontOfSize(24)] as [String: NSObject]
+        XCTAssertEqual(newString.attributesAtIndex(lhs.length + 1, effectiveRange: nil) as! [String: NSObject], rightAttributes)
+    }
     
 }
