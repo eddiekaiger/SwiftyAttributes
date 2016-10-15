@@ -150,6 +150,7 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.override.rawValue)), .rightToLeftOverride)
         XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.embedding.rawValue)), .leftToRightEmbedding)
         XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue)), .rightToLeftEmbedding)
+        XCTAssertNil(WritingDirection(rawValue: 12))
     }
 
     func testOverloadedAdditionOperator() {
