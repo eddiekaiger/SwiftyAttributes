@@ -1,7 +1,6 @@
 language: objective-c
 osx_image: xcode8
 script:
-  - cd SwiftyAttributes
   - xcodebuild -version
   - xcodebuild -project SwiftyAttributes.xcodeproj -scheme SwiftyAttributesTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" -configuration Release ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
   - bash <(curl -s https://codecov.io/bash) -cF ios
