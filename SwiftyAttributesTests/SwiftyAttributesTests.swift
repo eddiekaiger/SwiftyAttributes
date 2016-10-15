@@ -56,9 +56,21 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(subject, expected)
     }
 
+    func testAttribute_underlineStyle() {
+        let subject = "Hello".withUnderlineStyle(.styleDouble)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSUnderlineStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleDouble.rawValue)])
+        XCTAssertEqual(subject, expected)
+    }
+
     func testAttribute_strokeColor() {
         let subject = "Hello".withStrokeColor(.orange)
         let expected = NSAttributedString(string: "Hello", attributes: [NSStrokeColorAttributeName: UIColor.orange])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testAttribute_strokeWidth() {
+        let subject = "Hello".withStrokeWidth(3.2)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSStrokeWidthAttributeName: NSNumber(value: 3.2)])
         XCTAssertEqual(subject, expected)
     }
 
