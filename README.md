@@ -7,7 +7,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyAttributes.svg?style=flat)](http://cocoapods.org/pods/SwiftyAttributes)
 [![Travis CI](https://travis-ci.org/eddiekaiger/SwiftyAttributes.svg?branch=master)](https://travis-ci.org/eddiekaiger/SwiftyAttributes.svg?branch=master)
-[codecov.io](http://codecov.io/github/eddiekaiger/SwiftyAttributes/coverage.svg?branch=master)](http://codecov.io/github/eddiekaiger/SwiftyAttributes/coverage.svg?branch=master)
+[![codecov.io](http://codecov.io/github/eddiekaiger/SwiftyAttributes/coverage.svg?branch=master)](http://codecov.io/github/eddiekaiger/SwiftyAttributes/coverage.svg?branch=master)
 
 ---
 
