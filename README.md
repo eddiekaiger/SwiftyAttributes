@@ -71,10 +71,6 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 > `github "eddiekaiger/SwiftyAttributes" == 1.1.1`
 
-# TODO
-
-* Write tests for overloaded addition operator
-
 # Support
 
 For questions and support, please open up an issue.
