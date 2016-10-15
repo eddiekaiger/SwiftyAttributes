@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SwiftyAttributes
+import SwiftyAttributes
 
 class SwiftyAttributesTests: XCTestCase {
     
