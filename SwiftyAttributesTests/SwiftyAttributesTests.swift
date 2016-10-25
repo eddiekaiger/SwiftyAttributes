@@ -92,7 +92,7 @@ class SwiftyAttributesTests: XCTestCase {
     func testAttribute_attachment() {
         let attachment = NSTextAttachment(data: nil, ofType: nil)
         let subject = "Hello".withAttachment(attachment)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSTextEffectAttributeName: attachment])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSAttachmentAttributeName: attachment])
         XCTAssertEqual(subject, expected)
     }
 

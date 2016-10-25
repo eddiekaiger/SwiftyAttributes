@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C00CF8F31DA6142500B6C1BB /* WritingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */; };
+		C0127C3C1DB2D5490047DF5A /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127C3B1DB2D5490047DF5A /* Attribute.swift */; };
 		C05C54F71DA61F4E007514C1 /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05C54F61DA61F4E007514C1 /* Ligatures.swift */; };
 		C0E211541D9EC5C000623F02 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */; };
 		C0E211591D9EC5C000623F02 /* SwiftyAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E211581D9EC5C000623F02 /* SwiftyAttributesTests.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingDirection.swift; sourceTree = "<group>"; };
+		C0127C3B1DB2D5490047DF5A /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		C05C54F61DA61F4E007514C1 /* Ligatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ligatures.swift; sourceTree = "<group>"; };
 		C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E2114D1D9EC5C000623F02 /* SwiftyAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyAttributes.h; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		C0E2114C1D9EC5C000623F02 /* SwiftyAttributes */ = {
 			isa = PBXGroup;
 			children = (
+				C0127C3B1DB2D5490047DF5A /* Attribute.swift */,
 				C0E211641D9EC5E800623F02 /* SwiftyAttributes.swift */,
 				C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */,
 				C05C54F61DA61F4E007514C1 /* Ligatures.swift */,
@@ -211,6 +214,7 @@
 			files = (
 				C00CF8F31DA6142500B6C1BB /* WritingDirection.swift in Sources */,
 				C05C54F71DA61F4E007514C1 /* Ligatures.swift in Sources */,
+				C0127C3C1DB2D5490047DF5A /* Attribute.swift in Sources */,
 				C0E211651D9EC5E800623F02 /* SwiftyAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
