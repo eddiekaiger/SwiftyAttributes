@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Represents attributes that can be applied to NSAttributedStrings.
+ */
 public enum Attribute {
     case attachment(NSTextAttachment)
     case baselineOffset(Double)
@@ -30,6 +33,7 @@ public enum Attribute {
     case underlineStyle(NSUnderlineStyle)
     case writingDirections([WritingDirection])
 
+    /// The key name corresponding to the attribute.
     public var keyName: String {
         switch self {
         case .attachment(_): return NSAttachmentAttributeName
@@ -55,6 +59,7 @@ public enum Attribute {
         }
     }
 
+    /// The actual value of the attribute, such as the color or style.
     public var value: Any {
         switch self {
         case .attachment(let attachment): return attachment
@@ -78,36 +83,5 @@ public enum Attribute {
         case .underlineStyle(let style): return NSNumber(value: style.rawValue)
         case .writingDirections(let directions): return directions.map { $0.rawValue }
         }
-
     }
-}
-
-extension NSAttributedString {
-
-    fileprivate func dictionary(from attributes: [Attribute]) -> [String: Any] {
-        var dict = [String: Any]()
-        for attr in attributes {
-            dict[attr.keyName] = attr.value
-        }
-        return dict
-    }
-
-    public func withAttributes(_ attributes: [Attribute]) -> NSMutableAttributedString {
-        let mutable = mutableCopy() as! NSMutableAttributedString
-        mutable.addAttributes(dictionary(from: attributes), range: NSRange(location: 0, length: length))
-        return mutable
-    }
-
-    public func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString {
-        return withAttributes([attribute])
-    }
-
-}
-
-extension NSMutableAttributedString {
-
-    public func addAttributes(_ attributes: [Attribute], range: Range<Int>) {
-        addAttributes(dictionary(from: attributes), range: NSRange(location: range.lowerBound, length: range.count))
-    }
-
 }
