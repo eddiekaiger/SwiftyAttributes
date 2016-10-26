@@ -73,6 +73,12 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 > `github "eddiekaiger/SwiftyAttributes" == 1.1.1`
 
+# The Future
+
+The future of SwiftyAttributes will consist of creating a fully-featured, type-safe, Swifty API for all use cases of attributed strings. Version 2.1 will bring about some basic, much-needed features such as adding attributes using a range. The goal of version 3.0 will be full support for macOS, tvOS, and watchOS, as well as a wider range of capabilities.
+
+If you have suggestions and feature requests, please feel free to open up an issue.
+
 # Support
 
 For questions and support, please open up an issue.
