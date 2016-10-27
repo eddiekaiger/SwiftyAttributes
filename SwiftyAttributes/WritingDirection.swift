@@ -43,5 +43,4 @@ public enum WritingDirection: RawRepresentable {
         case .rightToLeftEmbedding: return mappingValue(direction: .rightToLeft, formatType: .embedding)
         }
     }
-
 }

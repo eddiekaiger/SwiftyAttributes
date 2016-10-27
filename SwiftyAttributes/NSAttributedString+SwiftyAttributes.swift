@@ -8,14 +8,24 @@
 
 import Foundation
 
-public extension NSAttributedString {
+func dictionary(from attributes: [Attribute]) -> [String: Any] {
+    var dict = [String: Any]()
+    for attr in attributes {
+        dict[attr.keyName] = attr.value
+    }
+    return dict
+}
 
-    func dictionary(from attributes: [Attribute]) -> [String: Any] {
-        var dict = [String: Any]()
-        for attr in attributes {
-            dict[attr.keyName] = attr.value
-        }
-        return dict
+extension NSAttributedString {
+
+    /**
+     Creates a new `NSAttributedString` with the specified attributes.
+     
+     - parameter    str:            The string for the new attributed string.
+     - parameter    attributes:     The attributes for the new attributed string.
+     */
+    public convenience init(string str: String, attributes: [Attribute]) {
+        self.init(string: str, attributes: dictionary(from: attributes))
     }
 
     /**
@@ -39,10 +49,21 @@ public extension NSAttributedString {
     public func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString {
         return withAttributes([attribute])
     }
-    
+
+    public func attributedSubstring(from range: Range<Int>) -> NSAttributedString {
+        return attributedSubstring(from: NSRange(range))
+    }
+
+//    public func attribute(_ attrName: Attribute.Name, at location: Int) -> Attribute? {
+//        if let attr = attribute(attrName.rawValue, at: location, effectiveRange: nil) {
+//
+//        }
+//
+//    }
+
 }
 
-public extension NSAttributedString {
+extension NSAttributedString {
 
     /**
      Creates an attributed string with a specific font.

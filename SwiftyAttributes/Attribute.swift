@@ -8,6 +8,29 @@
 
 import Foundation
 
+private let attributeNames: [Attribute.Name: String] = [
+    .attachment: NSAttachmentAttributeName,
+    .baselineOffset: NSBaselineOffsetAttributeName,
+    .backgroundColor: NSBackgroundColorAttributeName,
+    .expansion: NSExpansionAttributeName,
+    .font: NSFontAttributeName,
+    .kern: NSKernAttributeName,
+    .ligature: NSLigatureAttributeName,
+    .link: NSLinkAttributeName,
+    .obliqueness: NSObliquenessAttributeName,
+    .paragraphStyle: NSParagraphStyleAttributeName,
+    .shadow: NSShadowAttributeName,
+    .strokeColor: NSStrokeColorAttributeName,
+    .strokeWidth: NSStrokeWidthAttributeName,
+    .strikethroughColor: NSStrikethroughColorAttributeName,
+    .strikethroughStyle: NSStrikethroughStyleAttributeName,
+    .textColor: NSForegroundColorAttributeName,
+    .textEffect: NSTextEffectAttributeName,
+    .underlineColor: NSUnderlineColorAttributeName,
+    .underlineStyle: NSUnderlineStyleAttributeName,
+    .writingDirection: NSWritingDirectionAttributeName
+]
+
 /**
  Represents attributes that can be applied to NSAttributedStrings.
  */
@@ -35,28 +58,30 @@ public enum Attribute {
 
     /// The key name corresponding to the attribute.
     public var keyName: String {
+        let name: Attribute.Name
         switch self {
-        case .attachment(_): return NSAttachmentAttributeName
-        case .baselineOffset(_): return NSBaselineOffsetAttributeName
-        case .backgroundColor(_): return NSBackgroundColorAttributeName
-        case .expansion(_): return NSExpansionAttributeName
-        case .font(_): return NSFontAttributeName
-        case .kern(_): return NSKernAttributeName
-        case .ligatures(_): return NSLigatureAttributeName
-        case .link(_): return NSLinkAttributeName
-        case .obliqueness(_): return NSObliquenessAttributeName
-        case .paragraphStyle(_): return NSParagraphStyleAttributeName
-        case .shadow(_): return NSShadowAttributeName
-        case .strokeColor(_): return NSStrokeColorAttributeName
-        case .strokeWidth(_): return NSStrokeWidthAttributeName
-        case .strikethroughColor(_): return NSStrikethroughColorAttributeName
-        case .strikethroughStyle(_): return NSStrikethroughStyleAttributeName
-        case .textColor(_): return NSForegroundColorAttributeName
-        case .textEffect(_): return NSTextEffectAttributeName
-        case .underlineColor(_): return NSUnderlineColorAttributeName
-        case .underlineStyle(_): return NSUnderlineStyleAttributeName
-        case .writingDirections(_): return NSWritingDirectionAttributeName
+        case .attachment(_): name = .attachment
+        case .baselineOffset(_): name = .baselineOffset
+        case .backgroundColor(_): name = .backgroundColor
+        case .expansion(_): name = .expansion
+        case .font(_): name = .font
+        case .kern(_): name = .kern
+        case .ligatures(_): name = .ligature
+        case .link(_): name = .link
+        case .obliqueness(_): name = .obliqueness
+        case .paragraphStyle(_): name = .paragraphStyle
+        case .shadow(_): name = .shadow
+        case .strokeColor(_): name = .strokeColor
+        case .strokeWidth(_): name = .strokeWidth
+        case .strikethroughColor(_): name = .strikethroughColor
+        case .strikethroughStyle(_): name = .strikethroughStyle
+        case .textColor(_): name = .textColor
+        case .textEffect(_): name = .textEffect
+        case .underlineColor(_): name = .underlineColor
+        case .underlineStyle(_): name = .underlineStyle
+        case .writingDirections(_): name = .writingDirection
         }
+        return name.rawValue
     }
 
     /// The actual value of the attribute, such as the color or style.
@@ -82,6 +107,43 @@ public enum Attribute {
         case .underlineColor(let color): return color
         case .underlineStyle(let style): return NSNumber(value: style.rawValue)
         case .writingDirections(let directions): return directions.map { $0.rawValue }
+        }
+    }
+
+    public enum Name: RawRepresentable {
+        case attachment
+        case baselineOffset
+        case backgroundColor
+        case expansion
+        case font
+        case kern
+        case ligature
+        case link
+        case obliqueness
+        case paragraphStyle
+        case shadow
+        case strokeColor
+        case strokeWidth
+        case strikethroughColor
+        case strikethroughStyle
+        case textColor
+        case textEffect
+        case underlineColor
+        case underlineStyle
+        case writingDirection
+
+        public init?(rawValue: String) {
+            for (key, val) in attributeNames {
+                if val == rawValue {
+                    self = key
+                    return
+                }
+            }
+            return nil
+        }
+
+        public var rawValue: String {
+            return attributeNames[self]!
         }
     }
 }

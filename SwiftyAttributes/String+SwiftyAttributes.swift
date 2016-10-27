@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension String {
+extension String {
 
     /**
      Returns an attributed string with the specified attributes added.
@@ -32,7 +32,7 @@ public extension String {
 
 }
 
-public extension String {
+extension String {
 
     fileprivate var attributedString: NSAttributedString {
         return NSAttributedString(string: self)
