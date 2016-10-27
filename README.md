@@ -75,7 +75,7 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 # The Future
 
-The future of SwiftyAttributes will consist of creating a fully-featured, type-safe, Swifty API for all use cases of attributed strings. Version 3.0 will introduce a new `Attribute` enum, enabling us to create alternative methods for Foundation's string-based API. The goal of version 3.1 will be full support for macOS, tvOS, and watchOS.
+The future of SwiftyAttributes will consist of creating a fully-featured, type-safe, Swifty API for all use cases of attributed strings. Version 2.0 will introduce a new `Attribute` enum, enabling us to create alternative methods for Foundation's string-based API. The goal of version 2.1 will be full support for macOS, tvOS, and watchOS.
 
 If you have suggestions and feature requests, please feel free to open up an issue.
 
