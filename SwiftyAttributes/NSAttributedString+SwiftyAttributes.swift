@@ -54,8 +54,8 @@ extension NSAttributedString {
         return attributedSubstring(from: NSRange(range))
     }
 
-    public func attribute(_ attrName: Attribute.Name, at location: Int) -> Attribute? {
-        if let attr = attribute(attrName.rawValue, at: location, effectiveRange: nil) {
+    public func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
+        if let attr = attribute(attrName.rawValue, at: location, effectiveRange: range) {
             let attributeValue: Any
             switch attrName {
             case .ligature: attributeValue = Ligatures(rawValue: (attr as! NSNumber).intValue)!

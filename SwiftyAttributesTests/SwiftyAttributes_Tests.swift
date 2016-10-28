@@ -132,4 +132,27 @@ class SwiftyAttributesTests: XCTestCase {
         let expected = NSAttributedString(string: "Hello", attributes: [NSExpansionAttributeName: NSNumber(value: 7)])
         XCTAssertEqual(subject, expected)
     }
+
+    func testMultipleAttributes_withSyntax() {
+        let subject = "Hello".withTextColor(.darkGray).withBackgroundColor(.magenta).withStrikethroughStyle(.patternDashDotDot)
+        let attrs: [String: Any] = [
+            NSForegroundColorAttributeName: UIColor.darkGray,
+            NSBackgroundColorAttributeName: UIColor.magenta,
+            NSStrikethroughStyleAttributeName: NSUnderlineStyle.patternDashDotDot.rawValue
+        ]
+        let expected = NSAttributedString(string: "Hello", attributes: attrs)
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testMultipleAttributes_arraySyntax() {
+        let subject = "Hello".withAttributes([.font(.boldSystemFont(ofSize: 19)), .link(URL(string: "https://google.com")!), .underlineStyle(.patternSolid)])
+        let attrs: [String: Any] = [
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 19),
+            NSLinkAttributeName: URL(string: "https://google.com")!,
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.patternSolid.rawValue
+        ]
+        let expected = NSAttributedString(string: "Hello", attributes: attrs)
+        XCTAssertEqual(subject, expected)
+    }
+
 }
