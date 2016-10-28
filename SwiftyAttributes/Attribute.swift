@@ -8,29 +8,6 @@
 
 import Foundation
 
-private let attributeNames: [Attribute.Name: String] = [
-    .attachment: NSAttachmentAttributeName,
-    .baselineOffset: NSBaselineOffsetAttributeName,
-    .backgroundColor: NSBackgroundColorAttributeName,
-    .expansion: NSExpansionAttributeName,
-    .font: NSFontAttributeName,
-    .kern: NSKernAttributeName,
-    .ligature: NSLigatureAttributeName,
-    .link: NSLinkAttributeName,
-    .obliqueness: NSObliquenessAttributeName,
-    .paragraphStyle: NSParagraphStyleAttributeName,
-    .shadow: NSShadowAttributeName,
-    .strokeColor: NSStrokeColorAttributeName,
-    .strokeWidth: NSStrokeWidthAttributeName,
-    .strikethroughColor: NSStrikethroughColorAttributeName,
-    .strikethroughStyle: NSStrikethroughStyleAttributeName,
-    .textColor: NSForegroundColorAttributeName,
-    .textEffect: NSTextEffectAttributeName,
-    .underlineColor: NSUnderlineColorAttributeName,
-    .underlineStyle: NSUnderlineStyleAttributeName,
-    .writingDirection: NSWritingDirectionAttributeName
-]
-
 /**
  Represents attributes that can be applied to NSAttributedStrings.
  */
@@ -55,6 +32,38 @@ public enum Attribute {
     case underlineColor(UIColor)
     case underlineStyle(NSUnderlineStyle)
     case writingDirections([WritingDirection])
+
+    public init(name: Attribute.Name, value: Any) {
+        func validate<Type>(_ val: Any) -> Type {
+            guard let value = val as? Type else {
+                fatalError("Value for \(name.rawValue) must be of type \(Type.self)")
+            }
+            return value
+        }
+
+        switch name {
+        case .attachment: self = .attachment(validate(value))
+        case .baselineOffset: self = .baselineOffset(validate(value))
+        case .backgroundColor: self = .backgroundColor(validate(value))
+        case .expansion: self = .expansion(validate(value))
+        case .font: self = .font(validate(value))
+        case .kern: self = .kern(validate(value))
+        case .ligature: self = .ligatures(validate(value))
+        case .link: self = .link(validate(value))
+        case .obliqueness: self = .obliqueness(validate(value))
+        case .paragraphStyle: self = .paragraphStyle(validate(value))
+        case .shadow: self = .shadow(validate(value))
+        case .strokeColor: self = .strokeColor(validate(value))
+        case .strokeWidth: self = .strokeWidth(validate(value))
+        case .strikethroughColor: self = .strikethroughColor(validate(value))
+        case .strikethroughStyle: self = .strikethroughStyle(validate(value))
+        case .textColor: self = .textColor(validate(value))
+        case .textEffect: self = .textEffect(validate(value))
+        case .underlineColor: self = .underlineColor(validate(value))
+        case .underlineStyle: self = .underlineStyle(validate(value))
+        case .writingDirection: self = .writingDirections(validate(value))
+        }
+    }
 
     /// The key name corresponding to the attribute.
     public var keyName: String {
@@ -132,18 +141,58 @@ public enum Attribute {
         case underlineStyle
         case writingDirection
 
+        public typealias RawValue = String
+
         public init?(rawValue: String) {
-            for (key, val) in attributeNames {
-                if val == rawValue {
-                    self = key
-                    return
-                }
+            switch rawValue {
+            case NSAttachmentAttributeName: self = .attachment
+            case NSBaselineOffsetAttributeName: self = .baselineOffset
+            case NSBackgroundColorAttributeName: self = .backgroundColor
+            case NSExpansionAttributeName: self = .expansion
+            case NSFontAttributeName: self = .font
+            case NSKernAttributeName: self = .kern
+            case NSLigatureAttributeName: self = .ligature
+            case NSLinkAttributeName: self = .link
+            case NSObliquenessAttributeName: self = .obliqueness
+            case NSParagraphStyleAttributeName: self = .paragraphStyle
+            case NSShadowAttributeName: self = .shadow
+            case NSStrokeColorAttributeName: self = .strokeColor
+            case NSStrokeWidthAttributeName: self = .strokeWidth
+            case NSStrikethroughColorAttributeName: self = .strikethroughColor
+            case NSStrikethroughStyleAttributeName: self = .strikethroughStyle
+            case NSForegroundColorAttributeName: self = .textColor
+            case NSTextEffectAttributeName: self = .textEffect
+            case NSUnderlineColorAttributeName: self = .underlineColor
+            case NSUnderlineStyleAttributeName: self = .underlineStyle
+            case NSWritingDirectionAttributeName: self = .writingDirection
+            default: return nil
             }
-            return nil
         }
 
         public var rawValue: String {
-            return attributeNames[self]!
+            switch self {
+                case .attachment: return NSAttachmentAttributeName
+                case .baselineOffset: return NSBaselineOffsetAttributeName
+                case .backgroundColor: return NSBackgroundColorAttributeName
+                case .expansion: return NSExpansionAttributeName
+                case .font: return NSFontAttributeName
+                case .kern: return NSKernAttributeName
+                case .ligature: return NSLigatureAttributeName
+                case .link: return NSLinkAttributeName
+                case .obliqueness: return NSObliquenessAttributeName
+                case .paragraphStyle: return NSParagraphStyleAttributeName
+                case .shadow: return NSShadowAttributeName
+                case .strokeColor: return NSStrokeColorAttributeName
+                case .strokeWidth: return NSStrokeWidthAttributeName
+                case .strikethroughColor: return NSStrikethroughColorAttributeName
+                case .strikethroughStyle: return NSStrikethroughStyleAttributeName
+                case .textColor: return NSForegroundColorAttributeName
+                case .textEffect: return NSTextEffectAttributeName
+                case .underlineColor: return NSUnderlineColorAttributeName
+                case .underlineStyle: return NSUnderlineStyleAttributeName
+                case .writingDirection: return NSWritingDirectionAttributeName
+            }
+
         }
     }
 }

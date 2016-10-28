@@ -54,12 +54,20 @@ extension NSAttributedString {
         return attributedSubstring(from: NSRange(range))
     }
 
-//    public func attribute(_ attrName: Attribute.Name, at location: Int) -> Attribute? {
-//        if let attr = attribute(attrName.rawValue, at: location, effectiveRange: nil) {
-//
-//        }
-//
-//    }
+    public func attribute(_ attrName: Attribute.Name, at location: Int) -> Attribute? {
+        if let attr = attribute(attrName.rawValue, at: location, effectiveRange: nil) {
+            let attributeValue: Any
+            switch attrName {
+            case .ligature: attributeValue = Ligatures(rawValue: (attr as! NSNumber).intValue)!
+            case .strikethroughStyle: attributeValue = NSUnderlineStyle(rawValue: attr as! Int)!
+            case .underlineStyle: attributeValue = NSUnderlineStyle(rawValue: attr as! Int)!
+            case .writingDirection: attributeValue = (attr as! [Int]).map(WritingDirection.init)
+            default: attributeValue = attr
+            }
+            return Attribute(name: attrName, value: attributeValue)
+        }
+        return nil
+    }
 
 }
 
