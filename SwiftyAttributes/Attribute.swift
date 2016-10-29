@@ -8,6 +8,9 @@
 
 import Foundation
 
+public typealias UnderlineStyle = NSUnderlineStyle
+public typealias StrikethroughStyle = NSUnderlineStyle
+
 /**
  Represents attributes that can be applied to NSAttributedStrings.
  */
@@ -26,11 +29,11 @@ public enum Attribute {
     case strokeColor(UIColor)
     case strokeWidth(Double)
     case strikethroughColor(UIColor)
-    case strikethroughStyle(NSUnderlineStyle)
+    case strikethroughStyle(StrikethroughStyle)
     case textColor(UIColor)
-    case textEffect(String)
+    case textEffect(TextEffect)
     case underlineColor(UIColor)
-    case underlineStyle(NSUnderlineStyle)
+    case underlineStyle(UnderlineStyle)
     case writingDirections([WritingDirection])
 
     public init(name: Attribute.Name, value: Any) {
@@ -93,7 +96,19 @@ public enum Attribute {
         return name.rawValue
     }
 
-    /// The actual value of the attribute, such as the color or style.
+    /// The expected value of the attribute expected by Foundation
+    var foundationValue: Any {
+        switch self {
+        case .ligatures(let ligatures): return ligatures.rawValue
+        case .strikethroughStyle(let style): return NSNumber(value: style.rawValue)
+        case .textEffect(let effect): return effect.rawValue
+        case .underlineStyle(let style): return NSNumber(value: style.rawValue)
+        case .writingDirections(let directions): return directions.map { $0.rawValue }
+        default: return value
+        }
+    }
+
+    // Convenience getter variable for the associated value of the attribute. See each case to determine the return type.
     public var value: Any {
         switch self {
         case .attachment(let attachment): return attachment
@@ -102,7 +117,7 @@ public enum Attribute {
         case .expansion(let expansion): return expansion
         case .font(let font): return font
         case .kern(let kern): return kern
-        case .ligatures(let ligatures): return ligatures.rawValue
+        case .ligatures(let ligatures): return ligatures
         case .link(let link): return link
         case .obliqueness(let value): return value
         case .paragraphStyle(let style): return style
@@ -110,12 +125,12 @@ public enum Attribute {
         case .strokeColor(let color): return color
         case .strokeWidth(let width): return width
         case .strikethroughColor(let color): return color
-        case .strikethroughStyle(let style): return NSNumber(value: style.rawValue)
+        case .strikethroughStyle(let style): return style
         case .textColor(let color): return color
         case .textEffect(let effect): return effect
         case .underlineColor(let color): return color
-        case .underlineStyle(let style): return NSNumber(value: style.rawValue)
-        case .writingDirections(let directions): return directions.map { $0.rawValue }
+        case .underlineStyle(let style): return style
+        case .writingDirections(let directions): return directions
         }
     }
 
@@ -140,8 +155,6 @@ public enum Attribute {
         case underlineColor
         case underlineStyle
         case writingDirection
-
-        public typealias RawValue = String
 
         public init?(rawValue: String) {
             switch rawValue {
@@ -196,3 +209,5 @@ public enum Attribute {
         }
     }
 }
+
+

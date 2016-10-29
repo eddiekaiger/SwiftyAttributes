@@ -154,7 +154,7 @@ extension String {
      - parameter    effect:     The text effect to set for the attributed string.
      - returns:                 A new attributed string with the newly added attribute.
      */
-    public func withTextEffect(_ effect: String) -> NSMutableAttributedString {
+    public func withTextEffect(_ effect: TextEffect) -> NSMutableAttributedString {
         return attributedString.withTextEffect(effect)
     }
 

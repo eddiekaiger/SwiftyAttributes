@@ -11,7 +11,7 @@ import Foundation
 func dictionary(from attributes: [Attribute]) -> [String: Any] {
     var dict = [String: Any]()
     for attr in attributes {
-        dict[attr.keyName] = attr.value
+        dict[attr.keyName] = attr.foundationValue
     }
     return dict
 }
@@ -58,8 +58,9 @@ extension NSAttributedString {
         if let attr = attribute(attrName.rawValue, at: location, effectiveRange: range) {
             let attributeValue: Any
             switch attrName {
-            case .ligature: attributeValue = Ligatures(rawValue: (attr as! NSNumber).intValue)!
+            case .ligature: attributeValue = Ligatures(rawValue: attr as! Int)!
             case .strikethroughStyle: attributeValue = NSUnderlineStyle(rawValue: attr as! Int)!
+            case .textEffect: attributeValue = TextEffect(rawValue: attr as! String)!
             case .underlineStyle: attributeValue = NSUnderlineStyle(rawValue: attr as! Int)!
             case .writingDirection: attributeValue = (attr as! [Int]).map(WritingDirection.init)
             default: attributeValue = attr
@@ -189,7 +190,7 @@ extension NSAttributedString {
      - parameter    effect:     The text effect to set for the attributed string.
      - returns:                 A new attributed string with the newly added attribute.
      */
-    public func withTextEffect(_ effect: String) -> NSMutableAttributedString {
+    public func withTextEffect(_ effect: TextEffect) -> NSMutableAttributedString {
         return withAttribute(.textEffect(effect))
     }
 

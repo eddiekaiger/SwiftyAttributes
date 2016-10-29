@@ -84,7 +84,7 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_textEffect() {
-        let subject = "Hello".withTextEffect(NSTextEffectLetterpressStyle)
+        let subject = "Hello".withTextEffect(.letterPressStyle)
         let expected = NSAttributedString(string: "Hello", attributes: [NSTextEffectAttributeName: NSTextEffectLetterpressStyle])
         XCTAssertEqual(subject, expected)
     }
