@@ -10,6 +10,12 @@ import XCTest
 import SwiftyAttributes
 
 class SwiftyAttributesTests: XCTestCase {
+
+    func testString_withAttribute() {
+        let subject = "Hello".withAttribute(.strokeWidth(4))
+        let expected = NSAttributedString(string: "Hello", attributes: [NSStrokeWidthAttributeName: NSNumber(value: 4)])
+        XCTAssertEqual(subject, expected)
+    }
     
     func testAttribute_font() {
         let subject = "Hello".withFont(UIFont.boldSystemFont(ofSize: 26))
