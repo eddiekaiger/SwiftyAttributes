@@ -237,4 +237,5 @@ extension String {
     public func withWritingDirections(_ directions: [WritingDirection]) -> NSMutableAttributedString {
         return attributedString.withWritingDirections(directions)
     }
+
 }

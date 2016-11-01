@@ -36,12 +36,9 @@ public enum Attribute {
     case underlineStyle(UnderlineStyle)
     case writingDirections([WritingDirection])
 
-    public init(name: Attribute.Name, value: Any) {
+    init(name: Attribute.Name, value: Any) {
         func validate<Type>(_ val: Any) -> Type {
-            guard let value = val as? Type else {
-                fatalError("Value for \(name.rawValue) must be of type \(Type.self)")
-            }
-            return value
+            return val as! Type
         }
 
         switch name {
@@ -96,18 +93,6 @@ public enum Attribute {
         return name.rawValue
     }
 
-    /// The expected value of the attribute expected by Foundation
-    var foundationValue: Any {
-        switch self {
-        case .ligatures(let ligatures): return ligatures.rawValue
-        case .strikethroughStyle(let style): return NSNumber(value: style.rawValue)
-        case .textEffect(let effect): return effect.rawValue
-        case .underlineStyle(let style): return NSNumber(value: style.rawValue)
-        case .writingDirections(let directions): return directions.map { $0.rawValue }
-        default: return value
-        }
-    }
-
     // Convenience getter variable for the associated value of the attribute. See each case to determine the return type.
     public var value: Any {
         switch self {
@@ -134,6 +119,20 @@ public enum Attribute {
         }
     }
 
+    var foundationValue: Any {
+        switch self {
+        case .ligatures(let ligatures): return ligatures.rawValue
+        case .strikethroughStyle(let style): return NSNumber(value: style.rawValue)
+        case .textEffect(let effect): return effect.rawValue
+        case .underlineStyle(let style): return NSNumber(value: style.rawValue)
+        case .writingDirections(let directions): return directions.map { $0.rawValue }
+        default: return value
+        }
+    }
+
+    /**
+     An enum that corresponds to `Attribute`, mapping attributes to their respective names.
+    */
     public enum Name: RawRepresentable {
         case attachment
         case baselineOffset

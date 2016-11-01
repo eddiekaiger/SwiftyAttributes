@@ -50,10 +50,29 @@ extension NSAttributedString {
         return withAttributes([attribute])
     }
 
+    /**
+     Returns an `NSAttributedString` object consisting of the characters and attributes within a given range in the receiver.
+     
+     - parameter    range:  The range from which to create a new attributed string. `range` must lie within the bounds of the receiver.
+     - returns:             An `NSAttributedString` object consisting of the characters and attributes within `range` in the receiver.
+     */
     public func attributedSubstring(from range: Range<Int>) -> NSAttributedString {
         return attributedSubstring(from: NSRange(range))
     }
 
+    /**
+     Returns the value for an attribute with a given name of the character at a given index, and by reference the range over which the attribute applies.
+     
+     - parameters:
+        - attrName:   The name of an attribute.
+        - location:   The index for which to return attributes. This value must not exceed the bounds of the receiver.
+        - range: 
+            If non-nil:
+            - If the named attribute exists at `location`, upon return `range` contains a range over which the named attribute’s value applies.
+            - If the named attribute does not exist at `location`, upon return `range` contains the range over which the attribute does not exist.
+            
+            The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent. If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
+     */
     public func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
         if let attr = attribute(attrName.rawValue, at: location, effectiveRange: range) {
             let attributeValue: Any
@@ -273,4 +292,5 @@ extension NSAttributedString {
     public func withWritingDirections(_ directions: [WritingDirection]) -> NSMutableAttributedString {
         return withAttribute(.writingDirections(directions))
     }
+
 }

@@ -27,7 +27,15 @@ class NSAttributedString_Tests: XCTestCase {
 
     // MARK: - Attribute At Location
 
-    // TODO: attachment
+    func testAttributeAtLocation_attachment() {
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: "Star", in: Bundle(for: type(of: self)), compatibleWith: nil)!
+        let str = "Hello".withAttachment(attachment)
+        let subject = str.attribute(.attachment, at: 0, effectiveRange: nil)!.value as! NSTextAttachment
+        let expected = str.attribute(NSAttachmentAttributeName, at: 0, effectiveRange: nil) as! NSTextAttachment
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, attachment)
+    }
 
     func testAttributeAtLocation_baselineOffet() {
         let str = "Hello".withBaselineOffset(4.2)
