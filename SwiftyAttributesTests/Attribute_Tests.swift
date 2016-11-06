@@ -14,6 +14,7 @@ class Attribute_Tests: XCTestCase {
     func testAttributeName_initWithRawValue() {
         XCTAssertEqual(Attribute.Name(rawValue: NSAttachmentAttributeName)!, .attachment)
         XCTAssertEqual(Attribute.Name(rawValue: NSBaselineOffsetAttributeName)!, .baselineOffset)
+        XCTAssertEqual(Attribute.Name(rawValue: NSBackgroundColorAttributeName)!, .backgroundColor)
         XCTAssertEqual(Attribute.Name(rawValue: NSExpansionAttributeName)!, .expansion)
         XCTAssertEqual(Attribute.Name(rawValue: NSFontAttributeName)!, .font)
         XCTAssertEqual(Attribute.Name(rawValue: NSKernAttributeName)!, .kern)

@@ -15,25 +15,65 @@ public typealias StrikethroughStyle = NSUnderlineStyle
  Represents attributes that can be applied to NSAttributedStrings.
  */
 public enum Attribute {
+
+    /// Attachment attribute that allows items like images to be inserted into text.
     case attachment(NSTextAttachment)
+
+    /// Value indicating the character's offset from the baseline, in points.
     case baselineOffset(Double)
+
+    /// The background color of the attributed string.
     case backgroundColor(UIColor)
+
+    /// Value indicating the log of the expansion factor to be applied to glyphs.
     case expansion(Double)
+
+    /// The font of the attributed string.
     case font(UIFont)
+
+    /// Specifies the number of points by which to adjust kern-pair characters. Kerning prevents unwanted space from occurring between specific characters and depends on the font. The value 0 means kerning is disabled (default).
     case kern(Double)
+
+    /// Ligatures cause specific character combinations to be rendered using a single custom glyph that corresponds to those characters. See `Ligatures` for values.
     case ligatures(Ligatures)
+
+    /// A URL link to attach to the attributed string.
     case link(URL)
+
+    /// A value indicating the skew to be applied to glyphs.
     case obliqueness(Double)
+
+    /// An `NSParagraphStyle` to be applied to the attributed string.
     case paragraphStyle(NSParagraphStyle)
+
+    /// A shadow to be applied to the characters.
     case shadow(NSShadow)
+
+    /// The color of the stroke (border) around the characters.
     case strokeColor(UIColor)
+
+    /// The width/thickness of the stroke (border) around the characters.
     case strokeWidth(Double)
+
+    /// The color of the strikethrough.
     case strikethroughColor(UIColor)
+
+    /// The style of the strikethrough.
     case strikethroughStyle(StrikethroughStyle)
+
+    /// The text color.
     case textColor(UIColor)
+
+    /// The text effect to apply. See `TextEffect` for possible values.
     case textEffect(TextEffect)
+
+    /// The color of the underline.
     case underlineColor(UIColor)
+
+    /// The style of the underline.
     case underlineStyle(UnderlineStyle)
+
+    /// The writing directions to apply to the attributed string. See `WritingDirection` for values.
     case writingDirections([WritingDirection])
 
     init(name: Attribute.Name, value: Any) {
@@ -208,5 +248,3 @@ public enum Attribute {
         }
     }
 }
-
-

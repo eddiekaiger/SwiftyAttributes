@@ -16,12 +16,16 @@ private func mappingValue(direction: NSWritingDirection, formatType: NSWritingDi
  An enum that represents a writing direction for an attributed string.
  */
 public enum WritingDirection: RawRepresentable {
+
     /// Writing direction is left-to-right. Enables character types with inherent directionality to be overridden when required for special cases, such as for part numbers made of mixed English, digits, and Hebrew letters to be written from right to left.
     case leftToRightOverride
+
     /// Writing direction is right-to-left. Enables character types with inherent directionality to be overridden when required for special cases, such as for part numbers made of mixed English, digits, and Hebrew letters to be written from right to left.
     case rightToLeftOverride
+
     /// Writing direction is left-to-right. Text is embedded in text with another writing direction. For example, an English quotation in the middle of an Arabic sentence could be marked as being embedded left-to-right text.
     case leftToRightEmbedding
+
     /// Writing direction is right-to-left. Text is embedded in text with another writing direction. For example, an English quotation in the middle of an Arabic sentence could be marked as being embedded left-to-right text.
     case rightToLeftEmbedding
 
