@@ -73,7 +73,7 @@ public enum Attribute {
     /// The style of the underline.
     case underlineStyle(UnderlineStyle)
 
-    /// The writing directions to apply to the attributed string. See `WritingDirection` for values.
+    /// The writing directions to apply to the attributed string. See `WritingDirection` for values. Only available on iOS 9.0+.
     case writingDirections([WritingDirection])
 
     init(name: Attribute.Name, value: Any) {

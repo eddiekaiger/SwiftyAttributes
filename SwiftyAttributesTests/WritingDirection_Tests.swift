@@ -9,8 +9,9 @@
 import XCTest
 import SwiftyAttributes
 
+@available(iOS 9.0, *)
 class WritingDirection_Tests: XCTestCase {
-    
+
     func testAttribute_writingDirection() {
         let subject = "Hello".withWritingDirections([.leftToRightOverride, .rightToLeftEmbedding, .leftToRightOverride, .rightToLeftEmbedding])
         let directions = [

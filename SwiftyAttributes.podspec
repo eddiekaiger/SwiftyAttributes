@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftyAttributes"
-  s.version      = "2.0"
+  s.version      = "3.0"
   s.summary      = "Swift extensions that make it a breeze to work with attributed strings."
 
   s.description  = <<-DESC
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/eddiekaiger/SwiftyAttributes"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Eddie Kaiger" => "eddiekaiger@gmail.com" }
-  s.source       = { :git => "https://github.com/eddiekaiger/SwiftyAttributes.git", :tag => "v2.0" }
+  s.source       = { :git => "https://github.com/eddiekaiger/SwiftyAttributes.git", :tag => "v3.0" }
   s.source_files = "SwiftyAttributes/*.swift"
-  s.platform     = :ios, '9.0'
+  s.platform     = :ios, '8.0'
 
 end
