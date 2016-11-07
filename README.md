@@ -14,7 +14,7 @@
 The **original** way to create an attributed string in Swift:
 
 ````swift
-let attributes: [String: AnyObject] = [
+let attributes: [String: Any] = [
     NSForegroundColorAttributeName: UIColor.blue, 
     NSUnderlineStyleAttributeName:  NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)
 ]
@@ -37,7 +37,7 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 # Requirements
 
-* iOS 9.0+
+* iOS 8.0+
 
 # Installation
 
@@ -73,9 +73,9 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 > `github "eddiekaiger/SwiftyAttributes" == 1.1.1`
 
-# The Future
+# Goals
 
-The future of SwiftyAttributes will consist of creating a fully-featured, type-safe, Swifty API for all use cases of attributed strings. Version 2.0 will introduce a new `Attribute` enum, enabling us to create alternative methods for Foundation's string-based API. The goal of version 2.1 will be full support for macOS, tvOS, and watchOS.
+The goal of version 3.1.0 will be full support for macOS, tvOS, and watchOS as well as additional helper methods to retrieve and enumerate attributes in an attributed string.
 
 If you have suggestions and feature requests, please feel free to open up an issue.
 
