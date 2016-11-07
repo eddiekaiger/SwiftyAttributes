@@ -10,6 +10,12 @@ import XCTest
 import SwiftyAttributes
 
 class SwiftyAttributesTests: XCTestCase {
+
+    func testString_withAttribute() {
+        let subject = "Hello".withAttribute(.strokeWidth(4))
+        let expected = NSAttributedString(string: "Hello", attributes: [NSStrokeWidthAttributeName: NSNumber(value: 4)])
+        XCTAssertEqual(subject, expected)
+    }
     
     func testAttribute_font() {
         let subject = "Hello".withFont(UIFont.boldSystemFont(ofSize: 26))
@@ -84,7 +90,7 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_textEffect() {
-        let subject = "Hello".withTextEffect(NSTextEffectLetterpressStyle)
+        let subject = "Hello".withTextEffect(.letterPressStyle)
         let expected = NSAttributedString(string: "Hello", attributes: [NSTextEffectAttributeName: NSTextEffectLetterpressStyle])
         XCTAssertEqual(subject, expected)
     }
@@ -92,7 +98,7 @@ class SwiftyAttributesTests: XCTestCase {
     func testAttribute_attachment() {
         let attachment = NSTextAttachment(data: nil, ofType: nil)
         let subject = "Hello".withAttachment(attachment)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSTextEffectAttributeName: attachment])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSAttachmentAttributeName: attachment])
         XCTAssertEqual(subject, expected)
     }
 
@@ -133,36 +139,26 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(subject, expected)
     }
 
-    func testAttribute_writingDirection() {
-        let subject = "Hello".withWritingDirections([.leftToRightOverride, .rightToLeftEmbedding, .leftToRightOverride, .rightToLeftEmbedding])
-        let directions = [
-            NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.override.rawValue,
-            NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue,
-            NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.override.rawValue,
-            NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue
+    func testMultipleAttributes_withSyntax() {
+        let subject = "Hello".withTextColor(.darkGray).withBackgroundColor(.magenta).withStrikethroughStyle(.patternDashDotDot)
+        let attrs: [String: Any] = [
+            NSForegroundColorAttributeName: UIColor.darkGray,
+            NSBackgroundColorAttributeName: UIColor.magenta,
+            NSStrikethroughStyleAttributeName: NSUnderlineStyle.patternDashDotDot.rawValue
         ]
-        let expected = NSAttributedString(string: "Hello", attributes: [NSWritingDirectionAttributeName: directions])
+        let expected = NSAttributedString(string: "Hello", attributes: attrs)
         XCTAssertEqual(subject, expected)
     }
 
-    func testWritingDirectionRawValue() {
-        XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.override.rawValue)), .leftToRightOverride)
-        XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.override.rawValue)), .rightToLeftOverride)
-        XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.embedding.rawValue)), .leftToRightEmbedding)
-        XCTAssertEqual(WritingDirection(rawValue: (NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue)), .rightToLeftEmbedding)
-        XCTAssertNil(WritingDirection(rawValue: 12))
+    func testMultipleAttributes_arraySyntax() {
+        let subject = "Hello".withAttributes([.font(.boldSystemFont(ofSize: 19)), .link(URL(string: "https://google.com")!), .underlineStyle(.patternSolid)])
+        let attrs: [String: Any] = [
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 19),
+            NSLinkAttributeName: URL(string: "https://google.com")!,
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.patternSolid.rawValue
+        ]
+        let expected = NSAttributedString(string: "Hello", attributes: attrs)
+        XCTAssertEqual(subject, expected)
     }
 
-    func testOverloadedAdditionOperator() {
-        let lhs = "Hello".withFont(.systemFont(ofSize: 19))
-        let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24))
-        let newString = lhs + rhs
-        let leftAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)] as [String: NSObject]
-        XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as! [String: NSObject], leftAttributes)
-        let rightAttributes = [NSForegroundColorAttributeName: UIColor.magenta,
-                               NSBackgroundColorAttributeName: UIColor.orange,
-                               NSFontAttributeName: UIFont.boldSystemFont(ofSize: 24)] as [String: NSObject]
-        XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as! [String: NSObject], rightAttributes)
-    }
-    
 }
