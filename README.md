@@ -27,6 +27,16 @@ With **SwiftyAttributes**, you can write the same thing like this:
 let fancyString = "Hello World!".withTextColor(.blue).withUnderlineStyle(.styleSingle)
 ````
 
+Alternatively, `SwiftyAttributes` provides an `Attribute` enum:
+````swift
+let fancyString = "Hello World!".withAttributes([
+    .backgroundColor(.magenta),
+    .strokeColor(.orange),
+    .strokeWidth(1),
+    .baselineOffset(5.2)
+])
+````
+
 You can also easily combine attributed strings using a plus sign:
 
 ````swift
@@ -72,6 +82,59 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 > For **Swift 2.3**:
 
 > `github "eddiekaiger/SwiftyAttributes" == 1.1.1`
+
+# Usage
+
+Initializing attributed strings in `SwiftyAttributes` can be done several ways:
+
+- Using the `with[Attribute]` extensions:
+    ````swift
+    "Hello World"!.withUnderlineColor(.red).withUnderlineStyle(.styleDouble)
+    ````
+
+- Using the `Attribute` enum extensions:
+    ````swift
+    "Hello World"!.withAttributes([.underlineColor(.red), underlineStyle(.styleDouble)])
+    ````
+
+- Using the `Attribute` enum in an initializer:
+    ````swift
+    NSAttributedString(string: "Hello World", attributes: [.kern(5), .backgroundColor(.gray)])
+    ````
+    
+You can retrieve the attribute at a specific location using an attribute name from the `Attribute.Name` enum:
+````swift
+let attr: Attribute? = myAttributedString.attribute(.shadow, at: 5)
+````
+
+Several API methods are provided to use these new enums as well as Swift's `Range` type instead of `NSRange`. Some of the method signatures include:
+
+````swift
+extension NSMutableAttributedString {
+    func addAttributes(_ attributes: [Attribute], range: Range<Int>)
+    func addAttributes(_ attributes: [Attribute], range: NSRange)
+    func setAttributes(_ attributes: [Attribute], range: Range<Int>)
+    func setAttributes(_ attributes: [Attribute], range: NSRange)
+    func replaceCharacters(in range: Range<Int>, with str: String)
+    func replaceCharacters(in range: Range<Int>, with attrString: NSAttributedString)
+    func deleteCharacters(in range: Range<Int>)
+    func removeAttribute(_ name: Attribute.Name, range: Range<Int>)
+}
+
+extension NSAttributedString {
+    convenience init(string str: String, attributes: [Attribute])
+    func withAttributes(_ attributes: [Attribute]) -> NSMutableAttributedString
+    func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
+    func attributedSubstring(from range: Range<Int>) -> NSAttributedString
+    func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute?
+}
+
+extension String {
+    func withAttributes(_ attributes: [Attribute]) -> NSMutableAttributedString
+    func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
+}
+````
+
 
 # Goals
 
