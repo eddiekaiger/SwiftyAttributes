@@ -6,10 +6,10 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
-#if os(iOS) || os(watchOS)
-    import UIKit
-#elseif os(macOS)
+#if os(macOS)
     import AppKit
+#else
+    import UIKit
 #endif
 
 /**

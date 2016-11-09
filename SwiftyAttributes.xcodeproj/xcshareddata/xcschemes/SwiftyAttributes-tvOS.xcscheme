@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-               BuildableName = "SwiftyAttributes.framework"
-               BlueprintName = "SwiftyAttributes-macOS"
+               BlueprintIdentifier = "C0E1C9751DD31B450068E85C"
+               BuildableName = "SwiftyAttributes-tvOS.framework"
+               BlueprintName = "SwiftyAttributes-tvOS"
                ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0E1C9521DD319D50068E85C"
-               BuildableName = "SwiftyAttributes-macOSTests.xctest"
-               BlueprintName = "SwiftyAttributes-macOSTests"
+               BlueprintIdentifier = "C0E1C97D1DD31B460068E85C"
+               BuildableName = "SwiftyAttributes-tvOSTests.xctest"
+               BlueprintName = "SwiftyAttributes-tvOSTests"
                ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-            BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes-macOS"
+            BlueprintIdentifier = "C0E1C9751DD31B450068E85C"
+            BuildableName = "SwiftyAttributes-tvOS.framework"
+            BlueprintName = "SwiftyAttributes-tvOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-            BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes-macOS"
+            BlueprintIdentifier = "C0E1C9751DD31B450068E85C"
+            BuildableName = "SwiftyAttributes-tvOS.framework"
+            BlueprintName = "SwiftyAttributes-tvOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-            BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes-macOS"
+            BlueprintIdentifier = "C0E1C9751DD31B450068E85C"
+            BuildableName = "SwiftyAttributes-tvOS.framework"
+            BlueprintName = "SwiftyAttributes-tvOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -39,6 +39,25 @@
 		C0E1C96E1DD31A0D0068E85C /* WritingDirection_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */; };
 		C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B651DC087A3009F9B51 /* Operators_Tests.swift */; };
 		C0E1C9701DD31A0D0068E85C /* TextEffect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */; };
+		C0E1C97F1DD31B460068E85C /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */; };
+		C0E1C9861DD31B460068E85C /* SwiftyAttributes-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E1C9781DD31B450068E85C /* SwiftyAttributes-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0E1C98D1DD31B580068E85C /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127C3B1DB2D5490047DF5A /* Attribute.swift */; };
+		C0E1C98E1DD31B580068E85C /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05C54F61DA61F4E007514C1 /* Ligatures.swift */; };
+		C0E1C98F1DD31B580068E85C /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5F1DC08409009F9B51 /* Operators.swift */; };
+		C0E1C9901DD31B580068E85C /* TextEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C438C1DC472F000C49E5E /* TextEffect.swift */; };
+		C0E1C9911DD31B580068E85C /* WritingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */; };
+		C0E1C9921DD31B580068E85C /* String+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5D1DC083AE009F9B51 /* String+SwiftyAttributes.swift */; };
+		C0E1C9931DD31B580068E85C /* NSAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5B1DC083A5009F9B51 /* NSAttributedString+SwiftyAttributes.swift */; };
+		C0E1C9941DD31B580068E85C /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B611DC086B3009F9B51 /* NSMutableAttributedString+SwiftyAttributes.swift */; };
+		C0E1C9951DD31B5F0068E85C /* Attribute_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */; };
+		C0E1C9961DD31B5F0068E85C /* NSMutableAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */; };
+		C0E1C9971DD31B5F0068E85C /* NSAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */; };
+		C0E1C9981DD31B5F0068E85C /* SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */; };
+		C0E1C9991DD31B5F0068E85C /* WritingDirection_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */; };
+		C0E1C99A1DD31B5F0068E85C /* Operators_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B651DC087A3009F9B51 /* Operators_Tests.swift */; };
+		C0E1C99B1DD31B5F0068E85C /* TextEffect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */; };
+		C0E1C99C1DD31C640068E85C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
+		C0E1C99D1DD31C650068E85C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
 		C0E211541D9EC5C000623F02 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */; };
 		C0F148C71DD2E3850085B0BB /* SwiftyAttributes-watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F148C51DD2E3850085B0BB /* SwiftyAttributes-watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0F148DB1DD2E8F30085B0BB /* SwiftyAttributes-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E2114D1D9EC5C000623F02 /* SwiftyAttributes-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +85,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C0E1C94A1DD319D50068E85C;
 			remoteInfo = "SwiftyAttributes-macOS";
+		};
+		C0E1C9801DD31B460068E85C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0E211411D9EC5C000623F02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0E1C9751DD31B450068E85C;
+			remoteInfo = "SwiftyAttributes-tvOS";
 		};
 		C0E211551D9EC5C000623F02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -104,6 +130,11 @@
 		C0E1C94E1DD319D50068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0E1C9531DD319D50068E85C /* SwiftyAttributes-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAttributes-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E1C95A1DD319D50068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E1C9781DD31B450068E85C /* SwiftyAttributes-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyAttributes-tvOS.h"; sourceTree = "<group>"; };
+		C0E1C9791DD31B450068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E1C97E1DD31B460068E85C /* SwiftyAttributes-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAttributes-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E1C9851DD31B460068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E2114D1D9EC5C000623F02 /* SwiftyAttributes-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyAttributes-iOS.h"; sourceTree = "<group>"; };
 		C0E2114E1D9EC5C000623F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +166,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E1C9541DD319D50068E85C /* SwiftyAttributes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0E1C9721DD31B450068E85C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0E1C97B1DD31B460068E85C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E1C97F1DD31B460068E85C /* SwiftyAttributes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +249,23 @@
 			path = "SwiftyAttributes-macOSTests";
 			sourceTree = "<group>";
 		};
+		C0E1C9771DD31B450068E85C /* SwiftyAttributes-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				C0E1C9781DD31B450068E85C /* SwiftyAttributes-tvOS.h */,
+				C0E1C9791DD31B450068E85C /* Info.plist */,
+			);
+			path = "SwiftyAttributes-tvOS";
+			sourceTree = "<group>";
+		};
+		C0E1C9821DD31B460068E85C /* SwiftyAttributes-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				C0E1C9851DD31B460068E85C /* Info.plist */,
+			);
+			path = "SwiftyAttributes-tvOSTests";
+			sourceTree = "<group>";
+		};
 		C0E211401D9EC5C000623F02 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +276,8 @@
 				C03658F81DC859D80051F06D /* ExampleApp-iOS */,
 				C0E1C94C1DD319D50068E85C /* SwiftyAttributes-macOS */,
 				C0E1C9571DD319D50068E85C /* SwiftyAttributes-macOSTests */,
+				C0E1C9771DD31B450068E85C /* SwiftyAttributes-tvOS */,
+				C0E1C9821DD31B460068E85C /* SwiftyAttributes-tvOSTests */,
 				C0E2114B1D9EC5C000623F02 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -226,6 +291,8 @@
 				C0F148C31DD2E3850085B0BB /* SwiftyAttributes.framework */,
 				C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */,
 				C0E1C9531DD319D50068E85C /* SwiftyAttributes-macOSTests.xctest */,
+				C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */,
+				C0E1C97E1DD31B460068E85C /* SwiftyAttributes-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +345,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E1C95B1DD319D50068E85C /* SwiftyAttributes-macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0E1C9731DD31B450068E85C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E1C9861DD31B460068E85C /* SwiftyAttributes-tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +426,42 @@
 			name = "SwiftyAttributes-macOSTests";
 			productName = "SwiftyAttributes-macOSTests";
 			productReference = C0E1C9531DD319D50068E85C /* SwiftyAttributes-macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C0E1C9751DD31B450068E85C /* SwiftyAttributes-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E1C9871DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOS" */;
+			buildPhases = (
+				C0E1C9711DD31B450068E85C /* Sources */,
+				C0E1C9721DD31B450068E85C /* Frameworks */,
+				C0E1C9731DD31B450068E85C /* Headers */,
+				C0E1C9741DD31B450068E85C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyAttributes-tvOS";
+			productName = "SwiftyAttributes-tvOS";
+			productReference = C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C0E1C97D1DD31B460068E85C /* SwiftyAttributes-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E1C98A1DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOSTests" */;
+			buildPhases = (
+				C0E1C97A1DD31B460068E85C /* Sources */,
+				C0E1C97B1DD31B460068E85C /* Frameworks */,
+				C0E1C97C1DD31B460068E85C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0E1C9811DD31B460068E85C /* PBXTargetDependency */,
+			);
+			name = "SwiftyAttributes-tvOSTests";
+			productName = "SwiftyAttributes-tvOSTests";
+			productReference = C0E1C97E1DD31B460068E85C /* SwiftyAttributes-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C0E211491D9EC5C000623F02 /* SwiftyAttributes-iOS */ = {
@@ -432,6 +543,16 @@
 						DevelopmentTeam = 5KT4ZVPMF8;
 						ProvisioningStyle = Automatic;
 					};
+					C0E1C9751DD31B450068E85C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5KT4ZVPMF8;
+						ProvisioningStyle = Automatic;
+					};
+					C0E1C97D1DD31B460068E85C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5KT4ZVPMF8;
+						ProvisioningStyle = Automatic;
+					};
 					C0E211491D9EC5C000623F02 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 5KT4ZVPMF8;
@@ -467,9 +588,11 @@
 				C0E211491D9EC5C000623F02 /* SwiftyAttributes-iOS */,
 				C0E211521D9EC5C000623F02 /* SwiftyAttributes-iOSTests */,
 				C0F148C21DD2E3850085B0BB /* SwiftyAttributes-watchOS */,
-				C03658F61DC859D80051F06D /* ExampleApp-iOS */,
 				C0E1C94A1DD319D50068E85C /* SwiftyAttributes-macOS */,
 				C0E1C9521DD319D50068E85C /* SwiftyAttributes-macOSTests */,
+				C0E1C9751DD31B450068E85C /* SwiftyAttributes-tvOS */,
+				C0E1C97D1DD31B460068E85C /* SwiftyAttributes-tvOSTests */,
+				C03658F61DC859D80051F06D /* ExampleApp-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -497,6 +620,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E1C99C1DD31C640068E85C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0E1C9741DD31B450068E85C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0E1C97C1DD31B460068E85C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E1C99D1DD31C650068E85C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +702,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0E1C9711DD31B450068E85C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E1C98E1DD31B580068E85C /* Ligatures.swift in Sources */,
+				C0E1C9901DD31B580068E85C /* TextEffect.swift in Sources */,
+				C0E1C98D1DD31B580068E85C /* Attribute.swift in Sources */,
+				C0E1C98F1DD31B580068E85C /* Operators.swift in Sources */,
+				C0E1C9931DD31B580068E85C /* NSAttributedString+SwiftyAttributes.swift in Sources */,
+				C0E1C9941DD31B580068E85C /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
+				C0E1C9911DD31B580068E85C /* WritingDirection.swift in Sources */,
+				C0E1C9921DD31B580068E85C /* String+SwiftyAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0E1C97A1DD31B460068E85C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E1C9991DD31B5F0068E85C /* WritingDirection_Tests.swift in Sources */,
+				C0E1C9961DD31B5F0068E85C /* NSMutableAttributedString_Tests.swift in Sources */,
+				C0E1C9981DD31B5F0068E85C /* SwiftyAttributes_Tests.swift in Sources */,
+				C0E1C9951DD31B5F0068E85C /* Attribute_Tests.swift in Sources */,
+				C0E1C99B1DD31B5F0068E85C /* TextEffect_Tests.swift in Sources */,
+				C0E1C99A1DD31B5F0068E85C /* Operators_Tests.swift in Sources */,
+				C0E1C9971DD31B5F0068E85C /* NSAttributedString_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0E211451D9EC5C000623F02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +782,11 @@
 			isa = PBXTargetDependency;
 			target = C0E1C94A1DD319D50068E85C /* SwiftyAttributes-macOS */;
 			targetProxy = C0E1C9551DD319D50068E85C /* PBXContainerItemProxy */;
+		};
+		C0E1C9811DD31B460068E85C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0E1C9751DD31B450068E85C /* SwiftyAttributes-tvOS */;
+			targetProxy = C0E1C9801DD31B460068E85C /* PBXContainerItemProxy */;
 		};
 		C0E211561D9EC5C000623F02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -747,6 +920,80 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C0E1C9881DD31B460068E85C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "SwiftyAttributes-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOS";
+				PRODUCT_NAME = SwiftyAttributes;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		C0E1C9891DD31B460068E85C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "SwiftyAttributes-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOS";
+				PRODUCT_NAME = SwiftyAttributes;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		C0E1C98B1DD31B460068E85C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
+				INFOPLIST_FILE = "SwiftyAttributes-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		C0E1C98C1DD31B460068E85C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
+				INFOPLIST_FILE = "SwiftyAttributes-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -989,6 +1236,22 @@
 			buildConfigurations = (
 				C0E1C9601DD319D50068E85C /* Debug */,
 				C0E1C9611DD319D50068E85C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C0E1C9871DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E1C9881DD31B460068E85C /* Debug */,
+				C0E1C9891DD31B460068E85C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C0E1C98A1DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E1C98B1DD31B460068E85C /* Debug */,
+				C0E1C98C1DD31B460068E85C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

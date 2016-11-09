@@ -6,14 +6,14 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
-#if os(iOS) || os(watchOS)
-    import UIKit
-    public typealias Color = UIColor
-    public typealias Font = UIFont
-#elseif os(macOS)
+#if os(macOS)
     import AppKit
     public typealias Color = NSColor
     public typealias Font = NSFont
+#else
+    import UIKit
+    public typealias Color = UIColor
+    public typealias Font = UIFont
 #endif
 
 public typealias UnderlineStyle = NSUnderlineStyle

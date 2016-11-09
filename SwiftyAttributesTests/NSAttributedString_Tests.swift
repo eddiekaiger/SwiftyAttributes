@@ -29,10 +29,10 @@ class NSAttributedString_Tests: XCTestCase {
 
     func testAttributeAtLocation_attachment() {
         let attachment = TextAttachment()
-        #if os(iOS)
-            attachment.image = UIImage(named: "Star", in: Bundle(for: type(of: self)), compatibleWith: nil)!
-        #elseif os(macOS)
+        #if os(macOS)
             // attachment.image = NSImage(named: "Star")!
+        #else
+            attachment.image = UIImage(named: "Star", in: Bundle(for: type(of: self)), compatibleWith: nil)!
         #endif
         let str = "Hello".withAttachment(attachment)
         let subject = str.attribute(.attachment, at: 0, effectiveRange: nil)!.value as! TextAttachment
