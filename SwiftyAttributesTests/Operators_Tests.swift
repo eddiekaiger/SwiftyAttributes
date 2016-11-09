@@ -15,11 +15,11 @@ class Operators_Tests: XCTestCase {
         let lhs = "Hello".withFont(.systemFont(ofSize: 19))
         let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24))
         let newString = lhs + rhs
-        let leftAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)] as [String: NSObject]
+        let leftAttributes = [NSFontAttributeName: Font.systemFont(ofSize: 19)] as [String: NSObject]
         XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as! [String: NSObject], leftAttributes)
-        let rightAttributes = [NSForegroundColorAttributeName: UIColor.magenta,
-                               NSBackgroundColorAttributeName: UIColor.orange,
-                               NSFontAttributeName: UIFont.boldSystemFont(ofSize: 24)] as [String: NSObject]
+        let rightAttributes = [NSForegroundColorAttributeName: Color.magenta,
+                               NSBackgroundColorAttributeName: Color.orange,
+                               NSFontAttributeName: Font.boldSystemFont(ofSize: 24)] as [String: NSObject]
         XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as! [String: NSObject], rightAttributes)
     }
 

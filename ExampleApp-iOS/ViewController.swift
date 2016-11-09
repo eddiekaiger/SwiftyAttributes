@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
 
     private let attributedStrings: [NSAttributedString] = [
         {
-            let attachment = NSTextAttachment()
+            let attachment = TextAttachment()
             attachment.image = UIImage(named: "Star")
             let str = NSMutableAttributedString(string: "Attachment  With Image")
             str.replaceCharacters(in: 10 ..< 12, with: NSAttributedString(attachment: attachment))
@@ -31,7 +31,7 @@ class ViewController: UITableViewController {
         "Link".withLink(URL(string: "https://google.com")!),
         "Obliqueness".withObliqueness(2),
         "Shadow".withShadow({
-            let shadow = NSShadow()
+            let shadow = Shadow()
             shadow.shadowBlurRadius = 2
             shadow.shadowOffset = CGSize(width: 3, height: -4)
             return shadow

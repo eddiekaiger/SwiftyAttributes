@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0E211491D9EC5C000623F02"
                BuildableName = "SwiftyAttributes.framework"
-               BlueprintName = "SwiftyAttributes"
+               BlueprintName = "SwiftyAttributes-iOS"
                ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0E211521D9EC5C000623F02"
-               BuildableName = "SwiftyAttributesTests.xctest"
-               BlueprintName = "SwiftyAttributesTests"
+               BuildableName = "SwiftyAttributes-iOSTests.xctest"
+               BlueprintName = "SwiftyAttributes-iOSTests"
                ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0E211491D9EC5C000623F02"
             BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes"
+            BlueprintName = "SwiftyAttributes-iOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0E211491D9EC5C000623F02"
             BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes"
+            BlueprintName = "SwiftyAttributes-iOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0E211491D9EC5C000623F02"
             BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes"
+            BlueprintName = "SwiftyAttributes-iOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
