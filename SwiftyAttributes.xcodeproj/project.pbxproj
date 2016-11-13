@@ -7,23 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00CF8F31DA6142500B6C1BB /* WritingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */; };
-		C0127C3C1DB2D5490047DF5A /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127C3B1DB2D5490047DF5A /* Attribute.swift */; };
-		C01C438D1DC472F000C49E5E /* TextEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C438C1DC472F000C49E5E /* TextEffect.swift */; };
-		C0335B5C1DC083A5009F9B51 /* NSAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5B1DC083A5009F9B51 /* NSAttributedString+SwiftyAttributes.swift */; };
-		C0335B5E1DC083AE009F9B51 /* String+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5D1DC083AE009F9B51 /* String+SwiftyAttributes.swift */; };
-		C0335B601DC08409009F9B51 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5F1DC08409009F9B51 /* Operators.swift */; };
-		C0335B621DC086B3009F9B51 /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B611DC086B3009F9B51 /* NSMutableAttributedString+SwiftyAttributes.swift */; };
-		C03658F21DC84CCA0051F06D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
 		C03658FA1DC859D80051F06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658F91DC859D80051F06D /* AppDelegate.swift */; };
 		C03658FC1DC859D80051F06D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658FB1DC859D80051F06D /* ViewController.swift */; };
 		C03658FF1DC859D80051F06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03658FD1DC859D80051F06D /* Main.storyboard */; };
 		C03659011DC859D80051F06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03659001DC859D80051F06D /* Assets.xcassets */; };
 		C03659041DC859D80051F06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03659021DC859D80051F06D /* LaunchScreen.storyboard */; };
 		C03659091DC85AE40051F06D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
-		C05C54F71DA61F4E007514C1 /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05C54F61DA61F4E007514C1 /* Ligatures.swift */; };
+		C09633E01DD806F600059332 /* SwiftyAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C09633DC1DD8056000059332 /* SwiftyAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0E1C9541DD319D50068E85C /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */; };
-		C0E1C95B1DD319D50068E85C /* SwiftyAttributes-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E1C94D1DD319D50068E85C /* SwiftyAttributes-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0E1C9621DD319E20068E85C /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127C3B1DB2D5490047DF5A /* Attribute.swift */; };
 		C0E1C9631DD319E20068E85C /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05C54F61DA61F4E007514C1 /* Ligatures.swift */; };
 		C0E1C9641DD319E20068E85C /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5F1DC08409009F9B51 /* Operators.swift */; };
@@ -39,43 +30,7 @@
 		C0E1C96E1DD31A0D0068E85C /* WritingDirection_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */; };
 		C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B651DC087A3009F9B51 /* Operators_Tests.swift */; };
 		C0E1C9701DD31A0D0068E85C /* TextEffect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */; };
-		C0E1C97F1DD31B460068E85C /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */; };
-		C0E1C9861DD31B460068E85C /* SwiftyAttributes-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E1C9781DD31B450068E85C /* SwiftyAttributes-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0E1C98D1DD31B580068E85C /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127C3B1DB2D5490047DF5A /* Attribute.swift */; };
-		C0E1C98E1DD31B580068E85C /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05C54F61DA61F4E007514C1 /* Ligatures.swift */; };
-		C0E1C98F1DD31B580068E85C /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5F1DC08409009F9B51 /* Operators.swift */; };
-		C0E1C9901DD31B580068E85C /* TextEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C438C1DC472F000C49E5E /* TextEffect.swift */; };
-		C0E1C9911DD31B580068E85C /* WritingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */; };
-		C0E1C9921DD31B580068E85C /* String+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5D1DC083AE009F9B51 /* String+SwiftyAttributes.swift */; };
-		C0E1C9931DD31B580068E85C /* NSAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5B1DC083A5009F9B51 /* NSAttributedString+SwiftyAttributes.swift */; };
-		C0E1C9941DD31B580068E85C /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B611DC086B3009F9B51 /* NSMutableAttributedString+SwiftyAttributes.swift */; };
-		C0E1C9951DD31B5F0068E85C /* Attribute_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */; };
-		C0E1C9961DD31B5F0068E85C /* NSMutableAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */; };
-		C0E1C9971DD31B5F0068E85C /* NSAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */; };
-		C0E1C9981DD31B5F0068E85C /* SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */; };
-		C0E1C9991DD31B5F0068E85C /* WritingDirection_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */; };
-		C0E1C99A1DD31B5F0068E85C /* Operators_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B651DC087A3009F9B51 /* Operators_Tests.swift */; };
-		C0E1C99B1DD31B5F0068E85C /* TextEffect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */; };
 		C0E1C99C1DD31C640068E85C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
-		C0E1C99D1DD31C650068E85C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
-		C0E211541D9EC5C000623F02 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */; };
-		C0F148C71DD2E3850085B0BB /* SwiftyAttributes-watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F148C51DD2E3850085B0BB /* SwiftyAttributes-watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0F148DB1DD2E8F30085B0BB /* SwiftyAttributes-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E2114D1D9EC5C000623F02 /* SwiftyAttributes-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0F148FD1DD311150085B0BB /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0127C3B1DB2D5490047DF5A /* Attribute.swift */; };
-		C0F148FE1DD311150085B0BB /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05C54F61DA61F4E007514C1 /* Ligatures.swift */; };
-		C0F148FF1DD311150085B0BB /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5F1DC08409009F9B51 /* Operators.swift */; };
-		C0F149001DD311150085B0BB /* TextEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C438C1DC472F000C49E5E /* TextEffect.swift */; };
-		C0F149011DD311150085B0BB /* WritingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CF8F21DA6142500B6C1BB /* WritingDirection.swift */; };
-		C0F149021DD311150085B0BB /* String+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5D1DC083AE009F9B51 /* String+SwiftyAttributes.swift */; };
-		C0F149031DD311150085B0BB /* NSAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B5B1DC083A5009F9B51 /* NSAttributedString+SwiftyAttributes.swift */; };
-		C0F149041DD311150085B0BB /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B611DC086B3009F9B51 /* NSMutableAttributedString+SwiftyAttributes.swift */; };
-		C0F149051DD312E90085B0BB /* Attribute_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */; };
-		C0F149061DD312E90085B0BB /* NSMutableAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */; };
-		C0F149071DD312E90085B0BB /* NSAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */; };
-		C0F149081DD312E90085B0BB /* SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */; };
-		C0F149091DD312E90085B0BB /* WritingDirection_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */; };
-		C0F1490A1DD312E90085B0BB /* Operators_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0335B651DC087A3009F9B51 /* Operators_Tests.swift */; };
-		C0F1490B1DD312E90085B0BB /* TextEffect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,20 +40,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C0E1C94A1DD319D50068E85C;
 			remoteInfo = "SwiftyAttributes-macOS";
-		};
-		C0E1C9801DD31B460068E85C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C0E211411D9EC5C000623F02 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C0E1C9751DD31B450068E85C;
-			remoteInfo = "SwiftyAttributes-tvOS";
-		};
-		C0E211551D9EC5C000623F02 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C0E211411D9EC5C000623F02 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C0E211491D9EC5C000623F02;
-			remoteInfo = SwiftyAttributes;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -123,27 +64,14 @@
 		C05C54F61DA61F4E007514C1 /* Ligatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ligatures.swift; sourceTree = "<group>"; };
 		C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString_Tests.swift; sourceTree = "<group>"; };
 		C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString_Tests.swift; sourceTree = "<group>"; };
+		C09633DA1DD8016800059332 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09633DC1DD8056000059332 /* SwiftyAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyAttributes.h; sourceTree = "<group>"; };
+		C09633DE1DD8057A00059332 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEffect_Tests.swift; sourceTree = "<group>"; };
 		C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute_Tests.swift; sourceTree = "<group>"; };
 		C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E1C94D1DD319D50068E85C /* SwiftyAttributes-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyAttributes-macOS.h"; sourceTree = "<group>"; };
-		C0E1C94E1DD319D50068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0E1C9531DD319D50068E85C /* SwiftyAttributes-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAttributes-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E1C95A1DD319D50068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E1C9781DD31B450068E85C /* SwiftyAttributes-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyAttributes-tvOS.h"; sourceTree = "<group>"; };
-		C0E1C9791DD31B450068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0E1C97E1DD31B460068E85C /* SwiftyAttributes-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAttributes-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E1C9851DD31B460068E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E2114D1D9EC5C000623F02 /* SwiftyAttributes-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyAttributes-iOS.h"; sourceTree = "<group>"; };
-		C0E2114E1D9EC5C000623F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0E211531D9EC5C000623F02 /* SwiftyAttributes-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAttributes-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E1C9531DD319D50068E85C /* SwiftyAttributesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyAttributesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAttributes_Tests.swift; sourceTree = "<group>"; };
-		C0E2115A1D9EC5C000623F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0F148C31DD2E3850085B0BB /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0F148C51DD2E3850085B0BB /* SwiftyAttributes-watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyAttributes-watchOS.h"; sourceTree = "<group>"; };
-		C0F148C61DD2E3850085B0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,56 +97,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0E1C9721DD31B450068E85C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E1C97B1DD31B460068E85C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0E1C97F1DD31B460068E85C /* SwiftyAttributes.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E211461D9EC5C000623F02 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E211501D9EC5C000623F02 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0E211541D9EC5C000623F02 /* SwiftyAttributes.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0F148BF1DD2E3850085B0BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C00335361DD2AAB1007D6E26 /* SwiftyAttributes-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C0E2114D1D9EC5C000623F02 /* SwiftyAttributes-iOS.h */,
-				C0E2114E1D9EC5C000623F02 /* Info.plist */,
-			);
-			name = "SwiftyAttributes-iOS";
-			path = SwiftyAttributes;
-			sourceTree = "<group>";
-		};
 		C03658F81DC859D80051F06D /* ExampleApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,52 +113,12 @@
 			path = "ExampleApp-iOS";
 			sourceTree = "<group>";
 		};
-		C0E1C94C1DD319D50068E85C /* SwiftyAttributes-macOS */ = {
-			isa = PBXGroup;
-			children = (
-				C0E1C94D1DD319D50068E85C /* SwiftyAttributes-macOS.h */,
-				C0E1C94E1DD319D50068E85C /* Info.plist */,
-			);
-			path = "SwiftyAttributes-macOS";
-			sourceTree = "<group>";
-		};
-		C0E1C9571DD319D50068E85C /* SwiftyAttributes-macOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				C0E1C95A1DD319D50068E85C /* Info.plist */,
-			);
-			path = "SwiftyAttributes-macOSTests";
-			sourceTree = "<group>";
-		};
-		C0E1C9771DD31B450068E85C /* SwiftyAttributes-tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				C0E1C9781DD31B450068E85C /* SwiftyAttributes-tvOS.h */,
-				C0E1C9791DD31B450068E85C /* Info.plist */,
-			);
-			path = "SwiftyAttributes-tvOS";
-			sourceTree = "<group>";
-		};
-		C0E1C9821DD31B460068E85C /* SwiftyAttributes-tvOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				C0E1C9851DD31B460068E85C /* Info.plist */,
-			);
-			path = "SwiftyAttributes-tvOSTests";
-			sourceTree = "<group>";
-		};
 		C0E211401D9EC5C000623F02 = {
 			isa = PBXGroup;
 			children = (
 				C0E2114C1D9EC5C000623F02 /* SwiftyAttributes */,
 				C0E211571D9EC5C000623F02 /* SwiftyAttributesTests */,
-				C00335361DD2AAB1007D6E26 /* SwiftyAttributes-iOS */,
-				C0F148C41DD2E3850085B0BB /* SwiftyAttributes-watchOS */,
 				C03658F81DC859D80051F06D /* ExampleApp-iOS */,
-				C0E1C94C1DD319D50068E85C /* SwiftyAttributes-macOS */,
-				C0E1C9571DD319D50068E85C /* SwiftyAttributes-macOSTests */,
-				C0E1C9771DD31B450068E85C /* SwiftyAttributes-tvOS */,
-				C0E1C9821DD31B460068E85C /* SwiftyAttributes-tvOSTests */,
 				C0E2114B1D9EC5C000623F02 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -285,14 +126,9 @@
 		C0E2114B1D9EC5C000623F02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */,
-				C0E211531D9EC5C000623F02 /* SwiftyAttributes-iOSTests.xctest */,
 				C03658F71DC859D80051F06D /* ExampleApp-iOS.app */,
-				C0F148C31DD2E3850085B0BB /* SwiftyAttributes.framework */,
 				C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */,
-				C0E1C9531DD319D50068E85C /* SwiftyAttributes-macOSTests.xctest */,
-				C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */,
-				C0E1C97E1DD31B460068E85C /* SwiftyAttributes-tvOSTests.xctest */,
+				C0E1C9531DD319D50068E85C /* SwiftyAttributesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,6 +136,8 @@
 		C0E2114C1D9EC5C000623F02 /* SwiftyAttributes */ = {
 			isa = PBXGroup;
 			children = (
+				C09633DE1DD8057A00059332 /* Info.plist */,
+				C09633DC1DD8056000059332 /* SwiftyAttributes.h */,
 				C0127C3B1DB2D5490047DF5A /* Attribute.swift */,
 				C05C54F61DA61F4E007514C1 /* Ligatures.swift */,
 				C0335B5F1DC08409009F9B51 /* Operators.swift */,
@@ -323,18 +161,9 @@
 				C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */,
 				C0335B651DC087A3009F9B51 /* Operators_Tests.swift */,
 				C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */,
-				C0E2115A1D9EC5C000623F02 /* Info.plist */,
+				C09633DA1DD8016800059332 /* Info.plist */,
 			);
 			path = SwiftyAttributesTests;
-			sourceTree = "<group>";
-		};
-		C0F148C41DD2E3850085B0BB /* SwiftyAttributes-watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				C0F148C51DD2E3850085B0BB /* SwiftyAttributes-watchOS.h */,
-				C0F148C61DD2E3850085B0BB /* Info.plist */,
-			);
-			path = "SwiftyAttributes-watchOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,31 +173,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0E1C95B1DD319D50068E85C /* SwiftyAttributes-macOS.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E1C9731DD31B450068E85C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0E1C9861DD31B460068E85C /* SwiftyAttributes-tvOS.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E211471D9EC5C000623F02 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0F148DB1DD2E8F30085B0BB /* SwiftyAttributes-iOS.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0F148C01DD2E3850085B0BB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0F148C71DD2E3850085B0BB /* SwiftyAttributes-watchOS.h in Headers */,
+				C09633E01DD806F600059332 /* SwiftyAttributes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,9 +197,9 @@
 			productReference = C03658F71DC859D80051F06D /* ExampleApp-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C0E1C94A1DD319D50068E85C /* SwiftyAttributes-macOS */ = {
+		C0E1C94A1DD319D50068E85C /* SwiftyAttributes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0E1C95C1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-macOS" */;
+			buildConfigurationList = C0E1C95C1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes" */;
 			buildPhases = (
 				C0E1C9461DD319D50068E85C /* Sources */,
 				C0E1C9471DD319D50068E85C /* Frameworks */,
@@ -405,14 +210,14 @@
 			);
 			dependencies = (
 			);
-			name = "SwiftyAttributes-macOS";
+			name = SwiftyAttributes;
 			productName = "SwiftyAttributes-macOS";
 			productReference = C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C0E1C9521DD319D50068E85C /* SwiftyAttributes-macOSTests */ = {
+		C0E1C9521DD319D50068E85C /* SwiftyAttributesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0E1C95F1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-macOSTests" */;
+			buildConfigurationList = C0E1C95F1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributesTests" */;
 			buildPhases = (
 				C0E1C94F1DD319D50068E85C /* Sources */,
 				C0E1C9501DD319D50068E85C /* Frameworks */,
@@ -423,100 +228,10 @@
 			dependencies = (
 				C0E1C9561DD319D50068E85C /* PBXTargetDependency */,
 			);
-			name = "SwiftyAttributes-macOSTests";
+			name = SwiftyAttributesTests;
 			productName = "SwiftyAttributes-macOSTests";
-			productReference = C0E1C9531DD319D50068E85C /* SwiftyAttributes-macOSTests.xctest */;
+			productReference = C0E1C9531DD319D50068E85C /* SwiftyAttributesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C0E1C9751DD31B450068E85C /* SwiftyAttributes-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0E1C9871DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOS" */;
-			buildPhases = (
-				C0E1C9711DD31B450068E85C /* Sources */,
-				C0E1C9721DD31B450068E85C /* Frameworks */,
-				C0E1C9731DD31B450068E85C /* Headers */,
-				C0E1C9741DD31B450068E85C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SwiftyAttributes-tvOS";
-			productName = "SwiftyAttributes-tvOS";
-			productReference = C0E1C9761DD31B450068E85C /* SwiftyAttributes.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C0E1C97D1DD31B460068E85C /* SwiftyAttributes-tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0E1C98A1DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOSTests" */;
-			buildPhases = (
-				C0E1C97A1DD31B460068E85C /* Sources */,
-				C0E1C97B1DD31B460068E85C /* Frameworks */,
-				C0E1C97C1DD31B460068E85C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C0E1C9811DD31B460068E85C /* PBXTargetDependency */,
-			);
-			name = "SwiftyAttributes-tvOSTests";
-			productName = "SwiftyAttributes-tvOSTests";
-			productReference = C0E1C97E1DD31B460068E85C /* SwiftyAttributes-tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C0E211491D9EC5C000623F02 /* SwiftyAttributes-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0E2115E1D9EC5C000623F02 /* Build configuration list for PBXNativeTarget "SwiftyAttributes-iOS" */;
-			buildPhases = (
-				C0E211451D9EC5C000623F02 /* Sources */,
-				C0E211461D9EC5C000623F02 /* Frameworks */,
-				C0E211471D9EC5C000623F02 /* Headers */,
-				C0E211481D9EC5C000623F02 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SwiftyAttributes-iOS";
-			productName = SwiftyAttributes;
-			productReference = C0E2114A1D9EC5C000623F02 /* SwiftyAttributes.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C0E211521D9EC5C000623F02 /* SwiftyAttributes-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0E211611D9EC5C000623F02 /* Build configuration list for PBXNativeTarget "SwiftyAttributes-iOSTests" */;
-			buildPhases = (
-				C0E2114F1D9EC5C000623F02 /* Sources */,
-				C0E211501D9EC5C000623F02 /* Frameworks */,
-				C0E211511D9EC5C000623F02 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C0E211561D9EC5C000623F02 /* PBXTargetDependency */,
-			);
-			name = "SwiftyAttributes-iOSTests";
-			productName = SwiftyAttributesTests;
-			productReference = C0E211531D9EC5C000623F02 /* SwiftyAttributes-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C0F148C21DD2E3850085B0BB /* SwiftyAttributes-watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0F148C81DD2E3850085B0BB /* Build configuration list for PBXNativeTarget "SwiftyAttributes-watchOS" */;
-			buildPhases = (
-				C0F148BE1DD2E3850085B0BB /* Sources */,
-				C0F148BF1DD2E3850085B0BB /* Frameworks */,
-				C0F148C01DD2E3850085B0BB /* Headers */,
-				C0F148C11DD2E3850085B0BB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SwiftyAttributes-watchOS";
-			productName = "SwiftyAttributes-watchOS";
-			productReference = C0F148C31DD2E3850085B0BB /* SwiftyAttributes.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -535,37 +250,9 @@
 					};
 					C0E1C94A1DD319D50068E85C = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 5KT4ZVPMF8;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C0E1C9521DD319D50068E85C = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 5KT4ZVPMF8;
-						ProvisioningStyle = Automatic;
-					};
-					C0E1C9751DD31B450068E85C = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 5KT4ZVPMF8;
-						ProvisioningStyle = Automatic;
-					};
-					C0E1C97D1DD31B460068E85C = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 5KT4ZVPMF8;
-						ProvisioningStyle = Automatic;
-					};
-					C0E211491D9EC5C000623F02 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 5KT4ZVPMF8;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
-					};
-					C0E211521D9EC5C000623F02 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 5KT4ZVPMF8;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
-					};
-					C0F148C21DD2E3850085B0BB = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 5KT4ZVPMF8;
 						ProvisioningStyle = Automatic;
@@ -585,13 +272,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C0E211491D9EC5C000623F02 /* SwiftyAttributes-iOS */,
-				C0E211521D9EC5C000623F02 /* SwiftyAttributes-iOSTests */,
-				C0F148C21DD2E3850085B0BB /* SwiftyAttributes-watchOS */,
-				C0E1C94A1DD319D50068E85C /* SwiftyAttributes-macOS */,
-				C0E1C9521DD319D50068E85C /* SwiftyAttributes-macOSTests */,
-				C0E1C9751DD31B450068E85C /* SwiftyAttributes-tvOS */,
-				C0E1C97D1DD31B460068E85C /* SwiftyAttributes-tvOSTests */,
+				C0E1C94A1DD319D50068E85C /* SwiftyAttributes */,
+				C0E1C9521DD319D50068E85C /* SwiftyAttributesTests */,
 				C03658F61DC859D80051F06D /* ExampleApp-iOS */,
 			);
 		};
@@ -621,43 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E1C99C1DD31C640068E85C /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E1C9741DD31B450068E85C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E1C97C1DD31B460068E85C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0E1C99D1DD31C650068E85C /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E211481D9EC5C000623F02 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E211511D9EC5C000623F02 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C03658F21DC84CCA0051F06D /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0F148C11DD2E3850085B0BB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,96 +347,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0E1C9711DD31B450068E85C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0E1C98E1DD31B580068E85C /* Ligatures.swift in Sources */,
-				C0E1C9901DD31B580068E85C /* TextEffect.swift in Sources */,
-				C0E1C98D1DD31B580068E85C /* Attribute.swift in Sources */,
-				C0E1C98F1DD31B580068E85C /* Operators.swift in Sources */,
-				C0E1C9931DD31B580068E85C /* NSAttributedString+SwiftyAttributes.swift in Sources */,
-				C0E1C9941DD31B580068E85C /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
-				C0E1C9911DD31B580068E85C /* WritingDirection.swift in Sources */,
-				C0E1C9921DD31B580068E85C /* String+SwiftyAttributes.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E1C97A1DD31B460068E85C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0E1C9991DD31B5F0068E85C /* WritingDirection_Tests.swift in Sources */,
-				C0E1C9961DD31B5F0068E85C /* NSMutableAttributedString_Tests.swift in Sources */,
-				C0E1C9981DD31B5F0068E85C /* SwiftyAttributes_Tests.swift in Sources */,
-				C0E1C9951DD31B5F0068E85C /* Attribute_Tests.swift in Sources */,
-				C0E1C99B1DD31B5F0068E85C /* TextEffect_Tests.swift in Sources */,
-				C0E1C99A1DD31B5F0068E85C /* Operators_Tests.swift in Sources */,
-				C0E1C9971DD31B5F0068E85C /* NSAttributedString_Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E211451D9EC5C000623F02 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0335B5C1DC083A5009F9B51 /* NSAttributedString+SwiftyAttributes.swift in Sources */,
-				C00CF8F31DA6142500B6C1BB /* WritingDirection.swift in Sources */,
-				C0335B601DC08409009F9B51 /* Operators.swift in Sources */,
-				C05C54F71DA61F4E007514C1 /* Ligatures.swift in Sources */,
-				C0127C3C1DB2D5490047DF5A /* Attribute.swift in Sources */,
-				C01C438D1DC472F000C49E5E /* TextEffect.swift in Sources */,
-				C0335B5E1DC083AE009F9B51 /* String+SwiftyAttributes.swift in Sources */,
-				C0335B621DC086B3009F9B51 /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0E2114F1D9EC5C000623F02 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0F149061DD312E90085B0BB /* NSMutableAttributedString_Tests.swift in Sources */,
-				C0F149091DD312E90085B0BB /* WritingDirection_Tests.swift in Sources */,
-				C0F1490B1DD312E90085B0BB /* TextEffect_Tests.swift in Sources */,
-				C0F149071DD312E90085B0BB /* NSAttributedString_Tests.swift in Sources */,
-				C0F149081DD312E90085B0BB /* SwiftyAttributes_Tests.swift in Sources */,
-				C0F149051DD312E90085B0BB /* Attribute_Tests.swift in Sources */,
-				C0F1490A1DD312E90085B0BB /* Operators_Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0F148BE1DD2E3850085B0BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0F148FE1DD311150085B0BB /* Ligatures.swift in Sources */,
-				C0F149001DD311150085B0BB /* TextEffect.swift in Sources */,
-				C0F148FD1DD311150085B0BB /* Attribute.swift in Sources */,
-				C0F148FF1DD311150085B0BB /* Operators.swift in Sources */,
-				C0F149031DD311150085B0BB /* NSAttributedString+SwiftyAttributes.swift in Sources */,
-				C0F149041DD311150085B0BB /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
-				C0F149011DD311150085B0BB /* WritingDirection.swift in Sources */,
-				C0F149021DD311150085B0BB /* String+SwiftyAttributes.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		C0E1C9561DD319D50068E85C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0E1C94A1DD319D50068E85C /* SwiftyAttributes-macOS */;
+			target = C0E1C94A1DD319D50068E85C /* SwiftyAttributes */;
 			targetProxy = C0E1C9551DD319D50068E85C /* PBXContainerItemProxy */;
-		};
-		C0E1C9811DD31B460068E85C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C0E1C9751DD31B450068E85C /* SwiftyAttributes-tvOS */;
-			targetProxy = C0E1C9801DD31B460068E85C /* PBXContainerItemProxy */;
-		};
-		C0E211561D9EC5C000623F02 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C0E211491D9EC5C000623F02 /* SwiftyAttributes-iOS */;
-			targetProxy = C0E211551D9EC5C000623F02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -819,13 +381,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
 				INFOPLIST_FILE = "ExampleApp-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.ExampleApp-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -833,59 +393,51 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
 				INFOPLIST_FILE = "ExampleApp-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.ExampleApp-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
 		C0E1C95D1DD319D50068E85C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "SwiftyAttributes-macOS/Info.plist";
+				INFOPLIST_FILE = SwiftyAttributes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-macOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddiekaiger.SwiftyAttributes;
+				PRODUCT_BUNDLE_PACKAGE_TYPE = FMWK;
 				PRODUCT_NAME = SwiftyAttributes;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		C0E1C95E1DD319D50068E85C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "SwiftyAttributes-macOS/Info.plist";
+				INFOPLIST_FILE = SwiftyAttributes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-macOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddiekaiger.SwiftyAttributes;
+				PRODUCT_BUNDLE_PACKAGE_TYPE = FMWK;
 				PRODUCT_NAME = SwiftyAttributes;
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -893,16 +445,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				INFOPLIST_FILE = "SwiftyAttributes-macOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-macOSTests";
+				INFOPLIST_FILE = SwiftyAttributes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @loader_path/Frameworks @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddiekaiger.SwiftyAttributesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -910,90 +457,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				INFOPLIST_FILE = "SwiftyAttributes-macOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-macOSTests";
+				INFOPLIST_FILE = SwiftyAttributes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @loader_path/Frameworks @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddiekaiger.SwiftyAttributesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		C0E1C9881DD31B460068E85C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "SwiftyAttributes-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOS";
-				PRODUCT_NAME = SwiftyAttributes;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		C0E1C9891DD31B460068E85C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "SwiftyAttributes-tvOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOS";
-				PRODUCT_NAME = SwiftyAttributes;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		C0E1C98B1DD31B460068E85C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				INFOPLIST_FILE = "SwiftyAttributes-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-			};
-			name = Debug;
-		};
-		C0E1C98C1DD31B460068E85C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				INFOPLIST_FILE = "SwiftyAttributes-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -1019,7 +487,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1040,14 +507,19 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PRODUCT_BUNDLE_PACKAGE_TYPE = BNDL;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 3.0.1;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1073,7 +545,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1088,125 +559,17 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				PRODUCT_BUNDLE_PACKAGE_TYPE = BNDL;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 3.0.1;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C0E2115F1D9EC5C000623F02 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftyAttributes/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-iOS";
-				PRODUCT_NAME = SwiftyAttributes;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		C0E211601D9EC5C000623F02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftyAttributes/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-iOS";
-				PRODUCT_NAME = SwiftyAttributes;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		C0E211621D9EC5C000623F02 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				INFOPLIST_FILE = SwiftyAttributesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eddiekaiger.SwiftyAttributesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		C0E211631D9EC5C000623F02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				INFOPLIST_FILE = SwiftyAttributesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eddiekaiger.SwiftyAttributesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		C0F148C91DD2E3850085B0BB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "SwiftyAttributes-watchOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-watchOS";
-				PRODUCT_NAME = SwiftyAttributes;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		C0F148CA1DD2E3850085B0BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5KT4ZVPMF8;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "SwiftyAttributes-watchOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddiekaiger.SwiftyAttributes-watchOS";
-				PRODUCT_NAME = SwiftyAttributes;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
@@ -1223,70 +586,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0E1C95C1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-macOS" */ = {
+		C0E1C95C1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0E1C95D1DD319D50068E85C /* Debug */,
 				C0E1C95E1DD319D50068E85C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		C0E1C95F1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-macOSTests" */ = {
+		C0E1C95F1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0E1C9601DD319D50068E85C /* Debug */,
 				C0E1C9611DD319D50068E85C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		C0E1C9871DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0E1C9881DD31B460068E85C /* Debug */,
-				C0E1C9891DD31B460068E85C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		C0E1C98A1DD31B460068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes-tvOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0E1C98B1DD31B460068E85C /* Debug */,
-				C0E1C98C1DD31B460068E85C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0E211441D9EC5C000623F02 /* Build configuration list for PBXProject "SwiftyAttributes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0E2115C1D9EC5C000623F02 /* Debug */,
 				C0E2115D1D9EC5C000623F02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0E2115E1D9EC5C000623F02 /* Build configuration list for PBXNativeTarget "SwiftyAttributes-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0E2115F1D9EC5C000623F02 /* Debug */,
-				C0E211601D9EC5C000623F02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0E211611D9EC5C000623F02 /* Build configuration list for PBXNativeTarget "SwiftyAttributes-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0E211621D9EC5C000623F02 /* Debug */,
-				C0E211631D9EC5C000623F02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0F148C81DD2E3850085B0BB /* Build configuration list for PBXNativeTarget "SwiftyAttributes-watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0F148C91DD2E3850085B0BB /* Debug */,
-				C0F148CA1DD2E3850085B0BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
