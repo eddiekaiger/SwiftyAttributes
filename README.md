@@ -89,12 +89,12 @@ Initializing attributed strings in `SwiftyAttributes` can be done several ways:
 
 - Using the `with[Attribute]` extensions:
     ````swift
-    "Hello World"!.withUnderlineColor(.red).withUnderlineStyle(.styleDouble)
+    "Hello World".withUnderlineColor(.red).withUnderlineStyle(.styleDouble)
     ````
 
 - Using the `Attribute` enum extensions:
     ````swift
-    "Hello World"!.withAttributes([.underlineColor(.red), underlineStyle(.styleDouble)])
+    "Hello World".withAttributes([.underlineColor(.red), underlineStyle(.styleDouble)])
     ````
 
 - Using the `Attribute` enum in an initializer:
