@@ -36,11 +36,11 @@ extension NSAttributedString {
 extension NSAttributedString {
 
     public func fontAttributes(in range: Range<Int>) -> [Attribute] {
-        return convertedAttributes(from: fontAttributes(in: NSRange(range)))
+        return fontAttributes(in: NSRange(range)).swiftyAttributes
     }
 
     public func rulerAttributes(in range: Range<Int>) -> [Attribute] {
-        return convertedAttributes(from: rulerAttributes(in: NSRange(range)))
+        return rulerAttributes(in: NSRange(range)).swiftyAttributes
     }
 
 }
