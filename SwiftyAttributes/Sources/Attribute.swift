@@ -130,7 +130,7 @@ public enum Attribute {
     /// The writing directions to apply to the attributed string. See `WritingDirection` for values. Only available on iOS 9.0+.
     case writingDirections([WritingDirection])
 
-    init!(name: Attribute.Name, value: Any) {
+    init!(name: Attribute.Name, foundationValue: Any) {
         func validate<Type>(_ val: Any) -> Type {
             return val as! Type
         }
@@ -142,44 +142,44 @@ public enum Attribute {
         #if os(watchOS)
         #else
             switch name {
-            case .attachment: ret = .attachment(validate(value))
-            case .shadow: ret = .shadow(validate(value))
+            case .attachment: ret = .attachment(validate(foundationValue))
+            case .shadow: ret = .shadow(validate(foundationValue))
             default: break
             }
         #endif
 
         #if os(macOS)
             switch name {
-            case .cursor: ret = .cursor(validate(value))
-            case .markedClauseSegment: ret = .markedClauseSegment(validate(value))
-            case .spellingState: ret = .spellingState(validate(value))
-            case .superscript: ret = .superscript(validate(value))
-            case .textAlternatives: ret = .textAlternatives(validate(value))
-            case .toolTip: ret = .toolTip(validate(value))
-            case .verticalGlyphForm: ret = .verticalGlyphForm(validate(value))
+            case .cursor: ret = .cursor(validate(foundationValue))
+            case .markedClauseSegment: ret = .markedClauseSegment(validate(foundationValue))
+            case .spellingState: ret = .spellingState(validate(foundationValue))
+            case .superscript: ret = .superscript(validate(foundationValue))
+            case .textAlternatives: ret = .textAlternatives(validate(foundationValue))
+            case .toolTip: ret = .toolTip(validate(foundationValue))
+            case .verticalGlyphForm: ret = .verticalGlyphForm(validate(foundationValue))
             default: break
             }
         #endif
 
         switch name {
-        case .baselineOffset: ret = .baselineOffset(validate(value))
-        case .backgroundColor: ret = .backgroundColor(validate(value))
-        case .expansion: ret = .expansion(validate(value))
-        case .font: ret = .font(validate(value))
-        case .kern: ret = .kern(validate(value))
-        case .ligature: ret = .ligatures(validate(value))
-        case .link: ret = .link(validate(value))
-        case .obliqueness: ret = .obliqueness(validate(value))
-        case .paragraphStyle: ret = .paragraphStyle(validate(value))
-        case .strokeColor: ret = .strokeColor(validate(value))
-        case .strokeWidth: ret = .strokeWidth(validate(value))
-        case .strikethroughColor: ret = .strikethroughColor(validate(value))
-        case .strikethroughStyle: ret = .strikethroughStyle(validate(value))
-        case .textColor: ret = .textColor(validate(value))
-        case .textEffect: ret = .textEffect(validate(value))
-        case .underlineColor: ret = .underlineColor(validate(value))
-        case .underlineStyle: ret = .underlineStyle(validate(value))
-        case .writingDirection: ret = .writingDirections(validate(value))
+        case .baselineOffset: ret = .baselineOffset(validate(foundationValue))
+        case .backgroundColor: ret = .backgroundColor(validate(foundationValue))
+        case .expansion: ret = .expansion(validate(foundationValue))
+        case .font: ret = .font(validate(foundationValue))
+        case .kern: ret = .kern(validate(foundationValue))
+        case .ligature: ret = .ligatures(Ligatures(rawValue: validate(foundationValue))!)
+        case .link: ret = .link(validate(foundationValue))
+        case .obliqueness: ret = .obliqueness(validate(foundationValue))
+        case .paragraphStyle: ret = .paragraphStyle(validate(foundationValue))
+        case .strokeColor: ret = .strokeColor(validate(foundationValue))
+        case .strokeWidth: ret = .strokeWidth(validate(foundationValue))
+        case .strikethroughColor: ret = .strikethroughColor(validate(foundationValue))
+        case .strikethroughStyle: ret = .strikethroughStyle(StrikethroughStyle(rawValue: validate(foundationValue))!)
+        case .textColor: ret = .textColor(validate(foundationValue))
+        case .textEffect: ret = .textEffect(TextEffect(rawValue: validate(foundationValue))!)
+        case .underlineColor: ret = .underlineColor(validate(foundationValue))
+        case .underlineStyle: ret = .underlineStyle(UnderlineStyle(rawValue: validate(foundationValue))!)
+        case .writingDirection: ret = .writingDirections((foundationValue as! [Int]).flatMap(WritingDirection.init))
         default: break
         }
 
@@ -294,166 +294,15 @@ public enum Attribute {
         return ret
     }
 
-    var foundationValue: Any {
+    /// The value that is passed into the original attribute dictionary of Foundation's API for NSAttributedStrings. Consists of basic types such as Int, Color, Font, etc.
+    public var foundationValue: Any {
         switch self {
         case .ligatures(let ligatures): return ligatures.rawValue
-        case .strikethroughStyle(let style): return NSNumber(value: style.rawValue)
+        case .strikethroughStyle(let style): return style.rawValue
         case .textEffect(let effect): return effect.rawValue
-        case .underlineStyle(let style): return NSNumber(value: style.rawValue)
+        case .underlineStyle(let style): return style.rawValue
         case .writingDirections(let directions): return directions.map { $0.rawValue }
         default: return value
-        }
-    }
-
-    /**
-     An enum that corresponds to `Attribute`, mapping attributes to their respective names.
-    */
-    public enum Name: RawRepresentable {
-        #if os(watchOS)
-        #else
-        case attachment
-        #endif
-        case baselineOffset
-        case backgroundColor
-        #if os(macOS)
-        case cursor
-        #endif
-        case expansion
-        case font
-        case kern
-        case ligature
-        case link
-        #if os(macOS)
-        case markedClauseSegment
-        #endif
-        case obliqueness
-        case paragraphStyle
-        #if os(watchOS)
-        #else
-        case shadow
-        #endif
-        #if os(macOS)
-        case spellingState
-        #endif
-        case strokeColor
-        case strokeWidth
-        case strikethroughColor
-        case strikethroughStyle
-        #if os(macOS)
-        case superscript
-        case textAlternatives
-        #endif
-        case textColor
-        case textEffect
-        #if os(macOS)
-        case toolTip
-        #endif
-        case underlineColor
-        case underlineStyle
-        case verticalGlyphForm
-        case writingDirection
-
-        public init?(rawValue: String) {
-
-            #if os(macOS)
-                switch rawValue {
-                case NSCursorAttributeName: self = .cursor
-                case NSMarkedClauseSegmentAttributeName: self = .markedClauseSegment
-                case NSSpellingStateAttributeName: self = .spellingState
-                case NSSuperscriptAttributeName: self = .superscript
-                case NSTextAlternativesAttributeName: self = .textAlternatives
-                case NSToolTipAttributeName: self = .toolTip
-                default: break
-                }
-            #endif
-
-            switch rawValue {
-            case NSAttachmentAttributeName:
-                #if os(watchOS)
-                    return nil
-                #else
-                    self = .attachment
-                #endif
-            case NSBaselineOffsetAttributeName: self = .baselineOffset
-            case NSBackgroundColorAttributeName: self = .backgroundColor
-            case NSExpansionAttributeName: self = .expansion
-            case NSFontAttributeName: self = .font
-            case NSKernAttributeName: self = .kern
-            case NSLigatureAttributeName: self = .ligature
-            case NSLinkAttributeName: self = .link
-            case NSObliquenessAttributeName: self = .obliqueness
-            case NSParagraphStyleAttributeName: self = .paragraphStyle
-            case NSShadowAttributeName:
-                #if os(watchOS)
-                    return nil
-                #else
-                    self = .shadow
-                #endif
-            case NSStrokeColorAttributeName: self = .strokeColor
-            case NSStrokeWidthAttributeName: self = .strokeWidth
-            case NSStrikethroughColorAttributeName: self = .strikethroughColor
-            case NSStrikethroughStyleAttributeName: self = .strikethroughStyle
-            case NSForegroundColorAttributeName: self = .textColor
-            case NSTextEffectAttributeName: self = .textEffect
-            case NSUnderlineColorAttributeName: self = .underlineColor
-            case NSUnderlineStyleAttributeName: self = .underlineStyle
-            case NSVerticalGlyphFormAttributeName: self = .verticalGlyphForm
-            case NSWritingDirectionAttributeName: self = .writingDirection
-            default: return nil
-            }
-        }
-
-        public var rawValue: String {
-
-            var name: String!
-
-            // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
-
-            #if os(watchOS)
-            #else
-                switch self {
-                case .attachment: name = NSAttachmentAttributeName
-                case .shadow: name = NSShadowAttributeName
-                default: break
-                }
-            #endif
-
-            #if os(macOS)
-                switch self {
-                case .cursor: name = NSCursorAttributeName
-                case .markedClauseSegment: name = NSMarkedClauseSegmentAttributeName
-                case .spellingState: name = NSSpellingStateAttributeName
-                case .superscript: name = NSSuperscriptAttributeName
-                case .textAlternatives: name = NSTextAlternativesAttributeName
-                case .toolTip: name = NSToolTipAttributeName
-                case .verticalGlyphForm: name = NSVerticalGlyphFormAttributeName
-                default: break
-                }
-            #endif
-
-            switch self {
-            case .baselineOffset: name = NSBaselineOffsetAttributeName
-            case .backgroundColor: name = NSBackgroundColorAttributeName
-            case .expansion: name = NSExpansionAttributeName
-            case .font: name = NSFontAttributeName
-            case .kern: name = NSKernAttributeName
-            case .ligature: name = NSLigatureAttributeName
-            case .link: name = NSLinkAttributeName
-            case .obliqueness: name = NSObliquenessAttributeName
-            case .paragraphStyle: name = NSParagraphStyleAttributeName
-            case .strokeColor: name = NSStrokeColorAttributeName
-            case .strokeWidth: name = NSStrokeWidthAttributeName
-            case .strikethroughColor: name = NSStrikethroughColorAttributeName
-            case .strikethroughStyle: name = NSStrikethroughStyleAttributeName
-            case .textColor: name = NSForegroundColorAttributeName
-            case .textEffect: name = NSTextEffectAttributeName
-            case .underlineColor: name = NSUnderlineColorAttributeName
-            case .underlineStyle: name = NSUnderlineStyleAttributeName
-            case .writingDirection: name = NSWritingDirectionAttributeName
-            default: break
-            }
-
-            return name
         }
     }
 }

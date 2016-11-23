@@ -74,17 +74,8 @@ extension NSAttributedString {
             The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent. If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
      */
     public func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
-        if let attr = attribute(attrName.rawValue, at: location, effectiveRange: range) {
-            let attributeValue: Any
-            switch attrName {
-            case .ligature: attributeValue = Ligatures(rawValue: attr as! Int)!
-            case .strikethroughStyle: attributeValue = UnderlineStyle(rawValue: attr as! Int)!
-            case .textEffect: attributeValue = TextEffect(rawValue: attr as! String)!
-            case .underlineStyle: attributeValue = UnderlineStyle(rawValue: attr as! Int)!
-            case .writingDirection: attributeValue = (attr as! [Int]).map(WritingDirection.init)
-            default: attributeValue = attr
-            }
-            return Attribute(name: attrName, value: attributeValue)
+        if let attributeValue = attribute(attrName.rawValue, at: location, effectiveRange: range) {
+            return Attribute(name: attrName, foundationValue: attributeValue)
         }
         return nil
     }
@@ -97,25 +88,15 @@ extension NSAttributedString {
         return attributeRanges
     }
 
-    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: ([Attribute], Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
+    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using blockYo: ([Attribute], Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
         enumerateAttributes(in: NSRange(enumerationRange), options: options) { attributes, range, ptr in
-            block(convertedAttributes(from: attributes), range.location ..< (range.location + range.length), ptr)
+            blockYo(attributes.swiftyAttributes, range.location ..< (range.location + range.length), ptr)
         }
     }
 
     public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (Any?, Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
         enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
             block(value, range.location ..< (range.location + range.length), ptr)
-        }
-    }
-
-    func convertedAttributes(from attributes: [String: Any]) -> [Attribute] {
-        return attributes.flatMap { name, value in
-            if let attrName = Attribute.Name(rawValue: name) {
-                return Attribute(name: attrName, value: value)
-            } else {
-                return nil
-            }
         }
     }
 

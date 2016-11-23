@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01C632F1DE58BB100046AB1 /* AttributeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C632E1DE58BB100046AB1 /* AttributeName.swift */; };
+		C01C63311DE58DD200046AB1 /* Attribute+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C63301DE58DD200046AB1 /* Attribute+Sequence.swift */; };
 		C03658FA1DC859D80051F06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658F91DC859D80051F06D /* AppDelegate.swift */; };
 		C03658FC1DC859D80051F06D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658FB1DC859D80051F06D /* ViewController.swift */; };
 		C03658FF1DC859D80051F06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03658FD1DC859D80051F06D /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C01C632E1DE58BB100046AB1 /* AttributeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeName.swift; sourceTree = "<group>"; };
+		C01C63301DE58DD200046AB1 /* Attribute+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attribute+Sequence.swift"; sourceTree = "<group>"; };
 		C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingDirection_Tests.swift; sourceTree = "<group>"; };
 		C0335B651DC087A3009F9B51 /* Operators_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators_Tests.swift; sourceTree = "<group>"; };
 		C03658EF1DC84B3F0051F06D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SwiftyAttributesTests/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -175,6 +179,8 @@
 			children = (
 				C0F001661DDD8E56009AD8E0 /* macOS */,
 				C0F001641DDD8E56009AD8E0 /* Attribute.swift */,
+				C01C632E1DE58BB100046AB1 /* AttributeName.swift */,
+				C01C63301DE58DD200046AB1 /* Attribute+Sequence.swift */,
 				C0F001651DDD8E56009AD8E0 /* Ligatures.swift */,
 				C0F001671DDD8E56009AD8E0 /* NSAttributedString+SwiftyAttributes.swift */,
 				C0F001681DDD8E56009AD8E0 /* NSMutableAttributedString+SwiftyAttributes.swift */,
@@ -365,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01C63311DE58DD200046AB1 /* Attribute+Sequence.swift in Sources */,
 				C0F001781DDD9560009AD8E0 /* VerticalGlyphForm.swift in Sources */,
 				C0F001731DDD8E56009AD8E0 /* TextEffect.swift in Sources */,
 				C0DB42EC1DDED3500093A6FA /* NSAttributedString+macOS.swift in Sources */,
@@ -372,6 +379,7 @@
 				C0F001711DDD8E56009AD8E0 /* Operators.swift in Sources */,
 				C0F001701DDD8E56009AD8E0 /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
 				C0F0016F1DDD8E56009AD8E0 /* NSAttributedString+SwiftyAttributes.swift in Sources */,
+				C01C632F1DE58BB100046AB1 /* AttributeName.swift in Sources */,
 				C0F0016D1DDD8E56009AD8E0 /* Attribute.swift in Sources */,
 				C0F001761DDD8EA5009AD8E0 /* SpellingState.swift in Sources */,
 				C0F001741DDD8E56009AD8E0 /* WritingDirection.swift in Sources */,
