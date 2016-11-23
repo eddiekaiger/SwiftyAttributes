@@ -10,6 +10,8 @@
     import AppKit
     public typealias Color = NSColor
     public typealias Font = NSFont
+    public typealias Cursor = NSCursor
+    public typealias TextAlternatives = NSTextAlternatives
 #else
     import UIKit
     public typealias Color = UIColor
@@ -43,6 +45,11 @@ public enum Attribute {
     /// The background color of the attributed string.
     case backgroundColor(Color)
 
+    #if os(macOS)
+    /// The cursor object associated with the attributed string.
+    case cursor(Cursor)
+    #endif
+
     /// Value indicating the log of the expansion factor to be applied to glyphs.
     case expansion(Double)
 
@@ -58,6 +65,11 @@ public enum Attribute {
     /// A URL link to attach to the attributed string.
     case link(URL)
 
+    #if os(macOS)
+    /// The index in marked text indicating clause segments.
+    case markedClauseSegment(Int)
+    #endif
+
     /// A value indicating the skew to be applied to glyphs.
     case obliqueness(Double)
 
@@ -68,6 +80,11 @@ public enum Attribute {
     #else
     /// A shadow to be applied to the characters.
     case shadow(Shadow)
+    #endif
+
+    #if os(macOS)
+    /// A state indicating a spelling or grammar error. See `SpellingState` for possible values.
+    case spellingState(SpellingState)
     #endif
 
     /// The color of the stroke (border) around the characters.
@@ -82,17 +99,33 @@ public enum Attribute {
     /// The style of the strikethrough.
     case strikethroughStyle(StrikethroughStyle)
 
+    #if os(macOS)
+    /// The superscript attribute.
+    case superscript(Int)
+
+    /// The object representing alternatives for a string that may be presented to the user.
+    case textAlternatives(TextAlternatives)
+    #endif
+
     /// The text color.
     case textColor(Color)
 
     /// The text effect to apply. See `TextEffect` for possible values.
     case textEffect(TextEffect)
 
+    #if os(macOS)
+    /// The text of the tooltip.
+    case toolTip(String)
+    #endif
+
     /// The color of the underline.
     case underlineColor(Color)
 
     /// The style of the underline.
     case underlineStyle(UnderlineStyle)
+
+    /// The vertical glyph form (horizontal or vertical text). See `VerticalGlyphForm` for details.
+    case verticalGlyphForm(VerticalGlyphForm)
 
     /// The writing directions to apply to the attributed string. See `WritingDirection` for values. Only available on iOS 9.0+.
     case writingDirections([WritingDirection])
@@ -102,46 +135,64 @@ public enum Attribute {
             return val as! Type
         }
 
+        var ret: Attribute!
+
         // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
+
         #if os(watchOS)
         #else
             switch name {
-            case .attachment:
-                self = .attachment(validate(value))
-                return
-            case .shadow:
-                self = .shadow(validate(value))
-                return
+            case .attachment: ret = .attachment(validate(value))
+            case .shadow: ret = .shadow(validate(value))
             default: break
             }
         #endif
+
+        #if os(macOS)
+            switch name {
+            case .cursor: ret = .cursor(validate(value))
+            case .markedClauseSegment: ret = .markedClauseSegment(validate(value))
+            case .spellingState: ret = .spellingState(validate(value))
+            case .superscript: ret = .superscript(validate(value))
+            case .textAlternatives: ret = .textAlternatives(validate(value))
+            case .toolTip: ret = .toolTip(validate(value))
+            case .verticalGlyphForm: ret = .verticalGlyphForm(validate(value))
+            default: break
+            }
+        #endif
+
         switch name {
-        case .baselineOffset: self = .baselineOffset(validate(value))
-        case .backgroundColor: self = .backgroundColor(validate(value))
-        case .expansion: self = .expansion(validate(value))
-        case .font: self = .font(validate(value))
-        case .kern: self = .kern(validate(value))
-        case .ligature: self = .ligatures(validate(value))
-        case .link: self = .link(validate(value))
-        case .obliqueness: self = .obliqueness(validate(value))
-        case .paragraphStyle: self = .paragraphStyle(validate(value))
-        case .strokeColor: self = .strokeColor(validate(value))
-        case .strokeWidth: self = .strokeWidth(validate(value))
-        case .strikethroughColor: self = .strikethroughColor(validate(value))
-        case .strikethroughStyle: self = .strikethroughStyle(validate(value))
-        case .textColor: self = .textColor(validate(value))
-        case .textEffect: self = .textEffect(validate(value))
-        case .underlineColor: self = .underlineColor(validate(value))
-        case .underlineStyle: self = .underlineStyle(validate(value))
-        case .writingDirection: self = .writingDirections(validate(value))
-        default: return nil
+        case .baselineOffset: ret = .baselineOffset(validate(value))
+        case .backgroundColor: ret = .backgroundColor(validate(value))
+        case .expansion: ret = .expansion(validate(value))
+        case .font: ret = .font(validate(value))
+        case .kern: ret = .kern(validate(value))
+        case .ligature: ret = .ligatures(validate(value))
+        case .link: ret = .link(validate(value))
+        case .obliqueness: ret = .obliqueness(validate(value))
+        case .paragraphStyle: ret = .paragraphStyle(validate(value))
+        case .strokeColor: ret = .strokeColor(validate(value))
+        case .strokeWidth: ret = .strokeWidth(validate(value))
+        case .strikethroughColor: ret = .strikethroughColor(validate(value))
+        case .strikethroughStyle: ret = .strikethroughStyle(validate(value))
+        case .textColor: ret = .textColor(validate(value))
+        case .textEffect: ret = .textEffect(validate(value))
+        case .underlineColor: ret = .underlineColor(validate(value))
+        case .underlineStyle: ret = .underlineStyle(validate(value))
+        case .writingDirection: ret = .writingDirections(validate(value))
+        default: break
         }
+
+        self = ret
     }
 
     /// The key name corresponding to the attribute.
     public var keyName: String {
+
         var name: Attribute.Name!
+
         // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
+
         #if os(watchOS)
         #else
             switch self {
@@ -150,6 +201,19 @@ public enum Attribute {
             default: break
             }
         #endif
+
+        #if os(macOS)
+            switch self {
+            case .cursor(_): name = .cursor
+            case .markedClauseSegment(_): name = .markedClauseSegment
+            case .spellingState(_): name = .spellingState
+            case .superscript(_): name = .superscript
+            case .textAlternatives(_): name = .textAlternatives
+            case .toolTip(_): name = .toolTip
+            default: break
+            }
+        #endif
+
         switch self {
         case .baselineOffset(_): name = .baselineOffset
         case .backgroundColor(_): name = .backgroundColor
@@ -169,15 +233,20 @@ public enum Attribute {
         case .underlineColor(_): name = .underlineColor
         case .underlineStyle(_): name = .underlineStyle
         case .writingDirections(_): name = .writingDirection
+        case .verticalGlyphForm(_): name = .verticalGlyphForm
         default: break
         }
+
         return name.rawValue
     }
 
     // Convenience getter variable for the associated value of the attribute. See each case to determine the return type.
     public var value: Any {
+
         var ret: Any!
+
         // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
+
         #if os(watchOS)
         #else
             switch self {
@@ -186,6 +255,20 @@ public enum Attribute {
             default: break
             }
         #endif
+
+        #if os(macOS)
+            switch self {
+            case .cursor(let cursor): ret = cursor
+            case .markedClauseSegment(let segment): ret = segment
+            case .spellingState(let state): ret = state
+            case .superscript(let superscript): ret = superscript
+            case .textAlternatives(let alternatives): ret = alternatives
+            case .toolTip(let text): ret = text
+            case .verticalGlyphForm(let form): ret = form
+            default: break
+            }
+        #endif
+
         switch self {
         case .baselineOffset(let offset): ret = offset
         case .backgroundColor(let color): ret = color
@@ -207,6 +290,7 @@ public enum Attribute {
         case .writingDirections(let directions): ret = directions
         default: break
         }
+
         return ret
     }
 
@@ -231,35 +315,64 @@ public enum Attribute {
         #endif
         case baselineOffset
         case backgroundColor
+        #if os(macOS)
+        case cursor
+        #endif
         case expansion
         case font
         case kern
         case ligature
         case link
+        #if os(macOS)
+        case markedClauseSegment
+        #endif
         case obliqueness
         case paragraphStyle
         #if os(watchOS)
         #else
         case shadow
         #endif
+        #if os(macOS)
+        case spellingState
+        #endif
         case strokeColor
         case strokeWidth
         case strikethroughColor
         case strikethroughStyle
+        #if os(macOS)
+        case superscript
+        case textAlternatives
+        #endif
         case textColor
         case textEffect
+        #if os(macOS)
+        case toolTip
+        #endif
         case underlineColor
         case underlineStyle
+        case verticalGlyphForm
         case writingDirection
 
         public init?(rawValue: String) {
+
+            #if os(macOS)
+                switch rawValue {
+                case NSCursorAttributeName: self = .cursor
+                case NSMarkedClauseSegmentAttributeName: self = .markedClauseSegment
+                case NSSpellingStateAttributeName: self = .spellingState
+                case NSSuperscriptAttributeName: self = .superscript
+                case NSTextAlternativesAttributeName: self = .textAlternatives
+                case NSToolTipAttributeName: self = .toolTip
+                default: break
+                }
+            #endif
+
             switch rawValue {
             case NSAttachmentAttributeName:
                 #if os(watchOS)
                     return nil
                 #else
                     self = .attachment
-                    return
                 #endif
             case NSBaselineOffsetAttributeName: self = .baselineOffset
             case NSBackgroundColorAttributeName: self = .backgroundColor
@@ -275,7 +388,6 @@ public enum Attribute {
                     return nil
                 #else
                     self = .shadow
-                    return
                 #endif
             case NSStrokeColorAttributeName: self = .strokeColor
             case NSStrokeWidthAttributeName: self = .strokeWidth
@@ -285,14 +397,18 @@ public enum Attribute {
             case NSTextEffectAttributeName: self = .textEffect
             case NSUnderlineColorAttributeName: self = .underlineColor
             case NSUnderlineStyleAttributeName: self = .underlineStyle
+            case NSVerticalGlyphFormAttributeName: self = .verticalGlyphForm
             case NSWritingDirectionAttributeName: self = .writingDirection
             default: return nil
             }
         }
 
         public var rawValue: String {
+
             var name: String!
+
             // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
+
             #if os(watchOS)
             #else
                 switch self {
@@ -301,6 +417,20 @@ public enum Attribute {
                 default: break
                 }
             #endif
+
+            #if os(macOS)
+                switch self {
+                case .cursor: name = NSCursorAttributeName
+                case .markedClauseSegment: name = NSMarkedClauseSegmentAttributeName
+                case .spellingState: name = NSSpellingStateAttributeName
+                case .superscript: name = NSSuperscriptAttributeName
+                case .textAlternatives: name = NSTextAlternativesAttributeName
+                case .toolTip: name = NSToolTipAttributeName
+                case .verticalGlyphForm: name = NSVerticalGlyphFormAttributeName
+                default: break
+                }
+            #endif
+
             switch self {
             case .baselineOffset: name = NSBaselineOffsetAttributeName
             case .backgroundColor: name = NSBackgroundColorAttributeName
@@ -322,6 +452,7 @@ public enum Attribute {
             case .writingDirection: name = NSWritingDirectionAttributeName
             default: break
             }
+
             return name
         }
     }

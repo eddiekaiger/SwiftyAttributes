@@ -89,6 +89,36 @@ extension NSAttributedString {
         return nil
     }
 
+    public func attributes(in range: CountableRange<Int>) -> [([Attribute], Range<Int>)] {
+        var attributeRanges = [([Attribute], Range<Int>)]()
+        enumerateAttributes(in: Range(uncheckedBounds: (range.lowerBound, range.upperBound))) { attributes, range, ptr in
+            attributeRanges.append((attributes, range))
+        }
+        return attributeRanges
+    }
+
+    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: ([Attribute], Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
+        enumerateAttributes(in: NSRange(enumerationRange), options: options) { attributes, range, ptr in
+            block(convertedAttributes(from: attributes), range.location ..< (range.location + range.length), ptr)
+        }
+    }
+
+    public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (Any?, Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
+        enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
+            block(value, range.location ..< (range.location + range.length), ptr)
+        }
+    }
+
+    func convertedAttributes(from attributes: [String: Any]) -> [Attribute] {
+        return attributes.flatMap { name, value in
+            if let attrName = Attribute.Name(rawValue: name) {
+                return Attribute(name: attrName, value: value)
+            } else {
+                return nil
+            }
+        }
+    }
+
 }
 
 extension NSAttributedString {
@@ -287,6 +317,10 @@ extension NSAttributedString {
      */
     public func withExpansion(_ expansion: Double) -> NSMutableAttributedString {
         return withAttribute(.expansion(expansion))
+    }
+
+    public func withVerticalGlyphForm(_ form: VerticalGlyphForm) -> NSMutableAttributedString {
+        return withAttribute(.verticalGlyphForm(form))
     }
 
     /**
