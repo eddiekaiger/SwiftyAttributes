@@ -88,9 +88,9 @@ extension NSAttributedString {
         return attributeRanges
     }
 
-    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using blockYo: ([Attribute], Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
+    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: ([Attribute], Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
         enumerateAttributes(in: NSRange(enumerationRange), options: options) { attributes, range, ptr in
-            blockYo(attributes.swiftyAttributes, range.location ..< (range.location + range.length), ptr)
+            block(attributes.swiftyAttributes, range.location ..< (range.location + range.length), ptr)
         }
     }
 
