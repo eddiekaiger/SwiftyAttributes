@@ -15,8 +15,14 @@ import AppKit
      This should be used with `Attribute.spellingState`.
  */
 public enum SpellingState: RawRepresentable {
+
+    /// No spelling or grammar indicator.
     case none
+
+    /// The spelling error indicator.
     case spellingFlag
+
+    /// The grammar error indicator.
     case grammarFlag
 
     public init?(rawValue: Int) {

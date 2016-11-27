@@ -139,6 +139,51 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(subject, expected)
     }
 
+    func testAttribute_verticalGlyphForm() {
+        
+    }
+
+    #if os(macOS)
+
+    func testAttribute_cursor() {
+        let cursor = Cursor(image: NSImage(), foregroundColorHint: .blue, backgroundColorHint: .red, hotSpot: NSPoint(x: 2, y: 2))
+        let subject = "Hello".withCursor(cursor)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSCursorAttributeName: cursor])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testAttribute_markedClauseSegment() {
+        let subject = "Hello".withMarkedClauseSegment(3)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSMarkedClauseSegmentAttributeName: 3])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testAttribute_spellingState_grammar() {
+        let subject = "Hello".withSpellingState(.grammarFlag)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSSpellingStateAttributeName: NSSpellingStateGrammarFlag])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testAttribute_spellingState_none() {
+        let subject = "Hello".withSpellingState(.none)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSSpellingStateAttributeName: 0])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testAttribute_superscript() {
+        let subject = "Hello".withSuperscript(4)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSSuperscriptAttributeName: 4])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testAttribute_toolTip() {
+        let subject = "Hello".withToolTip("Sah dude")
+        let expected = NSAttributedString(string: "Hello", attributes: [NSToolTipAttributeName: "Sah dude"])
+        XCTAssertEqual(subject, expected)
+    }
+
+    #endif
+
     func testMultipleAttributes_withSyntax() {
         let subject = "Hello".withTextColor(.darkGray).withBackgroundColor(.magenta).withStrikethroughStyle(.patternDashDotDot)
         let attrs: [String: Any] = [

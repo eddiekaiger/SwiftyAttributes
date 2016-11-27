@@ -66,12 +66,24 @@ extension Attribute {
 
             #if os(macOS)
                 switch rawValue {
-                case NSCursorAttributeName: self = .cursor
-                case NSMarkedClauseSegmentAttributeName: self = .markedClauseSegment
-                case NSSpellingStateAttributeName: self = .spellingState
-                case NSSuperscriptAttributeName: self = .superscript
-                case NSTextAlternativesAttributeName: self = .textAlternatives
-                case NSToolTipAttributeName: self = .toolTip
+                case NSCursorAttributeName:
+                    self = .cursor
+                    return
+                case NSMarkedClauseSegmentAttributeName:
+                    self = .markedClauseSegment
+                    return
+                case NSSpellingStateAttributeName:
+                    self = .spellingState
+                    return
+                case NSSuperscriptAttributeName:
+                    self = .superscript
+                    return
+                case NSTextAlternativesAttributeName:
+                    self = .textAlternatives
+                    return
+                case NSToolTipAttributeName:
+                    self = .toolTip
+                    return
                 default: break
                 }
             #endif

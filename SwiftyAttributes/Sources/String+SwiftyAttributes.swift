@@ -30,13 +30,13 @@ extension String {
         return attributedString.withAttribute(attribute)
     }
 
-}
-
-extension String {
-
     fileprivate var attributedString: NSAttributedString {
         return NSAttributedString(string: self)
     }
+
+}
+
+extension String {
 
     /**
      Creates an attributed string with a specific font.
@@ -45,7 +45,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withFont(_ font: Font) -> NSMutableAttributedString {
-        return attributedString.withFont(font)
+        return withAttribute(.font(font))
     }
 
     /**
@@ -55,7 +55,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withParagraphStyle(_ style: ParagraphStyle) -> NSMutableAttributedString {
-        return attributedString.withParagraphStyle(style)
+        return withAttribute(.paragraphStyle(style))
     }
 
     /**
@@ -65,7 +65,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withTextColor(_ color: Color) -> NSMutableAttributedString {
-        return attributedString.withTextColor(color)
+        return withAttribute(.textColor(color))
     }
 
     /**
@@ -75,7 +75,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withBackgroundColor(_ color: Color) -> NSMutableAttributedString {
-        return attributedString.withBackgroundColor(color)
+        return withAttribute(.backgroundColor(color))
     }
 
     /**
@@ -85,7 +85,7 @@ extension String {
      - returns:                 A new attributed string with the newly added attribute.
      */
     public func withLigatures(_ ligatures: Ligatures) -> NSMutableAttributedString {
-        return attributedString.withLigatures(ligatures)
+        return withAttribute(.ligatures(ligatures))
     }
 
     /**
@@ -95,7 +95,7 @@ extension String {
      - returns:                 A new attributed string with the newly added attribute.
      */
     public func withKern(_ kernValue: Double) -> NSMutableAttributedString {
-        return attributedString.withKern(kernValue)
+        return withAttribute(.kern(kernValue))
     }
 
     /**
@@ -104,8 +104,8 @@ extension String {
      - parameter    style:  The strikethrough style to set for the attributed string.
      - returns:             A new attributed string with the newly added attribute.
      */
-    public func withStrikethroughStyle(_ style: UnderlineStyle) -> NSMutableAttributedString {
-        return attributedString.withStrikethroughStyle(style)
+    public func withStrikethroughStyle(_ style: StrikethroughStyle) -> NSMutableAttributedString {
+        return withAttribute(.strikethroughStyle(style))
     }
 
     /**
@@ -115,7 +115,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withUnderlineStyle(_ style: UnderlineStyle) -> NSMutableAttributedString {
-        return attributedString.withUnderlineStyle(style)
+        return withAttribute(.underlineStyle(style))
     }
 
     /**
@@ -125,7 +125,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withStrokeColor(_ color: Color) -> NSMutableAttributedString {
-        return attributedString.withStrokeColor(color)
+        return withAttribute(.strokeColor(color))
     }
 
     /**
@@ -135,21 +135,8 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withStrokeWidth(_ width: Double) -> NSMutableAttributedString {
-        return attributedString.withStrokeWidth(width)
+        return withAttribute(.strokeWidth(width))
     }
-
-    #if os(watchOS)
-    #else
-    /**
-     Creates an attributed string with a specific shadow.
-
-     - parameter    shadow:     The shadow to set for the attributed string.
-     - returns:                 A new attributed string with the newly added attribute.
-     */
-    public func withShadow(_ shadow: Shadow) -> NSMutableAttributedString {
-        return attributedString.withShadow(shadow)
-    }
-    #endif
 
     /**
      Creates an attributed string with a specific text effect.
@@ -158,21 +145,8 @@ extension String {
      - returns:                 A new attributed string with the newly added attribute.
      */
     public func withTextEffect(_ effect: TextEffect) -> NSMutableAttributedString {
-        return attributedString.withTextEffect(effect)
+        return withAttribute(.textEffect(effect))
     }
-
-    #if os(watchOS)
-    #else
-    /**
-     Creates an attributed string with a specific attachment.
-
-     - parameter    attachment:     The attachment to set for the attributed string.
-     - returns:                     A new attributed string with the newly added attribute.
-     */
-    public func withAttachment(_ attachment: TextAttachment) -> NSMutableAttributedString {
-        return attributedString.withAttachment(attachment)
-    }
-    #endif
 
     /**
      Creates an attributed string with a specific link.
@@ -181,7 +155,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withLink(_ link: URL) -> NSMutableAttributedString {
-        return attributedString.withLink(link)
+        return withAttribute(.link(link))
     }
 
     /**
@@ -191,7 +165,7 @@ extension String {
      - returns:                 A new attributed string with the newly added attribute.
      */
     public func withBaselineOffset(_ offset: Double) -> NSMutableAttributedString {
-        return attributedString.withBaselineOffset(offset)
+        return withAttribute(.baselineOffset(offset))
     }
 
     /**
@@ -201,7 +175,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withUnderlineColor(_ color: Color) -> NSMutableAttributedString {
-        return attributedString.withUnderlineColor(color)
+        return withAttribute(.underlineColor(color))
     }
 
     /**
@@ -211,7 +185,7 @@ extension String {
      - returns:             A new attributed string with the newly added attribute.
      */
     public func withStrikethroughColor(_ color: Color) -> NSMutableAttributedString {
-        return attributedString.withStrikethroughColor(color)
+        return withAttribute(.strikethroughColor(color))
     }
 
     /**
@@ -221,7 +195,7 @@ extension String {
      - returns:                         A new attributed string with the newly added attribute.
      */
     public func withObliqueness(_ obliquenessValue: Double) -> NSMutableAttributedString {
-        return attributedString.withObliqueness(obliquenessValue)
+        return withAttribute(.obliqueness(obliquenessValue))
     }
 
     /**
@@ -231,7 +205,7 @@ extension String {
      - returns:                 A new attributed string with the newly added attribute.
      */
     public func withExpansion(_ expansion: Double) -> NSMutableAttributedString {
-        return attributedString.withExpansion(expansion)
+        return withAttribute(.expansion(expansion))
     }
 
     /**
@@ -241,7 +215,96 @@ extension String {
      - returns:                     A new attributed string with the newly added attribute.
      */
     public func withWritingDirections(_ directions: [WritingDirection]) -> NSMutableAttributedString {
-        return attributedString.withWritingDirections(directions)
+        return withAttribute(.writingDirections(directions))
     }
+
+    /**
+     Creates an attributed string with a specific vertical glyph form (horizontal or vertical writing direction).
+
+     - parameter    form:   The horizontal/vertical writing direction to set for the attributed string. See `VerticalGlyphForm` for details.
+     - returns:             A new attributed string with the newly added attribute.
+     */
+    public func withVerticalGlyphForm(_ form: VerticalGlyphForm) -> NSMutableAttributedString {
+        return withAttribute(.verticalGlyphForm(form))
+    }
+
+    #if os(macOS)
+
+    /**
+     Creates an attributed string with a cursor object.
+
+     - parameter    cursor:     The cursor to set for the attributed string.
+     - returns:                 A new attributed string with the newly added attribute.
+     */
+    public func withCursor(_ cursor: Cursor) -> NSMutableAttributedString {
+        return withAttribute(.cursor(cursor))
+    }
+
+    /**
+     Creates an attributed string with the specified marked clause segment.
+
+     - parameter    markedClauseSegment:    The index in marked text indicating clause segments.
+     - returns:                             A new attributed string with the newly added attribute.
+     */
+    public func withMarkedClauseSegment(_ segment: Int) -> NSMutableAttributedString {
+        return withAttribute(.markedClauseSegment(segment))
+    }
+
+    /**
+     Creates an attributed string with the specified spelling state.
+
+     - parameter    state:  A state indicating a spelling or grammar error. See `SpellingState` for possible values.
+     - returns:             A new attributed string with the newly added attribute.
+     */
+    public func withSpellingState(_ state: SpellingState) -> NSMutableAttributedString {
+        return withAttribute(.spellingState(state))
+    }
+
+    /**
+     Creates an attributed string with the specified superscript value.
+
+     - parameter    superscript:    The superscript to set for the attributed string.
+     - returns:                     A new attributed string with the newly added attribute.
+     */
+    public func withSuperscript(_ superscript: Int) -> NSMutableAttributedString {
+        return withAttribute(.superscript(superscript))
+    }
+
+    /**
+     Creates an attributed string with a tooltip message.
+
+     - parameter    toolTip:    The toolTip message to set for the attributed string.
+     - returns:                 A new attributed string with the newly added attribute.
+     */
+    public func withToolTip(_ toolTip: String) -> NSMutableAttributedString {
+        return withAttribute(.toolTip(toolTip))
+    }
+
+    #endif
+
+    #if os(watchOS)
+    #else
+
+    /**
+     Creates an attributed string with a specific shadow.
+
+     - parameter    shadow:     The shadow to set for the attributed string.
+     - returns:                 A new attributed string with the newly added attribute.
+     */
+    public func withShadow(_ shadow: Shadow) -> NSMutableAttributedString {
+        return withAttribute(.shadow(shadow))
+    }
+
+    /**
+     Creates an attributed string with a specific attachment.
+
+     - parameter    attachment:     The attachment to set for the attributed string.
+     - returns:                     A new attributed string with the newly added attribute.
+     */
+    public func withAttachment(_ attachment: TextAttachment) -> NSMutableAttributedString {
+        return withAttribute(.attachment(attachment))
+    }
+
+    #endif
 
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C01C632F1DE58BB100046AB1 /* AttributeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C632E1DE58BB100046AB1 /* AttributeName.swift */; };
 		C01C63311DE58DD200046AB1 /* Attribute+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C63301DE58DD200046AB1 /* Attribute+Sequence.swift */; };
+		C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */; };
+		C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */; };
 		C03658FA1DC859D80051F06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658F91DC859D80051F06D /* AppDelegate.swift */; };
 		C03658FC1DC859D80051F06D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658FB1DC859D80051F06D /* ViewController.swift */; };
 		C03658FF1DC859D80051F06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03658FD1DC859D80051F06D /* Main.storyboard */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		C01C632E1DE58BB100046AB1 /* AttributeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeName.swift; sourceTree = "<group>"; };
 		C01C63301DE58DD200046AB1 /* Attribute+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attribute+Sequence.swift"; sourceTree = "<group>"; };
+		C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellingState_Tests.swift; sourceTree = "<group>"; };
+		C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attribute+Sequence_Tests.swift"; sourceTree = "<group>"; };
 		C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingDirection_Tests.swift; sourceTree = "<group>"; };
 		C0335B651DC087A3009F9B51 /* Operators_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators_Tests.swift; sourceTree = "<group>"; };
 		C03658EF1DC84B3F0051F06D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SwiftyAttributesTests/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -163,11 +167,13 @@
 			isa = PBXGroup;
 			children = (
 				C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */,
+				C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */,
 				C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */,
 				C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */,
 				C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */,
 				C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */,
 				C0335B651DC087A3009F9B51 /* Operators_Tests.swift */,
+				C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */,
 				C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */,
 				C09633DA1DD8016800059332 /* Info.plist */,
 			);
@@ -396,6 +402,8 @@
 				C0E1C96D1DD31A0D0068E85C /* SwiftyAttributes_Tests.swift in Sources */,
 				C0E1C96A1DD31A0D0068E85C /* Attribute_Tests.swift in Sources */,
 				C0E1C9701DD31A0D0068E85C /* TextEffect_Tests.swift in Sources */,
+				C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */,
+				C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */,
 				C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */,
 				C0E1C96C1DD31A0D0068E85C /* NSAttributedString_Tests.swift in Sources */,
 			);

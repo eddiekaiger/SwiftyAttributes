@@ -82,7 +82,7 @@ extension NSAttributedString {
 
     public func attributes(in range: CountableRange<Int>) -> [([Attribute], Range<Int>)] {
         var attributeRanges = [([Attribute], Range<Int>)]()
-        enumerateAttributes(in: Range(uncheckedBounds: (range.lowerBound, range.upperBound))) { attributes, range, ptr in
+        enumerateAttributes(in: Range(uncheckedBounds: (range.lowerBound, range.upperBound))) { attributes, range, _ in
             attributeRanges.append((attributes, range))
         }
         return attributeRanges
@@ -300,6 +300,12 @@ extension NSAttributedString {
         return withAttribute(.expansion(expansion))
     }
 
+    /**
+     Creates an attributed string with a specific vertical glyph form (horizontal or vertical writing direction).
+
+     - parameter    form:   The horizontal/vertical writing direction to set for the attributed string. See `VerticalGlyphForm` for details.
+     - returns:             A new attributed string with the newly added attribute.
+     */
     public func withVerticalGlyphForm(_ form: VerticalGlyphForm) -> NSMutableAttributedString {
         return withAttribute(.verticalGlyphForm(form))
     }

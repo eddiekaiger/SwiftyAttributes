@@ -296,13 +296,27 @@ public enum Attribute {
 
     /// The value that is passed into the original attribute dictionary of Foundation's API for NSAttributedStrings. Consists of basic types such as Int, Color, Font, etc.
     public var foundationValue: Any {
+        #if os(macOS)
+            switch self {
+            case .spellingState(let state): return state.rawValue
+            default: break
+            }
+        #endif
+
         switch self {
         case .ligatures(let ligatures): return ligatures.rawValue
         case .strikethroughStyle(let style): return style.rawValue
         case .textEffect(let effect): return effect.rawValue
         case .underlineStyle(let style): return style.rawValue
         case .writingDirections(let directions): return directions.map { $0.rawValue }
+        case .verticalGlyphForm(let form): return form.rawValue
         default: return value
         }
     }
+}
+
+extension Attribute: Equatable { }
+
+public func == (lhs: Attribute, rhs: Attribute) -> Bool {
+    return (lhs.foundationValue as? NSObject) == (rhs.foundationValue as? NSObject)
 }
