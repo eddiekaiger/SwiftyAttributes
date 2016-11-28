@@ -27,7 +27,7 @@ With **SwiftyAttributes**, you can write the same thing like this:
 let fancyString = "Hello World!".withTextColor(.blue).withUnderlineStyle(.styleSingle)
 ````
 
-Alternatively, `SwiftyAttributes` provides an `Attribute` enum:
+Alternatively, **SwiftyAttributes** provides an `Attribute` enum:
 ````swift
 let fancyString = "Hello World!".withAttributes([
     .backgroundColor(.magenta),
@@ -43,7 +43,7 @@ You can also easily combine attributed strings using a plus sign:
 let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont(.systemFont(ofSize: 18))
 ````
 
-**SwiftyAttributes** Has support for *every* attribute that can be used in iOS.
+**SwiftyAttributes** has support for *every* attribute that can be used in iOS.
 
 # Requirements
 
@@ -148,4 +148,4 @@ For questions and support, please open up an issue.
 
 # License
 
-SwiftyAttributes is available under the MIT license. See the LICENSE file for more info.
+**SwiftyAttributes** is available under the MIT license. See the LICENSE file for more info.
