@@ -13,13 +13,13 @@ class Attribute_Sequence_Tests: XCTestCase {
     
     func testDictionaryToSwiftyAttributes() {
         let dict: [String: Any] = [
-            NSBaselineOffsetAttributeName: Double(3),
-            NSExpansionAttributeName: Double(5),
+            NSBaselineOffsetAttributeName: 3.2,
+            NSExpansionAttributeName: 5,
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleDouble.rawValue
         ]
         let sort: (Attribute, Attribute) -> Bool = { $0.0.keyName < $0.1.keyName }
         let expected: [Attribute] = [
-            .baselineOffset(3),
+            .baselineOffset(3.2),
             .expansion(5),
             .underlineStyle(.styleDouble)
         ].sorted(by: sort)

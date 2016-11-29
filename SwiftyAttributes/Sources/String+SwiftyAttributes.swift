@@ -30,8 +30,9 @@ extension String {
         return attributedString.withAttribute(attribute)
     }
 
-    fileprivate var attributedString: NSAttributedString {
-        return NSAttributedString(string: self)
+    /// Creates a mutable attributed string with the given string.
+    public var attributedString: NSMutableAttributedString {
+        return NSMutableAttributedString(string: self)
     }
 
 }

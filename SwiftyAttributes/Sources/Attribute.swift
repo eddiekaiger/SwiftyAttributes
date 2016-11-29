@@ -130,9 +130,15 @@ public enum Attribute {
     /// The writing directions to apply to the attributed string. See `WritingDirection` for values. Only available on iOS 9.0+.
     case writingDirections([WritingDirection])
 
-    init!(name: Attribute.Name, foundationValue: Any) {
+    init(name: Attribute.Name, foundationValue: Any) {
         func validate<Type>(_ val: Any) -> Type {
+            assert(val is Type, "Attribute with name \(name.rawValue) must have a value of type \(Type.self)")
             return val as! Type
+        }
+
+        func validateDouble(_ val: Any) -> Double {
+            assert(val is NSNumber, "Attribute with name \(name.rawValue) must have a value that is castable to NSNumber")
+            return (val as! NSNumber).doubleValue
         }
 
         var ret: Attribute!
@@ -162,24 +168,26 @@ public enum Attribute {
         #endif
 
         switch name {
-        case .baselineOffset: ret = .baselineOffset(validate(foundationValue))
+        case .baselineOffset: ret = .baselineOffset(validateDouble(foundationValue))
         case .backgroundColor: ret = .backgroundColor(validate(foundationValue))
-        case .expansion: ret = .expansion(validate(foundationValue))
+        case .expansion: ret = .expansion(validateDouble(foundationValue))
         case .font: ret = .font(validate(foundationValue))
-        case .kern: ret = .kern(validate(foundationValue))
+        case .kern: ret = .kern(validateDouble(foundationValue))
         case .ligature: ret = .ligatures(Ligatures(rawValue: validate(foundationValue))!)
         case .link: ret = .link(validate(foundationValue))
-        case .obliqueness: ret = .obliqueness(validate(foundationValue))
+        case .obliqueness: ret = .obliqueness(validateDouble(foundationValue))
         case .paragraphStyle: ret = .paragraphStyle(validate(foundationValue))
         case .strokeColor: ret = .strokeColor(validate(foundationValue))
-        case .strokeWidth: ret = .strokeWidth(validate(foundationValue))
+        case .strokeWidth: ret = .strokeWidth(validateDouble(foundationValue))
         case .strikethroughColor: ret = .strikethroughColor(validate(foundationValue))
         case .strikethroughStyle: ret = .strikethroughStyle(StrikethroughStyle(rawValue: validate(foundationValue))!)
         case .textColor: ret = .textColor(validate(foundationValue))
         case .textEffect: ret = .textEffect(TextEffect(rawValue: validate(foundationValue))!)
         case .underlineColor: ret = .underlineColor(validate(foundationValue))
         case .underlineStyle: ret = .underlineStyle(UnderlineStyle(rawValue: validate(foundationValue))!)
-        case .writingDirection: ret = .writingDirections((foundationValue as! [Int]).flatMap(WritingDirection.init))
+        case .writingDirection:
+            let values: [Int] = validate(foundationValue)
+            ret = .writingDirections(values.flatMap(WritingDirection.init))
         default: break
         }
 

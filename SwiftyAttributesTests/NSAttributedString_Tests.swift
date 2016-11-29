@@ -30,7 +30,7 @@ class NSAttributedString_Tests: XCTestCase {
     func testAttributeAtLocation_attachment() {
         let attachment = TextAttachment()
         #if os(macOS)
-            // attachment.image = NSImage(named: "Star")!
+            attachment.image = NSImage()
         #else
             attachment.image = UIImage(named: "Star", in: Bundle(for: type(of: self)), compatibleWith: nil)!
         #endif
@@ -58,11 +58,11 @@ class NSAttributedString_Tests: XCTestCase {
     }
 
     func testAttributeAtLocation_expansion() {
-        let str = "Hello".withExpansion(5.1)
+        let str = "Hello".withExpansion(5)
         let subject = str.attribute(.expansion, at: 0, effectiveRange: nil)!.value as! Double
         let expected = str.attribute(NSExpansionAttributeName, at: 0, effectiveRange: nil) as! Double
         XCTAssertEqual(subject, expected)
-        XCTAssertEqual(subject, 5.1)
+        XCTAssertEqual(subject, 5)
     }
 
     func testAttributeAtLocation_font() {
