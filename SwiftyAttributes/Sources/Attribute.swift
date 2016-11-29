@@ -158,11 +158,10 @@ public enum Attribute {
             switch name {
             case .cursor: ret = .cursor(validate(foundationValue))
             case .markedClauseSegment: ret = .markedClauseSegment(validate(foundationValue))
-            case .spellingState: ret = .spellingState(validate(foundationValue))
+            case .spellingState: ret = .spellingState(SpellingState(rawValue: validate(foundationValue))!)
             case .superscript: ret = .superscript(validate(foundationValue))
             case .textAlternatives: ret = .textAlternatives(validate(foundationValue))
             case .toolTip: ret = .toolTip(validate(foundationValue))
-            case .verticalGlyphForm: ret = .verticalGlyphForm(validate(foundationValue))
             default: break
             }
         #endif
@@ -185,6 +184,7 @@ public enum Attribute {
         case .textEffect: ret = .textEffect(TextEffect(rawValue: validate(foundationValue))!)
         case .underlineColor: ret = .underlineColor(validate(foundationValue))
         case .underlineStyle: ret = .underlineStyle(UnderlineStyle(rawValue: validate(foundationValue))!)
+        case .verticalGlyphForm: ret = .verticalGlyphForm(VerticalGlyphForm(rawValue: validate(foundationValue))!)
         case .writingDirection:
             let values: [Int] = validate(foundationValue)
             ret = .writingDirections(values.flatMap(WritingDirection.init))

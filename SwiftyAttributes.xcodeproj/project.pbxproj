@@ -42,6 +42,8 @@
 		C0F001741DDD8E56009AD8E0 /* WritingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0016C1DDD8E56009AD8E0 /* WritingDirection.swift */; };
 		C0F001761DDD8EA5009AD8E0 /* SpellingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F001751DDD8EA5009AD8E0 /* SpellingState.swift */; };
 		C0F001781DDD9560009AD8E0 /* VerticalGlyphForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F001771DDD9560009AD8E0 /* VerticalGlyphForm.swift */; };
+		C0F96A031DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F96A021DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift */; };
+		C0F96A051DEDE23200D039A4 /* String+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F96A041DEDE23200D039A4 /* String+macOS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		C0F0016C1DDD8E56009AD8E0 /* WritingDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingDirection.swift; sourceTree = "<group>"; };
 		C0F001751DDD8EA5009AD8E0 /* SpellingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellingState.swift; sourceTree = "<group>"; };
 		C0F001771DDD9560009AD8E0 /* VerticalGlyphForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalGlyphForm.swift; sourceTree = "<group>"; };
+		C0F96A021DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalGlyphForm_Tests.swift; sourceTree = "<group>"; };
+		C0F96A041DEDE23200D039A4 /* String+macOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+macOS.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,7 @@
 				C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */,
 				C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */,
 				C09633DA1DD8016800059332 /* Info.plist */,
+				C0F96A021DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift */,
 			);
 			path = SwiftyAttributesTests;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			children = (
 				C0F001751DDD8EA5009AD8E0 /* SpellingState.swift */,
 				C0DB42EB1DDED3500093A6FA /* NSAttributedString+macOS.swift */,
+				C0F96A041DEDE23200D039A4 /* String+macOS.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				C0DB42EC1DDED3500093A6FA /* NSAttributedString+macOS.swift in Sources */,
 				C0F0016E1DDD8E56009AD8E0 /* Ligatures.swift in Sources */,
 				C0F001711DDD8E56009AD8E0 /* Operators.swift in Sources */,
+				C0F96A051DEDE23200D039A4 /* String+macOS.swift in Sources */,
 				C0F001701DDD8E56009AD8E0 /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
 				C0F0016F1DDD8E56009AD8E0 /* NSAttributedString+SwiftyAttributes.swift in Sources */,
 				C01C632F1DE58BB100046AB1 /* AttributeName.swift in Sources */,
@@ -482,6 +489,7 @@
 				C0E1C96A1DD31A0D0068E85C /* Attribute_Tests.swift in Sources */,
 				C0E1C9701DD31A0D0068E85C /* TextEffect_Tests.swift in Sources */,
 				C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */,
+				C0F96A031DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift in Sources */,
 				C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */,
 				C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */,
 				C0E1C96C1DD31A0D0068E85C /* NSAttributedString_Tests.swift in Sources */,
@@ -800,6 +808,7 @@
 				C0782E431DEAB30800E1B99F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0E1C95C1DD319D50068E85C /* Build configuration list for PBXNativeTarget "SwiftyAttributes" */ = {
 			isa = XCConfigurationList;

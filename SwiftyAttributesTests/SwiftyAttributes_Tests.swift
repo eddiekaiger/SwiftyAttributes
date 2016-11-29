@@ -179,9 +179,17 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_verticalGlyphForm() {
-        let subject = "Hello".withVerticalGlyphForm(.vertical)
-        let subject2 = "Hello".attributedString.withVerticalGlyphForm(.vertical)
-        let expected = NSAttributedString(string: "Hello", attributes: [NSVerticalGlyphFormAttributeName: NSNumber(value: 1)])
+        let subject = "Hello".withVerticalGlyphForm(.horizontal)
+        let subject2 = "Hello".attributedString.withVerticalGlyphForm(.horizontal)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSVerticalGlyphFormAttributeName: NSNumber(value: 0)])
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject2, expected)
+    }
+
+    func testAttribute_writingDirection() {
+        let subject = "Hello".withWritingDirections([.rightToLeftOverride])
+        let subject2 = "Hello".attributedString.withWritingDirections([.rightToLeftOverride])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSWritingDirectionAttributeName: [NSNumber(value: NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.override.rawValue)]])
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject2, expected)
     }
@@ -229,6 +237,15 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(subject2, expected)
     }
 
+    func testAttribute_textAlternatives() {
+        let alternatives = TextAlternatives(primaryString: "Hi", alternativeStrings: ["Yo", "Sup"])
+        let subject = "Hello".withTextAlternatives(alternatives)
+        let subject2 = "Hello".attributedString.withTextAlternatives(alternatives)
+        let expected = NSAttributedString(string: "Hello", attributes: [NSTextAlternativesAttributeName: alternatives])
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject2, expected)
+    }
+    
     func testAttribute_toolTip() {
         let subject = "Hello".withToolTip("Sah dude")
         let subject2 = "Hello".attributedString.withToolTip("Sah dude")

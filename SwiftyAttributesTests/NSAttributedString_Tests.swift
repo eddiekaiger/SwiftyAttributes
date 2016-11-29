@@ -191,6 +191,14 @@ class NSAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, .byWord)
     }
 
+    func testAttributeAtLocation_verticalGlyphForm() {
+        let str = "Hello".withVerticalGlyphForm(.horizontal)
+        let subject = str.attribute(.verticalGlyphForm, at: 0, effectiveRange: nil)!.value as! VerticalGlyphForm
+        let expected = str.attribute(NSVerticalGlyphFormAttributeName, at: 0, effectiveRange: nil) as! Int
+        XCTAssertEqual(subject.rawValue, expected)
+        XCTAssertEqual(subject, .horizontal)
+    }
+
     func testAttributeAtLocation_writingDirections() {
         let str = "Hello".withWritingDirections([.leftToRightOverride, .rightToLeftEmbedding])
         let subject = str.attribute(.writingDirection, at: 0, effectiveRange: nil)!.value as! [WritingDirection]
@@ -237,6 +245,58 @@ class NSAttributedString_Tests: XCTestCase {
 
     #if os(macOS)
 
+    func testAttributeAtLocation_cursor() {
+        let cursor = Cursor(image: NSImage(), foregroundColorHint: .blue, backgroundColorHint: .red, hotSpot: NSPoint(x: 2, y: 2))
+        let str = "Hello".withCursor(cursor)
+        let subject = str.attribute(.cursor, at: 0, effectiveRange: nil)!.value as! Cursor
+        let expected = str.attribute(NSCursorAttributeName, at: 0, effectiveRange: nil) as! Cursor
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, cursor)
+    }
+
+    func testAttributeAtLocation_markedClauseSegment() {
+        let str = "Hello".withMarkedClauseSegment(2)
+        let subject = str.attribute(.markedClauseSegment, at: 0, effectiveRange: nil)!.value as! Int
+        let expected = str.attribute(NSMarkedClauseSegmentAttributeName, at: 0, effectiveRange: nil) as! Int
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, 2)
+    }
+
+    func testAttributeAtLocation_spellingState() {
+        let str = "Hello".withSpellingState(.grammarFlag)
+        let subject = str.attribute(.spellingState, at: 0, effectiveRange: nil)!.value as! SpellingState
+        let expected = str.attribute(NSSpellingStateAttributeName, at: 0, effectiveRange: nil) as! Int
+        XCTAssertEqual(subject.rawValue, expected)
+        XCTAssertEqual(subject, .grammarFlag)
+    }
+
+    func testAttributeAtLocation_superscript() {
+        let str = "Hello".withSuperscript(3)
+        let subject = str.attribute(.superscript, at: 0, effectiveRange: nil)!.value as! Int
+        let expected = str.attribute(NSSuperscriptAttributeName, at: 0, effectiveRange: nil) as! Int
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, 3)
+    }
+
+    func testAttributeAtLocation_textAlternatives() {
+        let alternatives = TextAlternatives(primaryString: "Hi", alternativeStrings: ["Sup", "Yo"])
+        let str = "Hello".withTextAlternatives(alternatives)
+        let subject = str.attribute(.textAlternatives, at: 0, effectiveRange: nil)!.value as! TextAlternatives
+        let expected = str.attribute(NSTextAlternativesAttributeName, at: 0, effectiveRange: nil) as! TextAlternatives
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, alternatives)
+    }
+
+    func testAttributeAtLocation_toolTip() {
+        let str = "Hello".withToolTip("Yo")
+        let subject = str.attribute(.toolTip, at: 0, effectiveRange: nil)!.value as! String
+        let expected = str.attribute(NSToolTipAttributeName, at: 0, effectiveRange: nil) as! String
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, "Yo")
+    }
+
+    // MARK: - Font Attributes
+
     func testFontAttributes_onlyFontAttributes() {
         let subject = "Hello".withFont(.systemFont(ofSize: 19)).fontAttributes(in: 0 ..< 3).foundationAttributes
         let expected = NSAttributedString(string: "Hello", attributes: [NSFontAttributeName: Font.systemFont(ofSize: 19)]).fontAttributes(in: NSRange(location: 0, length: 3))
@@ -251,6 +311,8 @@ class NSAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
         XCTAssertEqual(subject.swiftyAttributes, [.font(.systemFont(ofSize: 19))])
     }
+
+    // MARK: - Ruler Attributes
 
     func testRulerAttributes_onlyRulerAttributes() {
         let style = NSMutableParagraphStyle()

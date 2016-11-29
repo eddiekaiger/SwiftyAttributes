@@ -1,15 +1,16 @@
 //
-//  NSAttributedString+macOS.swift
+//  String+macOS.swift
 //  SwiftyAttributes
 //
-//  Created by Eddie Kaiger on 11/17/16.
+//  Created by Eddie Kaiger on 11/29/16.
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
+
 
 #if os(macOS)
 import AppKit
 
-extension NSAttributedString {
+extension String {
 
     /**
      Creates an attributed string with a cursor object.
@@ -73,21 +74,4 @@ extension NSAttributedString {
 
 }
 
-extension NSAttributedString {
-
-    /**
-     Returns the font attributes in effect for the character at the given location.
-     */
-    public func fontAttributes(in range: Range<Int>) -> [Attribute] {
-        return fontAttributes(in: NSRange(range)).swiftyAttributes
-    }
-
-    /**
-     Returns the ruler (paragraph) attributes in effect for the characters within the given range.
-     */
-    public func rulerAttributes(in range: Range<Int>) -> [Attribute] {
-        return rulerAttributes(in: NSRange(range)).swiftyAttributes
-    }
-
-}
 #endif
