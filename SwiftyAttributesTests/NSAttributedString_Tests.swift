@@ -235,4 +235,41 @@ class NSAttributedString_Tests: XCTestCase {
         XCTAssertEqual(swiftyRange.location, 5)
     }
 
+    #if os(macOS)
+
+    func testFontAttributes_onlyFontAttributes() {
+        let subject = "Hello".withFont(.systemFont(ofSize: 19)).fontAttributes(in: 0 ..< 3).foundationAttributes
+        let expected = NSAttributedString(string: "Hello", attributes: [NSFontAttributeName: Font.systemFont(ofSize: 19)]).fontAttributes(in: NSRange(location: 0, length: 3))
+        XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
+        XCTAssertEqual(subject.swiftyAttributes, [.font(.systemFont(ofSize: 19))])
+    }
+
+    func testFontAttributes_includesNonFontAttributes() {
+        let url = URL(string: "www.google.com")!
+        let subject = "Hello".withAttributes([.font(.systemFont(ofSize: 19)), .link(url)]).fontAttributes(in: 0 ..< 3).foundationAttributes
+        let expected = NSAttributedString(string: "Hello", attributes: [NSFontAttributeName: Font.systemFont(ofSize: 19), NSLinkAttributeName: url]).fontAttributes(in: NSRange(location: 0, length: 3))
+        XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
+        XCTAssertEqual(subject.swiftyAttributes, [.font(.systemFont(ofSize: 19))])
+    }
+
+    func testRulerAttributes_onlyRulerAttributes() {
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        let subject = "Hello".withParagraphStyle(style).rulerAttributes(in: 1 ..< 3).foundationAttributes
+        let expected = NSAttributedString(string: "Hello", attributes: [NSParagraphStyleAttributeName: style]).rulerAttributes(in: NSRange(location: 1, length: 2))
+        XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
+        XCTAssertEqual(subject.swiftyAttributes, [.paragraphStyle(style)])
+    }
+
+    func testRulerAttributes_includesNonRulerAttributes() {
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        let subject = "Hello".withAttributes([.paragraphStyle(style), .textColor(.cyan)]).rulerAttributes(in: 1 ..< 3).foundationAttributes
+        let expected = NSAttributedString(string: "Hello", attributes: [NSParagraphStyleAttributeName: style, NSForegroundColorAttributeName: Color.cyan]).rulerAttributes(in: NSRange(location: 1, length: 2))
+        XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
+        XCTAssertEqual(subject.swiftyAttributes, [.paragraphStyle(style)])
+    }
+
+    #endif
+
 }
