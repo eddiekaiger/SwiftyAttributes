@@ -272,7 +272,6 @@ public enum Attribute {
             case .superscript(let superscript): ret = superscript
             case .textAlternatives(let alternatives): ret = alternatives
             case .toolTip(let text): ret = text
-            case .verticalGlyphForm(let form): ret = form
             default: break
             }
         #endif
@@ -295,6 +294,7 @@ public enum Attribute {
         case .textEffect(let effect): ret = effect
         case .underlineColor(let color): ret = color
         case .underlineStyle(let style): ret = style
+        case .verticalGlyphForm(let form): ret = form
         case .writingDirections(let directions): ret = directions
         default: break
         }

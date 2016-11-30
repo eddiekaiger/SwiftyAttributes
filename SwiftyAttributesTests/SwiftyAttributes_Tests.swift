@@ -186,6 +186,7 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(subject2, expected)
     }
 
+    @available(iOS 9.0, *)
     func testAttribute_writingDirection() {
         let subject = "Hello".withWritingDirections([.rightToLeftOverride])
         let subject2 = "Hello".attributedString.withWritingDirections([.rightToLeftOverride])

@@ -147,7 +147,6 @@ extension Attribute {
                 case .superscript: name = NSSuperscriptAttributeName
                 case .textAlternatives: name = NSTextAlternativesAttributeName
                 case .toolTip: name = NSToolTipAttributeName
-                case .verticalGlyphForm: name = NSVerticalGlyphFormAttributeName
                 default: break
                 }
             #endif
@@ -170,6 +169,7 @@ extension Attribute {
             case .textEffect: name = NSTextEffectAttributeName
             case .underlineColor: name = NSUnderlineColorAttributeName
             case .underlineStyle: name = NSUnderlineStyleAttributeName
+            case .verticalGlyphForm: name = NSVerticalGlyphFormAttributeName
             case .writingDirection: name = NSWritingDirectionAttributeName
             default: break
             }
