@@ -334,4 +334,110 @@ class NSAttributedString_Tests: XCTestCase {
 
     #endif
 
+    // MARK: Enumeration
+
+    func testEnumerateSingleAttribute() {
+        let str = "Hello".withExpansion(3) + "World".attributedString
+        var enumerated = false
+        str.enumerateAttribute(.expansion, in: 0 ..< 7) { value, range, _ in
+            enumerated = true
+            if range.upperBound == 5 {
+                XCTAssertEqual(value as! Double, 3)
+                XCTAssertEqual(range, 0 ..< 5)
+            } else {
+                XCTAssertNil(value)
+                XCTAssertEqual(range, 5 ..< 7)
+            }
+        }
+        XCTAssertTrue(enumerated)
+    }
+
+    func testEnumerateMultipleAttributes() {
+        var attrs: [Attribute] = [.backgroundColor(.red), .baselineOffset(2), .obliqueness(3)]
+        let str = "Hello World! How is everyone?".attributedString
+        str.addAttributes(attrs, range: 0 ..< 7)
+        attrs[2] = .obliqueness(2)
+        str.addAttributes(attrs, range: 7 ..< 12)
+        str.addAttributes(attrs + [.kern(4)], range: 12 ..< 17)
+
+        let sort: (Attribute, Attribute) -> Bool = { $0.0.keyName < $0.1.keyName }
+
+        var enumerated = false
+        str.enumerateAttributes(in: 3 ..< 15) { attrs, range, _ in
+            enumerated = true
+
+            switch range.upperBound {
+            case 7:
+                XCTAssertEqual(attrs.sorted(by: sort), [.backgroundColor(.red), .baselineOffset(2), .obliqueness(3)])
+                XCTAssertEqual(range, 3 ..< 7)
+            case 12:
+                XCTAssertEqual(attrs.sorted(by: sort), [.backgroundColor(.red), .baselineOffset(2), .obliqueness(2)])
+                XCTAssertEqual(range, 7 ..< 12)
+            case 15:
+                XCTAssertEqual(attrs.sorted(by: sort), [.backgroundColor(.red), .baselineOffset(2), .kern(4), .obliqueness(2)])
+                XCTAssertEqual(range, 12 ..< 15)
+            default:
+                XCTFail("Incorrect upper bound when enumerating attributes")
+            }
+        }
+
+        XCTAssertTrue(enumerated)
+    }
+
+    func testEnumerate_stopValue() {
+        let str = "Hello".withBackgroundColor(.blue) + "World".withKern(3) + "!".withTextColor(.magenta)
+        var enumerations = 0
+        str.enumerateAttributes(in: 0 ..< str.length) { _ in
+            enumerations += 1
+        }
+        XCTAssertEqual(enumerations, 3)
+        enumerations = 0
+        str.enumerateAttributes(in: 0 ..< str.length) { _, _, stop in
+            enumerations += 1
+            if enumerations == 2 {
+                stop.pointee = ObjCBool(true)
+            }
+        }
+        XCTAssertEqual(enumerations, 2)
+    }
+
+    func testEnumerate_options() {
+        let str = "Hello".withExpansion(3) + "World".attributedString
+        var enumeratedEnding = false
+        str.enumerateAttribute(.expansion, in: 0 ..< 7, options: .reverse) { value, range, _ in
+            if range.upperBound == 7 {
+                enumeratedEnding = true
+                XCTAssertNil(value)
+            } else {
+                XCTAssertTrue(enumeratedEnding)
+                XCTAssertEqual(value as! Double, 3)
+            }
+        }
+    }
+
+    func testEnumerate_returnsArrayOfTuples() {
+        var attrs: [Attribute] = [.backgroundColor(.red), .obliqueness(3)]
+        let str = "Hello World! How is everyone?".attributedString
+        str.addAttributes(attrs, range: 0 ..< 7)
+        attrs[1] = .obliqueness(2)
+        str.addAttributes(attrs, range: 7 ..< 12)
+        str.addAttributes(attrs + [.kern(4)], range: 12 ..< 17)
+
+        let sort: (Attribute, Attribute) -> Bool = { $0.0.keyName < $0.1.keyName }
+
+        let subject = str.attributes(in: 3 ..< 15)
+        let expected: [([Attribute], Range<Int>)] = [
+            ([.backgroundColor(.red), .obliqueness(3)], 3 ..< 7),
+            ([.backgroundColor(.red), .obliqueness(2)], 7 ..< 12),
+            ([.backgroundColor(.red), .kern(4), .obliqueness(2)], 12 ..< 15)
+        ]
+
+        XCTAssertEqual(subject.count, 3)
+
+        for (index, tuple) in subject.enumerated() {
+            XCTAssertEqual(tuple.0.sorted(by: sort), expected[index].0.sorted(by: sort))
+            XCTAssertEqual(tuple.1, expected[index].1)
+        }
+    }
+
 }

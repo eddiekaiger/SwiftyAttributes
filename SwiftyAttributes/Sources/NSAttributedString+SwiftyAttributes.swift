@@ -71,7 +71,8 @@ extension NSAttributedString {
             - If the named attribute exists at `location`, upon return `range` contains a range over which the named attribute’s value applies.
             - If the named attribute does not exist at `location`, upon return `range` contains the range over which the attribute does not exist.
             
-            The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent. If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
+            The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent. 
+            If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
      */
     public func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
         if let attributeValue = attribute(attrName.rawValue, at: location, effectiveRange: range) {
@@ -80,21 +81,58 @@ extension NSAttributedString {
         return nil
     }
 
-    public func attributes(in range: CountableRange<Int>) -> [([Attribute], Range<Int>)] {
+    /**
+     Returns the enumerated attributes in a specified range as an array of attribute-range pairs.
+     
+     - parameters:
+        - range:    Contains the maximum range over which the attributes are enumerated.
+        - options:  The options used by the enumeration. The values can be combined using C-bitwise OR. The values are described in `NSAttributedString.EnumerationOptions`.
+     - returns:     An array of attribute-range tuples. Each tuples contains a range and the array of attributes that exist in that range.
+     */
+    public func attributes(in range: Range<Int>, options: NSAttributedString.EnumerationOptions = []) -> [([Attribute], Range<Int>)] {
         var attributeRanges = [([Attribute], Range<Int>)]()
-        enumerateAttributes(in: Range(uncheckedBounds: (range.lowerBound, range.upperBound))) { attributes, range, _ in
+        enumerateAttributes(in: range, options: options) { attributes, range, _ in
             attributeRanges.append((attributes, range))
         }
         return attributeRanges
     }
 
-    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: ([Attribute], Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
+    /**
+     Executes the block for each attribute in the range. For discussion, see documentation for `NSAttributedString.enumerateAttributes(in:options:using:)`.
+     
+     - parameters:
+
+        - enumerationRange: Contains the maximum range over which the attributes and values are enumerated, clipped to enumerationRange.
+        - options:          The options used by the enumeration. The values can be combined using C-bitwise OR. The values are described in `NSAttributedString.EnumerationOptions`.
+        - block:            The block to apply to ranges of the attribute in the attributed string. The block takes three arguments:
+
+        + attrs:    The attributes for the range.
+        + range:    The run of the attributes.
+        + stop:     A reference to a Boolean value. The block can set the value to `true` to stop further processing of the set. 
+                    The stop argument is an out-only argument. You should only ever set this Boolean to `true` within the block.
+     */
+    public func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ attrs: [Attribute], _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
         enumerateAttributes(in: NSRange(enumerationRange), options: options) { attributes, range, ptr in
             block(attributes.swiftyAttributes, range.location ..< (range.location + range.length), ptr)
         }
     }
 
-    public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (Any?, Range<Int>, UnsafeMutablePointer<ObjCBool>) -> Void) {
+    /**
+     Executes the block for the specified attribute run in the specified range. For discussion, see documentation for `NSAttributedString.enumerateAttribute(_:in:options:using:)`.
+     
+     - parameters:
+        
+        - attrName:         The name of an attribute.
+        - enumerationRange: Contains the maximum range over which the attributes and values are enumerated, clipped to enumerationRange.
+        - options:          The options used by the enumeration. The values can be combined using C-bitwise OR. The values are described in `NSAttributedString.EnumerationOptions`.
+        - block:            The block to apply to ranges of the attribute in the attributed string. The block takes three arguments:
+
+         + value:   The value of the attribute.
+         + range:   A range containing the run of the attribute.
+         + stop:    A reference to a Boolean value. The block can set the value to `true` to stop further processing of the set.
+                    The stop argument is an out-only argument. You should only ever set this Boolean to `true` within the block.
+     */
+    public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
         enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
             block(value, range.location ..< (range.location + range.length), ptr)
         }
