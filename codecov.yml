@@ -12,9 +12,9 @@ coverage:
   status:
     changes: false
     patch: true
-    project: true
+    project:
       default:
-        target: 99  
+        target: 99
 parsers:
   gcov:
     branch_detection:
