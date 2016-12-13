@@ -1,22 +1,20 @@
 //
 //  ViewController.swift
-//  ExampleApp-iOS
+//  ExampleApp-macOS
 //
-//  Created by Eddie Kaiger on 10/31/16.
+//  Created by Eddie Kaiger on 11/26/16.
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
-import UIKit
+import Cocoa
 import SwiftyAttributes
 
-private let reuseIdentifier = "CellIdentifier"
+class ViewController: NSViewController {
 
-class ViewController: UITableViewController {
-
-    private let attributedStrings: [NSAttributedString] = [
+    fileprivate let attributedStrings: [NSAttributedString] = [
         {
             let attachment = TextAttachment()
-            attachment.image = UIImage(named: "Star")
+            attachment.image = NSImage(named: "Star")!
             let str = "Attachment  With Image".attributedString
             str.replaceCharacters(in: 10 ..< 12, with: NSAttributedString(attachment: attachment))
             return str
@@ -53,15 +51,22 @@ class ViewController: UITableViewController {
         }()
     ]
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.attributedText = attributedStrings[indexPath.row]
-        return cell
-    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return attributedStrings.count
+            
     }
 
 }
 
+extension ViewController: NSTableViewDataSource {
+
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return attributedStrings.count
+    }
+
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        return attributedStrings[row]
+    }
+
+}

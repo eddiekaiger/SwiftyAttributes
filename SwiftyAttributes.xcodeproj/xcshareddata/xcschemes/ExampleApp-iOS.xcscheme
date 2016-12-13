@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-               BuildableName = "SwiftyAttributes.framework"
-               BlueprintName = "SwiftyAttributes"
+               BlueprintIdentifier = "C03658F61DC859D80051F06D"
+               BuildableName = "ExampleApp-iOS.app"
+               BlueprintName = "ExampleApp-iOS"
                ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,26 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0E1C9521DD319D50068E85C"
-               BuildableName = "SwiftyAttributesTests.xctest"
-               BlueprintName = "SwiftyAttributesTests"
-               ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-            BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes"
+            BlueprintIdentifier = "C03658F61DC859D80051F06D"
+            BuildableName = "ExampleApp-iOS.app"
+            BlueprintName = "ExampleApp-iOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-            BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes"
+            BlueprintIdentifier = "C03658F61DC859D80051F06D"
+            BuildableName = "ExampleApp-iOS.app"
+            BlueprintName = "ExampleApp-iOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0E1C94A1DD319D50068E85C"
-            BuildableName = "SwiftyAttributes.framework"
-            BlueprintName = "SwiftyAttributes"
+            BlueprintIdentifier = "C03658F61DC859D80051F06D"
+            BuildableName = "ExampleApp-iOS.app"
+            BlueprintName = "ExampleApp-iOS"
             ReferencedContainer = "container:SwiftyAttributes.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

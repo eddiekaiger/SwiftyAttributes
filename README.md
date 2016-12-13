@@ -94,7 +94,7 @@ Initializing attributed strings in `SwiftyAttributes` can be done several ways:
 
 - Using the `Attribute` enum extensions:
     ````swift
-    "Hello World".withAttributes([.underlineColor(.red), underlineStyle(.styleDouble)])
+    "Hello World".withAttributes([.underlineColor(.red), .underlineStyle(.styleDouble)])
     ````
 
 - Using the `Attribute` enum in an initializer:
@@ -127,24 +127,24 @@ extension NSAttributedString {
     func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
     func attributedSubstring(from range: Range<Int>) -> NSAttributedString
     func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute?
+    func attributes(in range: Range<Int>, options: NSAttributedString.EnumerationOptions = []) -> [([Attribute], Range<Int>)]
+    func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ attrs: [Attribute], _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
+    func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 
 extension String {
+    var attributedString: NSMutableAttributedString
     func withAttributes(_ attributes: [Attribute]) -> NSMutableAttributedString
     func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
 }
+
+// ... and more!
+
 ````
-
-
-# Goals
-
-The goal of version 3.1.0 will be full support for macOS, tvOS, and watchOS as well as additional helper methods to retrieve and enumerate attributes in an attributed string.
-
-If you have suggestions and feature requests, please feel free to open up an issue.
 
 # Support
 
-For questions and support, please open up an issue.
+For questions, support, and suggestions, please open up an issue.
 
 # License
 

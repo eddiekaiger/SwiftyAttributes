@@ -6,9 +6,13 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
-import UIKit
+#if os(macOS)
+    import AppKit
+#else
+    import UIKit
+#endif
 
-@available(iOS 9.0, *)
+@available(iOS 9.0, OSX 10.11, *)
 private func mappingValue(direction: NSWritingDirection, formatType: NSWritingDirectionFormatType) -> Int {
     return direction.rawValue | formatType.rawValue
 }
@@ -31,7 +35,7 @@ public enum WritingDirection: RawRepresentable {
     case rightToLeftEmbedding
 
     public init?(rawValue: Int) {
-        guard #available(iOS 9.0, *) else { return nil }
+        guard #available(iOS 9.0, macOS 10.11, *) else { return nil }
         switch rawValue {
         case mappingValue(direction: .leftToRight, formatType: .override): self = .leftToRightOverride
         case mappingValue(direction: .rightToLeft, formatType: .override): self = .rightToLeftOverride
@@ -42,7 +46,7 @@ public enum WritingDirection: RawRepresentable {
     }
 
     public var rawValue: Int {
-        guard #available(iOS 9.0, *) else { return 0 }
+        guard #available(iOS 9.0, macOS 10.11, *) else { return 0 }
         switch self {
         case .leftToRightOverride: return mappingValue(direction: .leftToRight, formatType: .override)
         case .rightToLeftOverride: return mappingValue(direction: .rightToLeft, formatType: .override)

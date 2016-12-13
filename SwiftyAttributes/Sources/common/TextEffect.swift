@@ -6,7 +6,11 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
-import Foundation
+#if os(macOS)
+    import AppKit
+#else
+    import UIKit
+#endif
 
 /**
  An enum describing the possible values for text effects on attributed strings.

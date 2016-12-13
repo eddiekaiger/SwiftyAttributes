@@ -1,6 +1,12 @@
 language: objective-c
 osx_image: xcode8
+
+env:
+  - PLATFORM=iOS  CODECOV=ios   DESTINATION='platform=iOS Simulator,name=iPhone 6S'
+  - PLATFORM=Mac  CODECOV=osx   DESTINATION='platform=OS X'
+  - PLATFORM=tvOS CODECOV=tvos  DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
+
 script:
   - xcodebuild -version
-  - xcodebuild -project SwiftyAttributes.xcodeproj -scheme SwiftyAttributesTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
-  - bash <(curl -s https://codecov.io/bash) -cF ios
+  - xcodebuild -project SwiftyAttributes.xcodeproj -scheme "SwiftyAttributes" -destination "$DESTINATION" -configuration Debug -enableCodeCoverage YES CODE_SIGNING_REQUIRED=NO test
+  - bash <(curl -s https://codecov.io/bash) -cF "$CODECOV"

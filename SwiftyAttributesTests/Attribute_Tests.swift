@@ -32,6 +32,15 @@ class Attribute_Tests: XCTestCase {
         XCTAssertEqual(Attribute.Name(rawValue: NSUnderlineColorAttributeName)!, .underlineColor)
         XCTAssertEqual(Attribute.Name(rawValue: NSUnderlineStyleAttributeName)!, .underlineStyle)
         XCTAssertEqual(Attribute.Name(rawValue: NSWritingDirectionAttributeName)!, .writingDirection)
+        XCTAssertEqual(Attribute.Name(rawValue: NSVerticalGlyphFormAttributeName)!, .verticalGlyphForm)
+        #if os(macOS)
+        XCTAssertEqual(Attribute.Name(rawValue: NSCursorAttributeName), .cursor)
+        XCTAssertEqual(Attribute.Name(rawValue: NSMarkedClauseSegmentAttributeName), .markedClauseSegment)
+        XCTAssertEqual(Attribute.Name(rawValue: NSSpellingStateAttributeName), .spellingState)
+        XCTAssertEqual(Attribute.Name(rawValue: NSSuperscriptAttributeName), .superscript)
+        XCTAssertEqual(Attribute.Name(rawValue: NSTextAlternativesAttributeName), .textAlternatives)
+        XCTAssertEqual(Attribute.Name(rawValue: NSToolTipAttributeName), .toolTip)
+        #endif
         XCTAssertNil(Attribute.Name(rawValue: "SomeAttribute"))
     }
 
