@@ -11,7 +11,9 @@ coverage:
   round: down
   status:
     changes: false
-    patch: true
+    patch:
+      default:
+        target: 99
     project:
       default:
         target: 99
