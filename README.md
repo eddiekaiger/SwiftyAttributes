@@ -1,6 +1,6 @@
 # SwiftyAttributes
 
-#### *Swift extensions that make it a breeze to work with attributed strings.*
+#### *A Swifty API for attributed strings.*
 
 ![Swift Version](https://img.shields.io/badge/swift-3.0-orange.svg?style=flat)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -43,11 +43,11 @@ You can also easily combine attributed strings using a plus sign:
 let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont(.systemFont(ofSize: 18))
 ````
 
-**SwiftyAttributes** has support for *every* attribute that can be used in iOS.
+**SwiftyAttributes** has support for *every* attribute available in Cocoa and Cocoa Touch.
 
 # Requirements
 
-* iOS 8.0+
+* iOS 8.0+, macOS 10.11+, watchOS 2.0+, tvOS 9.0+
 
 # Installation
 
