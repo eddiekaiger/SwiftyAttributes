@@ -57,21 +57,9 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 `pod 'SwiftyAttributes'`
 
-> For **Swift 2.3**:
+#### For **Swift 4 Beta**:
 
-> `pod 'SwiftyAttributes', '1.1'`
-
-> If using Xcode 8, you may need to add this to end of your Podfile:
-
-> ```swift
-> post_install do |installer|
->     installer.pods_project.targets.each do |target| 
->         target.build_configurations.each do |config| 
->             config.build_settings["SWIFT_VERSION"] = "2.3"
->         end
->     end
-> end
-> ```
+`pod 'SwiftyAttributes', :git => 'https://github.com/eddiekaiger/SwiftyAttributes.git', :branch => 'swift-4'`
 
 ### With Carthage
 
@@ -79,9 +67,9 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 `github "eddiekaiger/SwiftyAttributes"`
 
-> For **Swift 2.3**:
+#### For **Swift 4 Beta**:
 
-> `github "eddiekaiger/SwiftyAttributes" == 1.1.1`
+`github "eddiekaiger/SwiftyAttributes" "swift-4"`
 
 # Usage
 
