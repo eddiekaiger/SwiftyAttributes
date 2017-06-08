@@ -17,7 +17,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.addAttributes([.link(URL(string: "https://google.com")!)], range: 1 ..< 3)
         XCTAssertNotEqual(subject, expected)
-        expected.addAttributes([NSLinkAttributeName: URL(string: "https://google.com")!], range: NSRange(location: 1, length: 2))
+        expected.addAttributes([NSAttributedStringKey.link: URL(string: "https://google.com")!], range: NSRange(location: 1, length: 2))
         XCTAssertEqual(subject, expected)
     }
 
@@ -27,7 +27,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.addAttributes([.font(.boldSystemFont(ofSize: 17))], range: NSRange(location: 0, length: 1))
         XCTAssertNotEqual(subject, expected)
-        expected.addAttributes([NSFontAttributeName: Font.boldSystemFont(ofSize: 17)], range: NSRange(location: 0, length: 1))
+        expected.addAttributes([NSAttributedStringKey.font: Font.boldSystemFont(ofSize: 17)], range: NSRange(location: 0, length: 1))
         XCTAssertEqual(subject, expected)
     }
 
@@ -37,7 +37,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.setAttributes([.backgroundColor(.orange)], range: 0 ..< 3)
         XCTAssertNotEqual(subject, expected)
-        expected.setAttributes([NSBackgroundColorAttributeName: Color.orange], range: NSRange(location: 0, length: 3))
+        expected.setAttributes([NSAttributedStringKey.backgroundColor: Color.orange], range: NSRange(location: 0, length: 3))
         XCTAssertEqual(subject, expected)
     }
 
@@ -47,7 +47,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.setAttributes([.backgroundColor(.orange)], range: NSRange(location: 2, length: 2))
         XCTAssertNotEqual(subject, expected)
-        expected.setAttributes([NSBackgroundColorAttributeName: Color.orange], range: NSRange(location: 2, length: 2))
+        expected.setAttributes([NSAttributedStringKey.backgroundColor: Color.orange], range: NSRange(location: 2, length: 2))
         XCTAssertEqual(subject, expected)
     }
 
@@ -67,7 +67,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.replaceCharacters(in: 0 ..< 2, with: "Chi".withBackgroundColor(.magenta))
         XCTAssertNotEqual(subject, expected)
-        expected.replaceCharacters(in: NSRange(location: 0, length: 2), with: NSAttributedString(string: "Chi", attributes: [NSBackgroundColorAttributeName: Color.magenta]))
+        expected.replaceCharacters(in: NSRange(location: 0, length: 2), with: NSAttributedString(string: "Chi", attributes: [NSAttributedStringKey.backgroundColor: Color.magenta]))
         XCTAssertEqual(subject, expected)
     }
 
@@ -87,7 +87,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.removeAttribute(.baselineOffset, range: 1 ..< 4)
         XCTAssertNotEqual(subject, expected)
-        expected.removeAttribute(NSBaselineOffsetAttributeName, range: NSRange(location: 1, length: 3))
+        expected.removeAttribute(NSAttributedStringKey.baselineOffset, range: NSRange(location: 1, length: 3))
         XCTAssertEqual(subject, expected)
     }
     

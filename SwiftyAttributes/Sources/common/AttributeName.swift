@@ -62,26 +62,26 @@ extension Attribute {
         case verticalGlyphForm
         case writingDirection
 
-        public init?(rawValue: String) {
+        public init?(rawValue: NSAttributedStringKey) {
 
             #if os(macOS)
                 switch rawValue {
-                case NSCursorAttributeName:
+                case .cursor:
                     self = .cursor
                     return
-                case NSMarkedClauseSegmentAttributeName:
+                case .markedClauseSegment:
                     self = .markedClauseSegment
                     return
-                case NSSpellingStateAttributeName:
+                case .spellingState:
                     self = .spellingState
                     return
-                case NSSuperscriptAttributeName:
+                case .superscript:
                     self = .superscript
                     return
-                case NSTextAlternativesAttributeName:
+                case .textAlternatives:
                     self = .textAlternatives
                     return
-                case NSToolTipAttributeName:
+                case .toolTip:
                     self = .toolTip
                     return
                 default: break
@@ -89,88 +89,88 @@ extension Attribute {
             #endif
 
             switch rawValue {
-            case NSAttachmentAttributeName:
+            case .attachment:
                 #if os(watchOS)
                     return nil
                 #else
                     self = .attachment
                 #endif
-            case NSBaselineOffsetAttributeName: self = .baselineOffset
-            case NSBackgroundColorAttributeName: self = .backgroundColor
-            case NSExpansionAttributeName: self = .expansion
-            case NSFontAttributeName: self = .font
-            case NSKernAttributeName: self = .kern
-            case NSLigatureAttributeName: self = .ligature
-            case NSLinkAttributeName: self = .link
-            case NSObliquenessAttributeName: self = .obliqueness
-            case NSParagraphStyleAttributeName: self = .paragraphStyle
-            case NSShadowAttributeName:
+            case .baselineOffset: self = .baselineOffset
+            case .backgroundColor: self = .backgroundColor
+            case .expansion: self = .expansion
+            case .font: self = .font
+            case .kern: self = .kern
+            case .ligature: self = .ligature
+            case .link: self = .link
+            case .obliqueness: self = .obliqueness
+            case .paragraphStyle: self = .paragraphStyle
+            case .shadow:
                 #if os(watchOS)
                     return nil
                 #else
                     self = .shadow
                 #endif
-            case NSStrokeColorAttributeName: self = .strokeColor
-            case NSStrokeWidthAttributeName: self = .strokeWidth
-            case NSStrikethroughColorAttributeName: self = .strikethroughColor
-            case NSStrikethroughStyleAttributeName: self = .strikethroughStyle
-            case NSForegroundColorAttributeName: self = .textColor
-            case NSTextEffectAttributeName: self = .textEffect
-            case NSUnderlineColorAttributeName: self = .underlineColor
-            case NSUnderlineStyleAttributeName: self = .underlineStyle
-            case NSVerticalGlyphFormAttributeName: self = .verticalGlyphForm
-            case NSWritingDirectionAttributeName: self = .writingDirection
+            case .strokeColor: self = .strokeColor
+            case .strokeWidth: self = .strokeWidth
+            case .strikethroughColor: self = .strikethroughColor
+            case .strikethroughStyle: self = .strikethroughStyle
+            case .foregroundColor: self = .textColor
+            case .textEffect: self = .textEffect
+            case .underlineColor: self = .underlineColor
+            case .underlineStyle: self = .underlineStyle
+            case .verticalGlyphForm: self = .verticalGlyphForm
+            case .writingDirection: self = .writingDirection
             default: return nil
             }
         }
 
-        public var rawValue: String {
+        public var rawValue: NSAttributedStringKey {
 
-            var name: String!
+            var name: NSAttributedStringKey!
 
             // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
 
             #if os(watchOS)
             #else
                 switch self {
-                case .attachment: name = NSAttachmentAttributeName
-                case .shadow: name = NSShadowAttributeName
+                case .attachment: name = .attachment
+                case .shadow: name = .shadow
                 default: break
                 }
             #endif
 
             #if os(macOS)
                 switch self {
-                case .cursor: name = NSCursorAttributeName
-                case .markedClauseSegment: name = NSMarkedClauseSegmentAttributeName
-                case .spellingState: name = NSSpellingStateAttributeName
-                case .superscript: name = NSSuperscriptAttributeName
-                case .textAlternatives: name = NSTextAlternativesAttributeName
-                case .toolTip: name = NSToolTipAttributeName
+                case .cursor: name = .cursor
+                case .markedClauseSegment: name = .markedClauseSegment
+                case .spellingState: name = .spellingState
+                case .superscript: name = .superscript
+                case .textAlternatives: name = .textAlternatives
+                case .toolTip: name = .toolTip
                 default: break
                 }
             #endif
 
             switch self {
-            case .baselineOffset: name = NSBaselineOffsetAttributeName
-            case .backgroundColor: name = NSBackgroundColorAttributeName
-            case .expansion: name = NSExpansionAttributeName
-            case .font: name = NSFontAttributeName
-            case .kern: name = NSKernAttributeName
-            case .ligature: name = NSLigatureAttributeName
-            case .link: name = NSLinkAttributeName
-            case .obliqueness: name = NSObliquenessAttributeName
-            case .paragraphStyle: name = NSParagraphStyleAttributeName
-            case .strokeColor: name = NSStrokeColorAttributeName
-            case .strokeWidth: name = NSStrokeWidthAttributeName
-            case .strikethroughColor: name = NSStrikethroughColorAttributeName
-            case .strikethroughStyle: name = NSStrikethroughStyleAttributeName
-            case .textColor: name = NSForegroundColorAttributeName
-            case .textEffect: name = NSTextEffectAttributeName
-            case .underlineColor: name = NSUnderlineColorAttributeName
-            case .underlineStyle: name = NSUnderlineStyleAttributeName
-            case .verticalGlyphForm: name = NSVerticalGlyphFormAttributeName
-            case .writingDirection: name = NSWritingDirectionAttributeName
+            case .baselineOffset: name = .baselineOffset
+            case .backgroundColor: name = .backgroundColor
+            case .expansion: name = .expansion
+            case .font: name = .font
+            case .kern: name = .kern
+            case .ligature: name = .ligature
+            case .link: name = .link
+            case .obliqueness: name = .obliqueness
+            case .paragraphStyle: name = .paragraphStyle
+            case .strokeColor: name = .strokeColor
+            case .strokeWidth: name =                   .strokeWidth
+            case .strikethroughColor: name = .strikethroughColor
+            case .strikethroughStyle: name = .strikethroughStyle
+            case .textColor: name = .foregroundColor
+            case .textEffect: name = .textEffect
+            case .underlineColor: name = .underlineColor
+            case .underlineStyle: name = .underlineStyle
+            case .verticalGlyphForm: name = .verticalGlyphForm
+            case .writingDirection: name = .writingDirection
             default: break
             }
             

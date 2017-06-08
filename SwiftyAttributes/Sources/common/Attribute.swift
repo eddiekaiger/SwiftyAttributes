@@ -195,7 +195,7 @@ public enum Attribute {
     }
 
     /// The key name corresponding to the attribute.
-    public var keyName: String {
+    public var keyName: NSAttributedStringKey {
 
         var name: Attribute.Name!
 

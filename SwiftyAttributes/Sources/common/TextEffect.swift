@@ -22,14 +22,14 @@ public enum TextEffect: RawRepresentable {
 
     public init?(rawValue: String) {
         switch rawValue {
-        case NSTextEffectLetterpressStyle: self = .letterPressStyle
+        case NSAttributedString.TextEffectStyle.letterpressStyle.rawValue: self = .letterPressStyle
         default: return nil
         }
     }
 
     public var rawValue: String {
         switch self {
-        case .letterPressStyle: return NSTextEffectLetterpressStyle
+        case .letterPressStyle: return NSAttributedString.TextEffectStyle.letterpressStyle.rawValue
         }
     }
 }

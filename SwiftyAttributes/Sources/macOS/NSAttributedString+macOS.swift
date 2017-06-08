@@ -37,7 +37,7 @@ extension NSAttributedString {
      - parameter    state:  A state indicating a spelling or grammar error. See `SpellingState` for possible values.
      - returns:             A new attributed string with the newly added attribute.
      */
-    public func withSpellingState(_ state: SpellingState) -> NSMutableAttributedString {
+    public func withSpellingState(_ state: SwiftyAttributes.SpellingState) -> NSMutableAttributedString {
         return withAttribute(.spellingState(state))
     }
 

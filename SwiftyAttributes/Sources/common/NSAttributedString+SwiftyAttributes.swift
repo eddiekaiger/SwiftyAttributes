@@ -8,8 +8,8 @@
 
 import Foundation
 
-func dictionary(from attributes: [Attribute]) -> [String: Any] {
-    var dict = [String: Any]()
+func dictionary(from attributes: [Attribute]) -> [NSAttributedStringKey: Any] {
+    var dict = [NSAttributedStringKey: Any]()
     for attr in attributes {
         dict[attr.keyName] = attr.foundationValue
     }
@@ -132,7 +132,7 @@ extension NSAttributedString {
          + stop:    A reference to a Boolean value. The block can set the value to `true` to stop further processing of the set.
                     The stop argument is an out-only argument. You should only ever set this Boolean to `true` within the block.
      */
-    public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
+    public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: @escaping (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
         enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
             block(value, range.location ..< (range.location + range.length), ptr)
         }

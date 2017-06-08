@@ -17,14 +17,14 @@ class SpellingState_Tests: XCTestCase {
     }
 
     func testInit_flags() {
-        XCTAssertEqual(SpellingState(rawValue: NSSpellingStateGrammarFlag)!, .grammarFlag)
-        XCTAssertEqual(SpellingState(rawValue: NSSpellingStateSpellingFlag)!, .spellingFlag)
+        XCTAssertEqual(SpellingState(rawValue: 2)!, .grammarFlag)
+        XCTAssertEqual(SpellingState(rawValue: 1)!, .spellingFlag)
         XCTAssertEqual(SpellingState(rawValue: 0)!, .none)
     }
 
     func testRawValue() {
-        XCTAssertEqual(SpellingState.grammarFlag.rawValue, NSSpellingStateGrammarFlag)
-        XCTAssertEqual(SpellingState.spellingFlag.rawValue, NSSpellingStateSpellingFlag)
+        XCTAssertEqual(SpellingState.grammarFlag.rawValue, 2)
+        XCTAssertEqual(SpellingState.spellingFlag.rawValue, 1)
         XCTAssertEqual(SpellingState.none.rawValue, 0)
     }
     

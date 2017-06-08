@@ -28,8 +28,9 @@ public enum SpellingState: RawRepresentable {
     public init?(rawValue: Int) {
         switch rawValue {
         case 0: self = .none
-        case NSSpellingStateSpellingFlag: self = .spellingFlag
-        case NSSpellingStateGrammarFlag: self = .grammarFlag
+        // FIXME: Xcode 9 beta does not recognize NSSpellingStateGrammarFlag and NSSpellingStateSpellingFlag, check back in later betas
+        case 1: self = .spellingFlag
+        case 2: self = .grammarFlag
         default: return nil
         }
     }
@@ -37,8 +38,9 @@ public enum SpellingState: RawRepresentable {
     public var rawValue: Int {
         switch self {
         case .none: return 0
-        case .spellingFlag: return NSSpellingStateSpellingFlag
-        case .grammarFlag: return NSSpellingStateGrammarFlag
+        // FIXME: Xcode 9 beta does not recognize NSSpellingStateGrammarFlag and NSSpellingStateSpellingFlag, check back in later betas
+        case .spellingFlag: return 1
+        case .grammarFlag: return 2
         }
     }
 }
