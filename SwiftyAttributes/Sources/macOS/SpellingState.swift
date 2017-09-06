@@ -14,32 +14,12 @@ import AppKit
      highlighting portions of the text that are flagged for spelling or grammar issues. 
      This should be used with `Attribute.spellingState`.
  */
-public enum SpellingState: RawRepresentable {
-
-    /// No spelling or grammar indicator.
-    case none
+public enum SpellingState: Int {
 
     /// The spelling error indicator.
-    case spellingFlag
+    case spelling = 1
 
     /// The grammar error indicator.
-    case grammarFlag
-
-    public init?(rawValue: Int) {
-        switch rawValue {
-        case 0: self = .none
-        case NSSpellingStateSpellingFlag: self = .spellingFlag
-        case NSSpellingStateGrammarFlag: self = .grammarFlag
-        default: return nil
-        }
-    }
-
-    public var rawValue: Int {
-        switch self {
-        case .none: return 0
-        case .spellingFlag: return NSSpellingStateSpellingFlag
-        case .grammarFlag: return NSSpellingStateGrammarFlag
-        }
-    }
+    case grammar = 2
 }
 #endif
