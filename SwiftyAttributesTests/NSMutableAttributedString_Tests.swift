@@ -17,7 +17,12 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.addAttributes([.link(URL(string: "https://google.com")!)], range: 1 ..< 3)
         XCTAssertNotEqual(subject, expected)
-        expected.addAttributes([NSLinkAttributeName: URL(string: "https://google.com")!], range: NSRange(location: 1, length: 2))
+        #if swift(>=4.0)
+            let linkAttributeName = NSAttributedStringKey.link
+        #else
+            let linkAttributeName = NSLinkAttributeName
+        #endif
+        expected.addAttributes([linkAttributeName: URL(string: "https://google.com")!], range: NSRange(location: 1, length: 2))
         XCTAssertEqual(subject, expected)
     }
 
@@ -27,7 +32,12 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.addAttributes([.font(.boldSystemFont(ofSize: 17))], range: NSRange(location: 0, length: 1))
         XCTAssertNotEqual(subject, expected)
-        expected.addAttributes([NSFontAttributeName: Font.boldSystemFont(ofSize: 17)], range: NSRange(location: 0, length: 1))
+        #if swift(>=4.0)
+            let fontAttributeName = NSAttributedStringKey.font
+        #else
+            let fontAttributeName = NSFontAttributeName
+        #endif
+        expected.addAttributes([fontAttributeName: Font.boldSystemFont(ofSize: 17)], range: NSRange(location: 0, length: 1))
         XCTAssertEqual(subject, expected)
     }
 
@@ -37,7 +47,12 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.setAttributes([.backgroundColor(.orange)], range: 0 ..< 3)
         XCTAssertNotEqual(subject, expected)
-        expected.setAttributes([NSBackgroundColorAttributeName: Color.orange], range: NSRange(location: 0, length: 3))
+        #if swift(>=4.0)
+            let attributeName = NSAttributedStringKey.backgroundColor
+        #else
+            let attributeName = NSBackgroundColorAttributeName
+        #endif
+        expected.setAttributes([attributeName: Color.orange], range: NSRange(location: 0, length: 3))
         XCTAssertEqual(subject, expected)
     }
 
@@ -47,7 +62,12 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.setAttributes([.backgroundColor(.orange)], range: NSRange(location: 2, length: 2))
         XCTAssertNotEqual(subject, expected)
-        expected.setAttributes([NSBackgroundColorAttributeName: Color.orange], range: NSRange(location: 2, length: 2))
+        #if swift(>=4.0)
+            let attributeName = NSAttributedStringKey.backgroundColor
+        #else
+            let attributeName = NSBackgroundColorAttributeName
+        #endif
+        expected.setAttributes([attributeName: Color.orange], range: NSRange(location: 2, length: 2))
         XCTAssertEqual(subject, expected)
     }
 
@@ -67,7 +87,12 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.replaceCharacters(in: 0 ..< 2, with: "Chi".withBackgroundColor(.magenta))
         XCTAssertNotEqual(subject, expected)
-        expected.replaceCharacters(in: NSRange(location: 0, length: 2), with: NSAttributedString(string: "Chi", attributes: [NSBackgroundColorAttributeName: Color.magenta]))
+        #if swift(>=4.0)
+            let attributeName = NSAttributedStringKey.backgroundColor
+        #else
+            let attributeName = NSBackgroundColorAttributeName
+        #endif
+        expected.replaceCharacters(in: NSRange(location: 0, length: 2), with: NSAttributedString(string: "Chi", attributes: [attributeName: Color.magenta]))
         XCTAssertEqual(subject, expected)
     }
 
@@ -87,7 +112,12 @@ class NSMutableAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
         subject.removeAttribute(.baselineOffset, range: 1 ..< 4)
         XCTAssertNotEqual(subject, expected)
-        expected.removeAttribute(NSBaselineOffsetAttributeName, range: NSRange(location: 1, length: 3))
+        #if swift(>=4.0)
+            let attributeName = NSAttributedStringKey.baselineOffset
+        #else
+            let attributeName = NSBaselineOffsetAttributeName
+        #endif
+        expected.removeAttribute(attributeName, range: NSRange(location: 1, length: 3))
         XCTAssertEqual(subject, expected)
     }
     
