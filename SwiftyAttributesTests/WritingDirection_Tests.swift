@@ -20,7 +20,7 @@ class WritingDirection_Tests: XCTestCase {
             NSWritingDirection.leftToRight.rawValue | NSWritingDirectionFormatType.override.rawValue,
             NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue
         ]
-        let expected = NSAttributedString(string: "Hello", attributes: [NSWritingDirectionAttributeName: directions])
+        let expected = NSAttributedString(string: "Hello", attributes: [NSAttributedStringKey.writingDirection: directions])
         XCTAssertEqual(subject, expected)
     }
 
