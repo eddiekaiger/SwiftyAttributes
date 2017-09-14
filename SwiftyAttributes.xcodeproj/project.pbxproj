@@ -17,7 +17,6 @@
 		C03659091DC85AE40051F06D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03658EF1DC84B3F0051F06D /* Images.xcassets */; };
 		C05082291DFA72F700D39B3B /* Attribute+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050821E1DFA72F700D39B3B /* Attribute+Sequence.swift */; };
 		C050822A1DFA72F700D39B3B /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050821F1DFA72F700D39B3B /* Attribute.swift */; };
-		C050822B1DFA72F700D39B3B /* AttributeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05082201DFA72F700D39B3B /* AttributeName.swift */; };
 		C050822C1DFA72F700D39B3B /* Ligatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05082211DFA72F700D39B3B /* Ligatures.swift */; };
 		C050822D1DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05082221DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift */; };
 		C050822E1DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05082231DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift */; };
@@ -33,7 +32,6 @@
 		C09633E01DD806F600059332 /* SwiftyAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C09633DC1DD8056000059332 /* SwiftyAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0DB42EC1DDED3500093A6FA /* NSAttributedString+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB42EB1DDED3500093A6FA /* NSAttributedString+macOS.swift */; };
 		C0E1C9541DD319D50068E85C /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */; };
-		C0E1C96A1DD31A0D0068E85C /* Attribute_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */; };
 		C0E1C96B1DD31A0D0068E85C /* NSMutableAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */; };
 		C0E1C96C1DD31A0D0068E85C /* NSAttributedString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */; };
 		C0E1C96D1DD31A0D0068E85C /* SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */; };
@@ -85,7 +83,6 @@
 		C03659051DC859D80051F06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C050821E1DFA72F700D39B3B /* Attribute+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Attribute+Sequence.swift"; path = "common/Attribute+Sequence.swift"; sourceTree = "<group>"; };
 		C050821F1DFA72F700D39B3B /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attribute.swift; path = common/Attribute.swift; sourceTree = "<group>"; };
-		C05082201DFA72F700D39B3B /* AttributeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeName.swift; path = common/AttributeName.swift; sourceTree = "<group>"; };
 		C05082211DFA72F700D39B3B /* Ligatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ligatures.swift; path = common/Ligatures.swift; sourceTree = "<group>"; };
 		C05082221DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+SwiftyAttributes.swift"; path = "common/NSAttributedString+SwiftyAttributes.swift"; sourceTree = "<group>"; };
 		C05082231DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSMutableAttributedString+SwiftyAttributes.swift"; path = "common/NSMutableAttributedString+SwiftyAttributes.swift"; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		C09633DC1DD8056000059332 /* SwiftyAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyAttributes.h; sourceTree = "<group>"; };
 		C09633DE1DD8057A00059332 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEffect_Tests.swift; sourceTree = "<group>"; };
-		C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute_Tests.swift; sourceTree = "<group>"; };
 		C0DB42EB1DDED3500093A6FA /* NSAttributedString+macOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+macOS.swift"; sourceTree = "<group>"; };
 		C0E1C94B1DD319D50068E85C /* SwiftyAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E1C9531DD319D50068E85C /* SwiftyAttributesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyAttributesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +204,6 @@
 		C0E211571D9EC5C000623F02 /* SwiftyAttributesTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0D753FC1DC5C88900BB9754 /* Attribute_Tests.swift */,
 				C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */,
 				C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */,
 				C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */,
@@ -228,7 +223,6 @@
 			children = (
 				C050821F1DFA72F700D39B3B /* Attribute.swift */,
 				C050821E1DFA72F700D39B3B /* Attribute+Sequence.swift */,
-				C05082201DFA72F700D39B3B /* AttributeName.swift */,
 				C05082211DFA72F700D39B3B /* Ligatures.swift */,
 				C05082221DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift */,
 				C05082231DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift */,
@@ -465,7 +459,6 @@
 				C050822A1DFA72F700D39B3B /* Attribute.swift in Sources */,
 				C050822F1DFA72F700D39B3B /* Operators.swift in Sources */,
 				C050822E1DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
-				C050822B1DFA72F700D39B3B /* AttributeName.swift in Sources */,
 				C05082331DFA72F700D39B3B /* WritingDirection.swift in Sources */,
 				C050822C1DFA72F700D39B3B /* Ligatures.swift in Sources */,
 				C05082311DFA72F700D39B3B /* TextEffect.swift in Sources */,
@@ -486,7 +479,6 @@
 				C0E1C96E1DD31A0D0068E85C /* WritingDirection_Tests.swift in Sources */,
 				C0E1C96B1DD31A0D0068E85C /* NSMutableAttributedString_Tests.swift in Sources */,
 				C0E1C96D1DD31A0D0068E85C /* SwiftyAttributes_Tests.swift in Sources */,
-				C0E1C96A1DD31A0D0068E85C /* Attribute_Tests.swift in Sources */,
 				C0E1C9701DD31A0D0068E85C /* TextEffect_Tests.swift in Sources */,
 				C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */,
 				C0F96A031DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift in Sources */,
@@ -631,7 +623,7 @@
 				PRODUCT_BUNDLE_PACKAGE_TYPE = FMWK;
 				PRODUCT_NAME = SwiftyAttributes;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -653,7 +645,7 @@
 				PRODUCT_BUNDLE_PACKAGE_TYPE = FMWK;
 				PRODUCT_NAME = SwiftyAttributes;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

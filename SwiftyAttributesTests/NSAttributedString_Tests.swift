@@ -13,7 +13,7 @@ class NSAttributedString_Tests: XCTestCase {
     
     func testInit_withStringAndAttributes() {
         let subject = NSAttributedString(string: "Hello World", attributes: [.strokeColor(.green), .strokeWidth(3)])
-        let expected = NSAttributedString(string: "Hello World", attributes: [NSAttributedStringKey.strokeColor: Color.green, NSAttributedStringKey.strokeWidth: 3])
+        let expected = NSAttributedString(string: "Hello World", attributes: [.strokeColor: Color.green, .strokeWidth: 3])
         XCTAssertEqual(subject, expected)
     }
 
@@ -35,56 +35,56 @@ class NSAttributedString_Tests: XCTestCase {
             attachment.image = UIImage(named: "Star", in: Bundle(for: type(of: self)), compatibleWith: nil)!
         #endif
         let str = "Hello".withAttachment(attachment)
-        let subject = str.attribute(.attachment, at: 0, effectiveRange: nil)!.value as! TextAttachment
-        let expected = str.attribute(NSAttributedStringKey.attachment, at: 0, effectiveRange: nil) as! TextAttachment
+        let subject = str.swiftyAttribute(.attachment, at: 0, effectiveRange: nil)!.value as! TextAttachment
+        let expected: TextAttachment = str.attribute(.attachment, at: 0, effectiveRange: nil) as! TextAttachment
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, attachment)
     }
 
     func testAttributeAtLocation_baselineOffet() {
         let str = "Hello".withBaselineOffset(4.2)
-        let subject = str.attribute(.baselineOffset, at: 0, effectiveRange: nil)!.value as! Double
-        let expected = str.attribute(NSAttributedStringKey.baselineOffset, at: 0, effectiveRange: nil) as! Double
+        let subject = str.swiftyAttribute(.baselineOffset, at: 0, effectiveRange: nil)!.value as! Double
+        let expected = str.attribute(.baselineOffset, at: 0, effectiveRange: nil) as! Double
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 4.2)
     }
 
     func testAttributeAtLocation_backgroundColor() {
         let str = "Hello".withBackgroundColor(.blue)
-        let subject = str.attribute(.backgroundColor, at: 0, effectiveRange: nil)!.value as! Color
-        let expected = str.attribute(NSAttributedStringKey.backgroundColor, at: 0, effectiveRange: nil) as! Color
+        let subject = str.swiftyAttribute(.backgroundColor, at: 0, effectiveRange: nil)!.value as! Color
+        let expected = str.attribute(.backgroundColor, at: 0, effectiveRange: nil) as! Color
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .blue)
     }
 
     func testAttributeAtLocation_expansion() {
         let str = "Hello".withExpansion(5)
-        let subject = str.attribute(.expansion, at: 0, effectiveRange: nil)!.value as! Double
-        let expected = str.attribute(NSAttributedStringKey.expansion, at: 0, effectiveRange: nil) as! Double
+        let subject = str.swiftyAttribute(.expansion, at: 0, effectiveRange: nil)!.value as! Double
+        let expected = str.attribute(.expansion, at: 0, effectiveRange: nil) as! Double
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 5)
     }
 
     func testAttributeAtLocation_font() {
         let str = "Hello".withFont(.systemFont(ofSize: 26))
-        let subject = str.attribute(.font, at: 0, effectiveRange: nil)!.value as! Font
-        let expected = str.attribute(NSAttributedStringKey.font, at: 0, effectiveRange: nil) as! Font
+        let subject = str.swiftyAttribute(.font, at: 0, effectiveRange: nil)!.value as! Font
+        let expected = str.attribute(.font, at: 0, effectiveRange: nil) as! Font
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .systemFont(ofSize: 26))
     }
 
     func testAttributeAtLocation_kern() {
         let str = "Hello".withKern(3)
-        let subject = str.attribute(.kern, at: 0, effectiveRange: nil)!.value as! Double
-        let expected = str.attribute(NSAttributedStringKey.kern, at: 0, effectiveRange: nil) as! Double
+        let subject = str.swiftyAttribute(.kern, at: 0, effectiveRange: nil)!.value as! Double
+        let expected = str.attribute(.kern, at: 0, effectiveRange: nil) as! Double
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 3)
     }
 
     func testAttributeAtLocation_ligatures() {
         let str = "Hello".withLigatures(.none)
-        let subject = str.attribute(.ligature, at: 0, effectiveRange: nil)!.value as! Ligatures
-        let value = str.attribute(NSAttributedStringKey.ligature, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.ligature, at: 0, effectiveRange: nil)!.value as! Ligatures
+        let value = str.attribute(.ligature, at: 0, effectiveRange: nil) as! Int
         let expected = Ligatures(rawValue: value)!
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .none)
@@ -92,16 +92,16 @@ class NSAttributedString_Tests: XCTestCase {
 
     func testAttributeAtLocation_link() {
         let str = "Hello".withLink(URL(string: "https://weebly.com")!)
-        let subject = str.attribute(.link, at: 0, effectiveRange: nil)!.value as! URL
-        let expected = str.attribute(NSAttributedStringKey.link, at: 0, effectiveRange: nil) as! URL
+        let subject = str.swiftyAttribute(.link, at: 0, effectiveRange: nil)!.value as! URL
+        let expected = str.attribute(.link, at: 0, effectiveRange: nil) as! URL
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, URL(string: "https://weebly.com"))
     }
 
     func testAttributeAtLocation_obliqueness() {
         let str = "Hello".withObliqueness(8.7)
-        let subject = str.attribute(.obliqueness, at: 0, effectiveRange: nil)!.value as! Double
-        let expected = str.attribute(NSAttributedStringKey.obliqueness, at: 0, effectiveRange: nil) as! Double
+        let subject = str.swiftyAttribute(.obliqueness, at: 0, effectiveRange: nil)!.value as! Double
+        let expected = str.attribute(.obliqueness, at: 0, effectiveRange: nil) as! Double
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 8.7)
     }
@@ -111,8 +111,8 @@ class NSAttributedString_Tests: XCTestCase {
         style.lineSpacing = 3.4
         style.alignment = .right
         let str = "Hello".withParagraphStyle(style)
-        let subject = str.attribute(.paragraphStyle, at: 0, effectiveRange: nil)!.value as! ParagraphStyle
-        let expected = str.attribute(NSAttributedStringKey.paragraphStyle, at: 0, effectiveRange: nil) as! ParagraphStyle
+        let subject = str.swiftyAttribute(.paragraphStyle, at: 0, effectiveRange: nil)!.value as! ParagraphStyle
+        let expected = str.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as! ParagraphStyle
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, style)
     }
@@ -121,96 +121,96 @@ class NSAttributedString_Tests: XCTestCase {
         let shadow = Shadow()
         shadow.shadowOffset = CGSize(width: 3, height: 5)
         let str = "Hello".withShadow(shadow)
-        let subject = str.attribute(.shadow, at: 0, effectiveRange: nil)!.value as! Shadow
-        let expected = str.attribute(NSAttributedStringKey.shadow, at: 0, effectiveRange: nil) as! Shadow
+        let subject = str.swiftyAttribute(.shadow, at: 0, effectiveRange: nil)!.value as! Shadow
+        let expected = str.attribute(.shadow, at: 0, effectiveRange: nil) as! Shadow
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, shadow)
     }
 
     func testAttributeAtLocation_strokeColor() {
         let str = "Hello".withStrokeColor(.magenta)
-        let subject = str.attribute(.strokeColor, at: 0, effectiveRange: nil)!.value as! Color
-        let expected = str.attribute(NSAttributedStringKey.strokeColor, at: 0, effectiveRange: nil) as! Color
+        let subject = str.swiftyAttribute(.strokeColor, at: 0, effectiveRange: nil)!.value as! Color
+        let expected = str.attribute(.strokeColor, at: 0, effectiveRange: nil) as! Color
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .magenta)
     }
 
     func testAttributeAtLocation_strokeWidth() {
         let str = "Hello".withStrokeWidth(2.2)
-        let subject = str.attribute(.strokeWidth, at: 0, effectiveRange: nil)!.value as! Double
-        let expected = str.attribute(NSAttributedStringKey.strokeWidth, at: 0, effectiveRange: nil) as! Double
+        let subject = str.swiftyAttribute(.strokeWidth, at: 0, effectiveRange: nil)!.value as! Double
+        let expected = str.attribute(.strokeWidth, at: 0, effectiveRange: nil) as! Double
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 2.2)
     }
 
     func testAttributeAtLocation_strikethroughColor() {
         let str = "Hello".withStrikethroughColor(.orange)
-        let subject = str.attribute(.strikethroughColor, at: 0, effectiveRange: nil)!.value as! Color
-        let expected = str.attribute(NSAttributedStringKey.strikethroughColor, at: 0, effectiveRange: nil) as! Color
+        let subject = str.swiftyAttribute(.strikethroughColor, at: 0, effectiveRange: nil)!.value as! Color
+        let expected = str.attribute(.strikethroughColor, at: 0, effectiveRange: nil) as! Color
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .orange)
     }
 
     func testAttributeAtLocation_strikethroughStyle() {
         let str = "Hello".withStrikethroughStyle(.styleDouble)
-        let subject = str.attribute(.strikethroughStyle, at: 0, effectiveRange: nil)!.value as! StrikethroughStyle
-        let expected = str.attribute(NSAttributedStringKey.strikethroughStyle, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.strikethroughStyle, at: 0, effectiveRange: nil)!.value as! StrikethroughStyle
+        let expected = str.attribute(.strikethroughStyle, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject.rawValue, expected)
         XCTAssertEqual(subject, .styleDouble)
     }
 
     func testAttributeAtLocation_textColor() {
         let str = "Hello".withTextColor(.green)
-        let subject = str.attribute(.textColor, at: 0, effectiveRange: nil)!.value as! Color
-        let expected = str.attribute(NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: nil) as! Color
+        let subject = str.swiftyAttribute(.foregroundColor, at: 0, effectiveRange: nil)!.value as! Color
+        let expected = str.attribute(.foregroundColor, at: 0, effectiveRange: nil) as! Color
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .green)
     }
 
     func testAttributeAtLocation_textEffect() {
         let str = "Hello".withTextEffect(.letterPressStyle)
-        let subject = str.attribute(.textEffect, at: 0, effectiveRange: nil)!.value as! TextEffect
-        let expected = str.attribute(NSAttributedStringKey.textEffect, at: 0, effectiveRange: nil) as! String
+        let subject = str.swiftyAttribute(.textEffect, at: 0, effectiveRange: nil)!.value as! TextEffect
+        let expected = str.attribute(.textEffect, at: 0, effectiveRange: nil) as! String
         XCTAssertEqual(subject.rawValue, expected)
         XCTAssertEqual(subject.rawValue, NSAttributedString.TextEffectStyle.letterpressStyle.rawValue)
     }
 
     func testAttributeAtLocation_underlineColor() {
         let str = "Hello".withUnderlineColor(.blue)
-        let subject = str.attribute(.underlineColor, at: 0, effectiveRange: nil)!.value as! Color
-        let expected = str.attribute(NSAttributedStringKey.underlineColor, at: 0, effectiveRange: nil) as! Color
+        let subject = str.swiftyAttribute(.underlineColor, at: 0, effectiveRange: nil)!.value as! Color
+        let expected = str.attribute(.underlineColor, at: 0, effectiveRange: nil) as! Color
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, .blue)
     }
 
     func testAttributeAtLocation_underlineStyle() {
         let str = "Hello".withUnderlineStyle(.byWord)
-        let subject = str.attribute(.underlineStyle, at: 0, effectiveRange: nil)!.value as! UnderlineStyle
-        let expected = str.attribute(NSAttributedStringKey.underlineStyle, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.underlineStyle, at: 0, effectiveRange: nil)!.value as! UnderlineStyle
+        let expected = str.attribute(.underlineStyle, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject.rawValue, expected)
         XCTAssertEqual(subject, .byWord)
     }
 
     func testAttributeAtLocation_verticalGlyphForm() {
         let str = "Hello".withVerticalGlyphForm(.horizontal)
-        let subject = str.attribute(.verticalGlyphForm, at: 0, effectiveRange: nil)!.value as! VerticalGlyphForm
-        let expected = str.attribute(NSAttributedStringKey.verticalGlyphForm, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.verticalGlyphForm, at: 0, effectiveRange: nil)!.value as! VerticalGlyphForm
+        let expected = str.attribute(.verticalGlyphForm, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject.rawValue, expected)
         XCTAssertEqual(subject, .horizontal)
     }
 
     func testAttributeAtLocation_writingDirections() {
         let str = "Hello".withWritingDirections([.leftToRightOverride, .rightToLeftEmbedding])
-        let subject = str.attribute(.writingDirection, at: 0, effectiveRange: nil)!.value as! [WritingDirection]
-        let expected = str.attribute(NSAttributedStringKey.writingDirection, at: 0, effectiveRange: nil) as! [Int]
+        let subject = str.swiftyAttribute(.writingDirection, at: 0, effectiveRange: nil)!.value as! [WritingDirection]
+        let expected = str.attribute(.writingDirection, at: 0, effectiveRange: nil) as! [Int]
         XCTAssertEqual(subject.map { $0.rawValue }, expected)
         XCTAssertFalse(subject.isEmpty)
     }
 
     func testAttributeAtLocation_noSuchAttribute() {
         let str = "Hello".withUnderlineColor(.magenta)
-        let subject = str.attribute(Attribute.Name.backgroundColor, at: 0, effectiveRange: nil)
-        let expected = str.attribute(NSAttributedStringKey.backgroundColor, at: 0, effectiveRange: nil)
+        let subject = str.swiftyAttribute(.backgroundColor, at: 0, effectiveRange: nil)
+        let expected = str.attribute(.backgroundColor, at: 0, effectiveRange: nil)
         XCTAssertNil(subject)
         XCTAssertNil(expected)
     }
@@ -219,8 +219,8 @@ class NSAttributedString_Tests: XCTestCase {
         let str = "Hello".withUnderlineStyle(.patternDot) + "World".withUnderlineColor(.magenta)
         var swiftyRange = NSRange()
         var foundationRange = NSRange()
-        let subject = str.attribute(.underlineStyle, at: 0, effectiveRange: &swiftyRange)!.value as! UnderlineStyle
-        let expected = str.attribute(NSAttributedStringKey.underlineStyle, at: 0, effectiveRange: &foundationRange) as! Int
+        let subject = str.swiftyAttribute(.underlineStyle, at: 0, effectiveRange: &swiftyRange)!.value as! UnderlineStyle
+        let expected = str.attribute(.underlineStyle, at: 0, effectiveRange: &foundationRange) as! Int
         XCTAssertEqual(subject.rawValue, expected)
         XCTAssertEqual(subject, .patternDot)
         XCTAssertEqual(swiftyRange.length, foundationRange.length)
@@ -233,8 +233,8 @@ class NSAttributedString_Tests: XCTestCase {
         let str = "Hello".withUnderlineStyle(.patternDot) + "World".withUnderlineColor(.magenta) + "!".withUnderlineStyle(.byWord)
         var swiftyRange = NSRange()
         var foundationRange = NSRange()
-        let subject = str.attribute(Attribute.Name.underlineStyle, at: 6, effectiveRange: &swiftyRange)
-        let expected = str.attribute(NSAttributedStringKey.underlineStyle, at: 6, effectiveRange: &foundationRange)
+        let subject = str.swiftyAttribute(.underlineStyle, at: 6, effectiveRange: &swiftyRange)
+        let expected = str.attribute(.underlineStyle, at: 6, effectiveRange: &foundationRange)
         XCTAssertNil(subject)
         XCTAssertNil(expected)
         XCTAssertEqual(swiftyRange.length, foundationRange.length)
@@ -248,32 +248,32 @@ class NSAttributedString_Tests: XCTestCase {
     func testAttributeAtLocation_cursor() {
         let cursor = Cursor(image: NSImage(), foregroundColorHint: .blue, backgroundColorHint: .red, hotSpot: NSPoint(x: 2, y: 2))
         let str = "Hello".withCursor(cursor)
-        let subject = str.attribute(.cursor, at: 0, effectiveRange: nil)!.value as! Cursor
-        let expected = str.attribute(NSAttributedStringKey.cursor, at: 0, effectiveRange: nil) as! Cursor
+        let subject = str.swiftyAttribute(.cursor, at: 0, effectiveRange: nil)!.value as! Cursor
+        let expected = str.attribute(.cursor, at: 0, effectiveRange: nil) as! Cursor
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, cursor)
     }
 
     func testAttributeAtLocation_markedClauseSegment() {
         let str = "Hello".withMarkedClauseSegment(2)
-        let subject = str.attribute(.markedClauseSegment, at: 0, effectiveRange: nil)!.value as! Int
-        let expected = str.attribute(NSAttributedStringKey.markedClauseSegment, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.markedClauseSegment, at: 0, effectiveRange: nil)!.value as! Int
+        let expected = str.attribute(.markedClauseSegment, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 2)
     }
 
     func testAttributeAtLocation_spellingState() {
         let str = "Hello".withSpellingState(.grammarFlag)
-        let subject = str.attribute(.spellingState, at: 0, effectiveRange: nil)!.value as! SpellingState
-        let expected = str.attribute(NSAttributedStringKey.spellingState, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.spellingState, at: 0, effectiveRange: nil)!.value as! SpellingState
+        let expected = str.attribute(.spellingState, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject.rawValue, expected)
         XCTAssertEqual(subject, .grammarFlag)
     }
 
     func testAttributeAtLocation_superscript() {
         let str = "Hello".withSuperscript(3)
-        let subject = str.attribute(.superscript, at: 0, effectiveRange: nil)!.value as! Int
-        let expected = str.attribute(NSAttributedStringKey.superscript, at: 0, effectiveRange: nil) as! Int
+        let subject = str.swiftyAttribute(.superscript, at: 0, effectiveRange: nil)!.value as! Int
+        let expected = str.attribute(.superscript, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, 3)
     }
@@ -281,16 +281,16 @@ class NSAttributedString_Tests: XCTestCase {
     func testAttributeAtLocation_textAlternatives() {
         let alternatives = TextAlternatives(primaryString: "Hi", alternativeStrings: ["Sup", "Yo"])
         let str = "Hello".withTextAlternatives(alternatives)
-        let subject = str.attribute(.textAlternatives, at: 0, effectiveRange: nil)!.value as! TextAlternatives
-        let expected = str.attribute(NSAttributedStringKey.textAlternatives, at: 0, effectiveRange: nil) as! TextAlternatives
+        let subject = str.swiftyAttribute(.textAlternatives, at: 0, effectiveRange: nil)!.value as! TextAlternatives
+        let expected = str.attribute(.textAlternatives, at: 0, effectiveRange: nil) as! TextAlternatives
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, alternatives)
     }
 
     func testAttributeAtLocation_toolTip() {
         let str = "Hello".withToolTip("Yo")
-        let subject = str.attribute(.toolTip, at: 0, effectiveRange: nil)!.value as! String
-        let expected = str.attribute(NSAttributedStringKey.toolTip, at: 0, effectiveRange: nil) as! String
+        let subject = str.swiftyAttribute(.toolTip, at: 0, effectiveRange: nil)!.value as! String
+        let expected = str.attribute(.toolTip, at: 0, effectiveRange: nil) as! String
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, "Yo")
     }
@@ -299,7 +299,7 @@ class NSAttributedString_Tests: XCTestCase {
 
     func testFontAttributes_onlyFontAttributes() {
         let subject = "Hello".withFont(.systemFont(ofSize: 19)).fontAttributes(in: 0 ..< 3).foundationAttributes
-        let expected = NSAttributedString(string: "Hello", attributes: [NSAttributedStringKey.font: Font.systemFont(ofSize: 19)]).fontAttributes(in: NSRange(location: 0, length: 3))
+        let expected = NSAttributedString(string: "Hello", attributes: [.font: Font.systemFont(ofSize: 19)]).fontAttributes(in: NSRange(location: 0, length: 3))
         XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
         XCTAssertEqual(subject.swiftyAttributes, [.font(.systemFont(ofSize: 19))])
     }
@@ -307,7 +307,7 @@ class NSAttributedString_Tests: XCTestCase {
     func testFontAttributes_includesNonFontAttributes() {
         let url = URL(string: "www.google.com")!
         let subject = "Hello".withAttributes([.font(.systemFont(ofSize: 19)), .link(url)]).fontAttributes(in: 0 ..< 3).foundationAttributes
-        let expected = NSAttributedString(string: "Hello", attributes: [NSAttributedStringKey.font: Font.systemFont(ofSize: 19), NSAttributedStringKey.link: url]).fontAttributes(in: NSRange(location: 0, length: 3))
+        let expected = NSAttributedString(string: "Hello", attributes: [.font: Font.systemFont(ofSize: 19), .link: url]).fontAttributes(in: NSRange(location: 0, length: 3))
         XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
         XCTAssertEqual(subject.swiftyAttributes, [.font(.systemFont(ofSize: 19))])
     }
@@ -318,7 +318,7 @@ class NSAttributedString_Tests: XCTestCase {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         let subject = "Hello".withParagraphStyle(style).rulerAttributes(in: 1 ..< 3).foundationAttributes
-        let expected = NSAttributedString(string: "Hello", attributes: [NSAttributedStringKey.paragraphStyle: style]).rulerAttributes(in: NSRange(location: 1, length: 2))
+        let expected = NSAttributedString(string: "Hello", attributes: [.paragraphStyle: style]).rulerAttributes(in: NSRange(location: 1, length: 2))
         XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
         XCTAssertEqual(subject.swiftyAttributes, [.paragraphStyle(style)])
     }
@@ -327,7 +327,7 @@ class NSAttributedString_Tests: XCTestCase {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         let subject = "Hello".withAttributes([.paragraphStyle(style), .textColor(.cyan)]).rulerAttributes(in: 1 ..< 3).foundationAttributes
-        let expected = NSAttributedString(string: "Hello", attributes: [NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.foregroundColor: Color.cyan]).rulerAttributes(in: NSRange(location: 1, length: 2))
+        let expected = NSAttributedString(string: "Hello", attributes: [.paragraphStyle: style, .foregroundColor: Color.cyan]).rulerAttributes(in: NSRange(location: 1, length: 2))
         XCTAssertEqual(subject as NSDictionary, expected as NSDictionary)
         XCTAssertEqual(subject.swiftyAttributes, [.paragraphStyle(style)])
     }
@@ -405,6 +405,7 @@ class NSAttributedString_Tests: XCTestCase {
     func testEnumerate_options() {
         let str = "Hello".withExpansion(3) + "World".attributedString
         var enumeratedEnding = false
+
         str.enumerateAttribute(.expansion, in: 0 ..< 7, options: .reverse) { value, range, _ in
             if range.upperBound == 7 {
                 enumeratedEnding = true

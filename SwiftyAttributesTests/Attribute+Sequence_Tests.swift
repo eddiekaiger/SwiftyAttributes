@@ -26,20 +26,6 @@ class Attribute_Sequence_Tests: XCTestCase {
         XCTAssertEqual(dict.swiftyAttributes.sorted(by: sort), expected)
     }
 
-    func testDictionaryToSwiftyAttributes_withInvalidValues() {
-        let dict: [NSAttributedStringKey: Any] = [
-            .baselineOffset: 3.2,
-            .underlineStyle: NSUnderlineStyle.styleDouble.rawValue,
-            NSAttributedStringKey(rawValue: "Sah dude"): 5
-        ]
-        let sort: (Attribute, Attribute) -> Bool = { $0.keyName.rawValue < $1.keyName.rawValue }
-        let expected: [Attribute] = [
-            .baselineOffset(3.2),
-            .underlineStyle(.styleDouble)
-        ].sorted(by: sort)
-        XCTAssertEqual(dict.swiftyAttributes.sorted(by: sort), expected)
-    }
-
     func testAttributesArrayToFoundationDictionary() {
         let attrs: [Attribute] = [
             .kern(3.5),

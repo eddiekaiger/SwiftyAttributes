@@ -13,13 +13,7 @@ extension Dictionary where Key == NSAttributedStringKey {
 
     /// Returns an array of `Attribute`s converted from the dictionary of attributes. Use this whenever you want to convert [String: Any] to [Attribute].
     public var swiftyAttributes: [Attribute] {
-        return flatMap { element in
-            if let attrName = Attribute.Name(rawValue: element.key) {
-                return Attribute(name: attrName, foundationValue: element.value)
-            } else {
-                return nil
-            }
-        }
+        return map(Attribute.init)
     }
 
 }

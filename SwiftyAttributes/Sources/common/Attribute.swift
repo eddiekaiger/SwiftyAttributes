@@ -24,8 +24,8 @@ public typealias ParagraphStyle = NSParagraphStyle
 
 #if os(watchOS)
 #else
-public typealias Shadow = NSShadow
-public typealias TextAttachment = NSTextAttachment
+    public typealias Shadow = NSShadow
+    public typealias TextAttachment = NSTextAttachment
 #endif
 
 /**
@@ -130,7 +130,7 @@ public enum Attribute {
     /// The writing directions to apply to the attributed string. See `WritingDirection` for values. Only available on iOS 9.0+.
     case writingDirections([WritingDirection])
 
-    init(name: Attribute.Name, foundationValue: Any) {
+    init(name: NSAttributedStringKey, foundationValue: Any) {
         func validate<Type>(_ val: Any) -> Type {
             assert(val is Type, "Attribute with name \(name.rawValue) must have a value of type \(Type.self)")
             return val as! Type
@@ -180,7 +180,7 @@ public enum Attribute {
         case .strokeWidth: ret = .strokeWidth(validateDouble(foundationValue))
         case .strikethroughColor: ret = .strikethroughColor(validate(foundationValue))
         case .strikethroughStyle: ret = .strikethroughStyle(StrikethroughStyle(rawValue: validate(foundationValue))!)
-        case .textColor: ret = .textColor(validate(foundationValue))
+        case .foregroundColor: ret = .textColor(validate(foundationValue))
         case .textEffect: ret = .textEffect(TextEffect(rawValue: validate(foundationValue))!)
         case .underlineColor: ret = .underlineColor(validate(foundationValue))
         case .underlineStyle: ret = .underlineStyle(UnderlineStyle(rawValue: validate(foundationValue))!)
@@ -197,7 +197,7 @@ public enum Attribute {
     /// The key name corresponding to the attribute.
     public var keyName: NSAttributedStringKey {
 
-        var name: Attribute.Name!
+        var name: NSAttributedStringKey!
 
         // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
 
@@ -236,7 +236,7 @@ public enum Attribute {
         case .strokeWidth(_): name = .strokeWidth
         case .strikethroughColor(_): name = .strikethroughColor
         case .strikethroughStyle(_): name = .strikethroughStyle
-        case .textColor(_): name = .textColor
+        case .textColor(_): name = .foregroundColor
         case .textEffect(_): name = .textEffect
         case .underlineColor(_): name = .underlineColor
         case .underlineStyle(_): name = .underlineStyle
@@ -245,7 +245,7 @@ public enum Attribute {
         default: break
         }
 
-        return name.rawValue
+        return name
     }
 
     // Convenience getter variable for the associated value of the attribute. See each case to determine the return type.
