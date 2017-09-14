@@ -11,23 +11,13 @@
 
 ---
 
-The **original** way to create an attributed string in Swift:
-
-````swift
-let attributes: [String: Any] = [
-    NSForegroundColorAttributeName: UIColor.blue, 
-    NSUnderlineStyleAttributeName:  NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)
-]
-let fancyString = NSAttributedString(string: "Hello World!", attributes: attributes) 
-````
-
-With **SwiftyAttributes**, you can write the same thing like this:
+With **SwiftyAttributes**, you can create attributed strings like so:
 
 ````swift
 let fancyString = "Hello World!".withTextColor(.blue).withUnderlineStyle(.styleSingle)
 ````
 
-Alternatively, **SwiftyAttributes** provides an `Attribute` enum:
+Alternatively, use the `Attribute` enum:
 ````swift
 let fancyString = "Hello World!".withAttributes([
     .backgroundColor(.magenta),

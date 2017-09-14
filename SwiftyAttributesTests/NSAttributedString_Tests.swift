@@ -263,11 +263,11 @@ class NSAttributedString_Tests: XCTestCase {
     }
 
     func testAttributeAtLocation_spellingState() {
-        let str = "Hello".withSpellingState(.grammarFlag)
+        let str = "Hello".withSpellingState(.grammar)
         let subject = str.swiftyAttribute(.spellingState, at: 0, effectiveRange: nil)!.value as! SpellingState
         let expected = str.attribute(.spellingState, at: 0, effectiveRange: nil) as! Int
         XCTAssertEqual(subject.rawValue, expected)
-        XCTAssertEqual(subject, .grammarFlag)
+        XCTAssertEqual(subject, .grammar)
     }
 
     func testAttributeAtLocation_superscript() {

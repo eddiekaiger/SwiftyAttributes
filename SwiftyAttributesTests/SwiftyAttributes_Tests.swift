@@ -215,17 +215,9 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_spellingState_grammar() {
-        let subject = "Hello".withSpellingState(.grammarFlag)
-        let subject2 = "Hello".attributedString.withSpellingState(.grammarFlag)
+        let subject = "Hello".withSpellingState(.grammar)
+        let subject2 = "Hello".attributedString.withSpellingState(.grammar)
         let expected = NSAttributedString(string: "Hello", attributes: [.spellingState: 2])
-        XCTAssertEqual(subject, expected)
-        XCTAssertEqual(subject2, expected)
-    }
-
-    func testAttribute_spellingState_none() {
-        let subject = "Hello".withSpellingState(.none)
-        let subject2 = "Hello".attributedString.withSpellingState(.none)
-        let expected = NSAttributedString(string: "Hello", attributes: [.spellingState: 0])
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject2, expected)
     }
