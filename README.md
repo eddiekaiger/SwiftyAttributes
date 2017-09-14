@@ -3,6 +3,7 @@
 #### *A Swifty API for attributed strings.*
 
 ![Swift Version](https://img.shields.io/badge/swift-4-orange.svg?style=flat)
+![Swift Version](https://img.shields.io/badge/swift-3.2-orange.svg?style=flat)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyAttributes.svg?style=flat)](http://cocoapods.org/pods/SwiftyAttributes)
@@ -38,28 +39,18 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 # Requirements
 
 * iOS 8.0+, macOS 10.11+, watchOS 2.0+, tvOS 9.0+
+* Swift 4.0 or 3.2
+* Xcode 9
 
 # Installation
 
 ### With CocoaPods
 
-#### For **Swift 4**:
-
 `pod 'SwiftyAttributes'`
-
-#### For **Swift 3**:
-
-`pod 'SwiftyAttributes', :git => 'https://github.com/eddiekaiger/SwiftyAttributes.git', :branch => 'swift-3'`
 
 ### With Carthage
 
-#### For **Swift 4**:
-
 `github "eddiekaiger/SwiftyAttributes"`
-
-#### For **Swift 3 Beta**:
-
-`github "eddiekaiger/SwiftyAttributes" "swift-3"`
 
 # Usage
 
