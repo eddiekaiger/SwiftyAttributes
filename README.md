@@ -2,7 +2,8 @@
 
 #### *A Swifty API for attributed strings.*
 
-![Swift Version](https://img.shields.io/badge/swift-3.0-orange.svg?style=flat)
+![Swift Version](https://img.shields.io/badge/swift-4-orange.svg?style=flat)
+![Swift Version](https://img.shields.io/badge/swift-3.2-orange.svg?style=flat)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyAttributes.svg?style=flat)](http://cocoapods.org/pods/SwiftyAttributes)
@@ -38,28 +39,18 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 # Requirements
 
 * iOS 8.0+, macOS 10.11+, watchOS 2.0+, tvOS 9.0+
+* Swift 4.0 or 3.2
+* Xcode 9
 
 # Installation
 
 ### With CocoaPods
 
-#### For **Swift 3**:
-
 `pod 'SwiftyAttributes'`
-
-#### For **Swift 4 Beta**:
-
-`pod 'SwiftyAttributes', :git => 'https://github.com/eddiekaiger/SwiftyAttributes.git', :branch => 'swift-4'`
 
 ### With Carthage
 
-#### For **Swift 3**:
-
 `github "eddiekaiger/SwiftyAttributes"`
-
-#### For **Swift 4 Beta**:
-
-`github "eddiekaiger/SwiftyAttributes" "swift-4"`
 
 # Usage
 
@@ -82,7 +73,7 @@ Initializing attributed strings in `SwiftyAttributes` can be done several ways:
     
 You can retrieve the attribute at a specific location using an attribute name from the `Attribute.Name` enum:
 ````swift
-let attr: Attribute? = myAttributedString.attribute(.shadow, at: 5)
+let attr: Attribute? = myAttributedString.swiftyAttribute(.shadow, at: 5)
 ````
 
 Several API methods are provided to use these new enums as well as Swift's `Range` type instead of `NSRange`. Some of the method signatures include:
@@ -96,7 +87,7 @@ extension NSMutableAttributedString {
     func replaceCharacters(in range: Range<Int>, with str: String)
     func replaceCharacters(in range: Range<Int>, with attrString: NSAttributedString)
     func deleteCharacters(in range: Range<Int>)
-    func removeAttribute(_ name: Attribute.Name, range: Range<Int>)
+    func removeAttribute(_ name: NSAttributedStringKey, range: Range<Int>)
 }
 
 extension NSAttributedString {
@@ -104,10 +95,10 @@ extension NSAttributedString {
     func withAttributes(_ attributes: [Attribute]) -> NSMutableAttributedString
     func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
     func attributedSubstring(from range: Range<Int>) -> NSAttributedString
-    func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute?
+    func swiftyAttribute(_ attrName: NSAttributedStringKey, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute?
     func attributes(in range: Range<Int>, options: NSAttributedString.EnumerationOptions = []) -> [([Attribute], Range<Int>)]
     func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ attrs: [Attribute], _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
-    func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
+    func enumerateAttribute(_ attrName: NSAttributedStringKey, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 
 extension String {

@@ -6,6 +6,9 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
+#if swift(>=4.0)
+#else
+
 #if os(macOS)
     import AppKit
 #else
@@ -52,7 +55,7 @@ extension Attribute {
         case superscript
         case textAlternatives
         #endif
-        case textColor
+        case foregroundColor
         case textEffect
         #if os(macOS)
         case toolTip
@@ -114,7 +117,7 @@ extension Attribute {
             case NSStrokeWidthAttributeName: self = .strokeWidth
             case NSStrikethroughColorAttributeName: self = .strikethroughColor
             case NSStrikethroughStyleAttributeName: self = .strikethroughStyle
-            case NSForegroundColorAttributeName: self = .textColor
+            case NSForegroundColorAttributeName: self = .foregroundColor
             case NSTextEffectAttributeName: self = .textEffect
             case NSUnderlineColorAttributeName: self = .underlineColor
             case NSUnderlineStyleAttributeName: self = .underlineStyle
@@ -165,7 +168,7 @@ extension Attribute {
             case .strokeWidth: name = NSStrokeWidthAttributeName
             case .strikethroughColor: name = NSStrikethroughColorAttributeName
             case .strikethroughStyle: name = NSStrikethroughStyleAttributeName
-            case .textColor: name = NSForegroundColorAttributeName
+            case .foregroundColor: name = NSForegroundColorAttributeName
             case .textEffect: name = NSTextEffectAttributeName
             case .underlineColor: name = NSUnderlineColorAttributeName
             case .underlineStyle: name = NSUnderlineStyleAttributeName
@@ -179,3 +182,5 @@ extension Attribute {
     }
 
 }
+
+#endif

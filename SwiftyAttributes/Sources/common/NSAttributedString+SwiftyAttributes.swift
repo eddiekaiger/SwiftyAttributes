@@ -8,8 +8,14 @@
 
 import Foundation
 
-func dictionary(from attributes: [Attribute]) -> [String: Any] {
-    var dict = [String: Any]()
+#if swift(>=4.0)
+    public typealias StringKey = NSAttributedStringKey
+#else
+    public typealias StringKey = String
+#endif
+
+func dictionary(from attributes: [Attribute]) -> [StringKey: Any] {
+    var dict = [StringKey: Any]()
     for attr in attributes {
         dict[attr.keyName] = attr.foundationValue
     }
@@ -60,26 +66,49 @@ extension NSAttributedString {
         return attributedSubstring(from: NSRange(range))
     }
 
-    /**
-     Returns the value for an attribute with a given name of the character at a given index, and by reference the range over which the attribute applies.
-     
-     - parameters:
-        - attrName:   The name of an attribute.
-        - location:   The index for which to return attributes. This value must not exceed the bounds of the receiver.
-        - range: 
-            If non-nil:
-            - If the named attribute exists at `location`, upon return `range` contains a range over which the named attribute’s value applies.
-            - If the named attribute does not exist at `location`, upon return `range` contains the range over which the attribute does not exist.
-            
-            The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent. 
-            If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
-     */
-    public func attribute(_ attrName: Attribute.Name, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
-        if let attributeValue = attribute(attrName.rawValue, at: location, effectiveRange: range) {
-            return Attribute(name: attrName, foundationValue: attributeValue)
+    #if swift(>=4.0)
+        /**
+         Returns the value for an attribute with a given name of the character at a given index, and by reference the range over which the attribute applies.
+
+         - parameters:
+         - attrName:   The name of an attribute.
+         - location:   The index for which to return attributes. This value must not exceed the bounds of the receiver.
+         - range:
+         If non-nil:
+         - If the named attribute exists at `location`, upon return `range` contains a range over which the named attribute’s value applies.
+         - If the named attribute does not exist at `location`, upon return `range` contains the range over which the attribute does not exist.
+
+         The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent.
+         If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
+         */
+        public func swiftyAttribute(_ attrName: NSAttributedStringKey, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
+            if let attributeValue: Any = attribute(attrName, at: location, effectiveRange: range) {
+                return Attribute(name: attrName, foundationValue: attributeValue)
+            }
+            return nil
         }
-        return nil
-    }
+    #else
+        /**
+         Returns the value for an attribute with a given name of the character at a given index, and by reference the range over which the attribute applies.
+
+         - parameters:
+         - attrName:   The name of an attribute.
+         - location:   The index for which to return attributes. This value must not exceed the bounds of the receiver.
+         - range:
+         If non-nil:
+         - If the named attribute exists at `location`, upon return `range` contains a range over which the named attribute’s value applies.
+         - If the named attribute does not exist at `location`, upon return `range` contains the range over which the attribute does not exist.
+
+         The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent.
+         If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
+         */
+        public func attribute(_ attrName: AttributeName, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
+            if let attributeValue = attribute(attrName.rawValue, at: location, effectiveRange: range) {
+                return Attribute(name: attrName, foundationValue: attributeValue)
+            }
+            return nil
+        }
+    #endif
 
     /**
      Returns the enumerated attributes in a specified range as an array of attribute-range pairs.
@@ -132,10 +161,16 @@ extension NSAttributedString {
          + stop:    A reference to a Boolean value. The block can set the value to `true` to stop further processing of the set.
                     The stop argument is an out-only argument. You should only ever set this Boolean to `true` within the block.
      */
-    public func enumerateAttribute(_ attrName: Attribute.Name, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
-        enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
-            block(value, range.location ..< (range.location + range.length), ptr)
-        }
+    public func enumerateAttribute(_ attrName: AttributeName, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
+        #if swift(>=4.0)
+            enumerateAttribute(attrName, in: NSRange(enumerationRange), options: options) { value, range, ptr in
+                block(value, range.location ..< (range.location + range.length), ptr)
+            }
+        #else
+            enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
+                block(value, range.location ..< (range.location + range.length), ptr)
+            }
+        #endif
     }
 
 }

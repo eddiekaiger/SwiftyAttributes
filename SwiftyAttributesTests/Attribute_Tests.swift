@@ -6,6 +6,8 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
+#if swift(>=4.0)
+#else
 import XCTest
 import SwiftyAttributes
 
@@ -27,7 +29,7 @@ class Attribute_Tests: XCTestCase {
         XCTAssertEqual(Attribute.Name(rawValue: NSStrokeWidthAttributeName)!, .strokeWidth)
         XCTAssertEqual(Attribute.Name(rawValue: NSStrikethroughColorAttributeName)!, .strikethroughColor)
         XCTAssertEqual(Attribute.Name(rawValue: NSStrikethroughStyleAttributeName)!, .strikethroughStyle)
-        XCTAssertEqual(Attribute.Name(rawValue: NSForegroundColorAttributeName)!, .textColor)
+        XCTAssertEqual(Attribute.Name(rawValue: NSForegroundColorAttributeName)!, .foregroundColor)
         XCTAssertEqual(Attribute.Name(rawValue: NSTextEffectAttributeName)!, .textEffect)
         XCTAssertEqual(Attribute.Name(rawValue: NSUnderlineColorAttributeName)!, .underlineColor)
         XCTAssertEqual(Attribute.Name(rawValue: NSUnderlineStyleAttributeName)!, .underlineStyle)
@@ -45,3 +47,4 @@ class Attribute_Tests: XCTestCase {
     }
 
 }
+#endif
