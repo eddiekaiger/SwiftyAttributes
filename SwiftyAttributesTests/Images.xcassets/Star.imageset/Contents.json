@@ -12,6 +12,15 @@
       "idiom" : "universal",
       "filename" : "Star.png",
       "scale" : "3x"
+    },
+    {
+      "idiom" : "tv",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "Star-1.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
