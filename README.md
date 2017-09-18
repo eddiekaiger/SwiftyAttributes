@@ -96,9 +96,9 @@ extension NSAttributedString {
     func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
     func attributedSubstring(from range: Range<Int>) -> NSAttributedString
     func swiftyAttribute(_ attrName: NSAttributedStringKey, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute?
-    func attributes(in range: Range<Int>, options: NSAttributedString.EnumerationOptions = []) -> [([Attribute], Range<Int>)]
-    func enumerateAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ attrs: [Attribute], _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
-    func enumerateAttribute(_ attrName: NSAttributedStringKey, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
+    func swiftyAttributes(in range: Range<Int>, options: NSAttributedString.EnumerationOptions = []) -> [([Attribute], Range<Int>)]
+    func enumerateSwiftyAttributes(in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ attrs: [Attribute], _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
+    func enumerateSwiftyAttribute(_ attrName: NSAttributedStringKey, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 
 extension String {
