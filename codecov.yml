@@ -5,6 +5,8 @@ comment:
   behavior: default
   layout: header, diff
   require_changes: false
+ignore:
+  - "SwiftyAttributesTests"
 coverage:
   precision: 2
   range: "70...99"
