@@ -229,6 +229,17 @@ extension String {
         return withAttribute(.verticalGlyphForm(form))
     }
 
+    /**
+     Creates an attributed string with a custom attribute. This can be useful for storing key-value information.
+
+     - parameter    key:    The name of the custom attribute.
+     - parameter    value:  The value of the attribute.
+     - returns:             A new attributed string with the newly added attribute.
+     */
+    public func withCustomAttribute(named key: String, value: Any) -> NSMutableAttributedString {
+        return withAttribute(.custom(key, value))
+    }
+
     #if os(watchOS)
     #else
 

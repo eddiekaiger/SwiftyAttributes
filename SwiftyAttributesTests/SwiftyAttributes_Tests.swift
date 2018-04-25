@@ -304,6 +304,19 @@ class SwiftyAttributesTests: XCTestCase {
         XCTAssertEqual(subject2, expected)
     }
 
+    func testAttribute_custom() {
+        let subject = "Hello".withCustomAttribute(named: "Foo", value: 42)
+        let subject2 = "Hello".attributedString.withCustomAttribute(named: "Foo", value: 42)
+        #if swift(>=4.0)
+        let attributeName = NSAttributedStringKey(rawValue: "Foo")
+        #else
+        let attributeName = "Foo"
+        #endif
+        let expected = NSAttributedString(string: "Hello", attributes: [attributeName: NSNumber(value: 42)])
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject2, expected)
+    }
+
     #if os(macOS)
 
     func testAttribute_cursor() {
