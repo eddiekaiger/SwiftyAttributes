@@ -64,6 +64,7 @@ extension Attribute {
         case underlineStyle
         case verticalGlyphForm
         case writingDirection
+        case custom(String)
 
         public init?(rawValue: String) {
 
@@ -123,62 +124,68 @@ extension Attribute {
             case NSUnderlineStyleAttributeName: self = .underlineStyle
             case NSVerticalGlyphFormAttributeName: self = .verticalGlyphForm
             case NSWritingDirectionAttributeName: self = .writingDirection
-            default: return nil
+            default: self = .custom(rawValue)
             }
         }
 
         public var rawValue: String {
-
-            var name: String!
 
             // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
 
             #if os(watchOS)
             #else
                 switch self {
-                case .attachment: name = NSAttachmentAttributeName
-                case .shadow: name = NSShadowAttributeName
+                case .attachment: return NSAttachmentAttributeName
+                case .shadow: return NSShadowAttributeName
                 default: break
                 }
             #endif
 
             #if os(macOS)
                 switch self {
-                case .cursor: name = NSCursorAttributeName
-                case .markedClauseSegment: name = NSMarkedClauseSegmentAttributeName
-                case .spellingState: name = NSSpellingStateAttributeName
-                case .superscript: name = NSSuperscriptAttributeName
-                case .textAlternatives: name = NSTextAlternativesAttributeName
-                case .toolTip: name = NSToolTipAttributeName
+                case .cursor: return NSCursorAttributeName
+                case .markedClauseSegment: return NSMarkedClauseSegmentAttributeName
+                case .spellingState: return NSSpellingStateAttributeName
+                case .superscript: return NSSuperscriptAttributeName
+                case .textAlternatives: return NSTextAlternativesAttributeName
+                case .toolTip: return NSToolTipAttributeName
                 default: break
                 }
             #endif
 
             switch self {
-            case .baselineOffset: name = NSBaselineOffsetAttributeName
-            case .backgroundColor: name = NSBackgroundColorAttributeName
-            case .expansion: name = NSExpansionAttributeName
-            case .font: name = NSFontAttributeName
-            case .kern: name = NSKernAttributeName
-            case .ligature: name = NSLigatureAttributeName
-            case .link: name = NSLinkAttributeName
-            case .obliqueness: name = NSObliquenessAttributeName
-            case .paragraphStyle: name = NSParagraphStyleAttributeName
-            case .strokeColor: name = NSStrokeColorAttributeName
-            case .strokeWidth: name = NSStrokeWidthAttributeName
-            case .strikethroughColor: name = NSStrikethroughColorAttributeName
-            case .strikethroughStyle: name = NSStrikethroughStyleAttributeName
-            case .foregroundColor: name = NSForegroundColorAttributeName
-            case .textEffect: name = NSTextEffectAttributeName
-            case .underlineColor: name = NSUnderlineColorAttributeName
-            case .underlineStyle: name = NSUnderlineStyleAttributeName
-            case .verticalGlyphForm: name = NSVerticalGlyphFormAttributeName
-            case .writingDirection: name = NSWritingDirectionAttributeName
-            default: break
+            case .baselineOffset: return NSBaselineOffsetAttributeName
+            case .backgroundColor: return NSBackgroundColorAttributeName
+            case .expansion: return NSExpansionAttributeName
+            case .font: return NSFontAttributeName
+            case .kern: return NSKernAttributeName
+            case .ligature: return NSLigatureAttributeName
+            case .link: return NSLinkAttributeName
+            case .obliqueness: return NSObliquenessAttributeName
+            case .paragraphStyle: return NSParagraphStyleAttributeName
+            case .strokeColor: return NSStrokeColorAttributeName
+            case .strokeWidth: return NSStrokeWidthAttributeName
+            case .strikethroughColor: return NSStrikethroughColorAttributeName
+            case .strikethroughStyle: return NSStrikethroughStyleAttributeName
+            case .foregroundColor: return NSForegroundColorAttributeName
+            case .textEffect: return NSTextEffectAttributeName
+            case .underlineColor: return NSUnderlineColorAttributeName
+            case .underlineStyle: return NSUnderlineStyleAttributeName
+            case .verticalGlyphForm: return NSVerticalGlyphFormAttributeName
+            case .writingDirection: return NSWritingDirectionAttributeName
+            case .custom(let name): return name
+            default:
+                fatalError("Unhandled attribute name: \(self)")
             }
-            
-            return name
         }
+    }
+
+}
+
+extension Attribute.Name: Equatable {
+
+    public static func ==(lhs: Attribute.Name, rhs: Attribute.Name) -> Bool {
+        return lhs.rawValue == rhs.rawValue
     }
 
 }

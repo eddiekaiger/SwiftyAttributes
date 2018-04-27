@@ -15,7 +15,7 @@ coverage:
     changes: false
     patch:
       default:
-        target: 99
+        target: 95
     project:
       default:
         target: 99

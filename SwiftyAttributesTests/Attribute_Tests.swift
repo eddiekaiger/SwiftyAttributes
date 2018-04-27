@@ -43,7 +43,7 @@ class Attribute_Tests: XCTestCase {
         XCTAssertEqual(Attribute.Name(rawValue: NSTextAlternativesAttributeName), .textAlternatives)
         XCTAssertEqual(Attribute.Name(rawValue: NSToolTipAttributeName), .toolTip)
         #endif
-        XCTAssertNil(Attribute.Name(rawValue: "SomeAttribute"))
+        XCTAssertEqual(Attribute.Name(rawValue: "Foo"), .custom("Foo"))
     }
 
 }

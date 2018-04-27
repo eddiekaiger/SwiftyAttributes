@@ -8,9 +8,6 @@
 
 /**
  An extension on dictionaries that allows us to convert a Foundation-based dictionary of attributes to an array of `Attribute`s.
-
- A Sequence with an iterator of (String, Any) is equivalent to [String: Any]
- This is a simple syntactic workaround since we can't write "extension Dictionary where Key == String". Thanks Swift :)
  */
 #if swift(>=4.0)
     extension Dictionary where Key == NSAttributedStringKey {
@@ -22,6 +19,10 @@
 
     }
 #else
+/**
+ A Sequence with an iterator of (String, Any) is equivalent to [String: Any]
+ This is a simple syntactic workaround since we can't write "extension Dictionary where Key == String". Thanks Swift :)
+ */
     extension Sequence where Iterator.Element == (key: String, value: Any) {
 
         /// Returns an array of `Attribute`s converted from the dictionary of attributes. Use this whenever you want to convert [String: Any] to [Attribute].

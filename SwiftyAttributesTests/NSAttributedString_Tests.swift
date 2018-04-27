@@ -299,6 +299,19 @@ class NSAttributedString_Tests: XCTestCase {
         XCTAssertFalse(subject.isEmpty)
     }
 
+    func testAttributeAtLocation_custom() {
+        let str = "Hello".withCustomAttribute(named: "Foo", value: "Bar")
+        #if swift(>=4.0)
+            let subject = str.swiftyAttribute(.init("Foo"), at: 0, effectiveRange: nil)!.value as! String
+            let expected = str.attribute(.init("Foo"), at: 0, effectiveRange: nil) as! String
+        #else
+        let subject = str.swiftyAttribute(.custom("Foo"), at: 0, effectiveRange: nil)!.value as! String
+            let expected = str.attribute("Foo", at: 0, effectiveRange: nil) as! String
+        #endif
+        XCTAssertEqual(subject, expected)
+        XCTAssertEqual(subject, "Bar")
+    }
+
     func testAttributeAtLocation_noSuchAttribute() {
         let str = "Hello".withUnderlineColor(.magenta)
         let subject = str.swiftyAttribute(.backgroundColor, at: 0, effectiveRange: nil)
