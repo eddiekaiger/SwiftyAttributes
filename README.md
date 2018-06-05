@@ -39,8 +39,8 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 # Requirements
 
 * iOS 8.0+, macOS 10.11+, watchOS 2.0+, tvOS 9.0+
-* Swift 4.0 or 3.2
-* Xcode 9
+* Swift 4 or 3
+* Xcode 9 or 10
 
 # Installation
 
