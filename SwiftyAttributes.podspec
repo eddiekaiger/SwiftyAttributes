@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/eddiekaiger/SwiftyAttributes"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Eddie Kaiger" => "eddiekaiger@gmail.com" }
-  s.source       = { :git => "https://github.com/eddiekaiger/SwiftyAttributes.git", :tag => "v4.3.0" }
+  s.source       = { :git => "https://github.com/eddiekaiger/SwiftyAttributes.git", :tag => "v" + s.version.to_s }
   
   s.source_files = "SwiftyAttributes/Sources/common/*.swift"
   s.osx.source_files = "SwiftyAttributes/Sources/macOS/*.swift"
