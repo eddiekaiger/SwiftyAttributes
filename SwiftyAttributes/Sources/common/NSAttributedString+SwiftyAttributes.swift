@@ -9,7 +9,7 @@
 import Foundation
 
 #if swift(>=4.0)
-    public typealias StringKey = NSAttributedString.Key
+    public typealias StringKey = AttributeName
 #else
     public typealias StringKey = String
 #endif

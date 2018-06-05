@@ -13,7 +13,7 @@ class Attribute_Sequence_Tests: XCTestCase {
     
     func testDictionaryToSwiftyAttributes() {
         #if swift(>=4.0)
-            let dict: [NSAttributedString.Key: Any] = [
+            let dict: [AttributeName: Any] = [
                 .baselineOffset: 3.2,
                 .expansion: 5,
                 .foregroundColor: Color.red
@@ -37,7 +37,7 @@ class Attribute_Sequence_Tests: XCTestCase {
 
     func testDictionaryToSwiftyAttributes_withCustomValues() {
         #if swift(>=4.0)
-            let dict: [NSAttributedString.Key: Any] = [
+            let dict: [AttributeName: Any] = [
                 .baselineOffset: 3.2,
                 .foregroundColor: Color.red,
                 .init("Foo"): 5
@@ -66,7 +66,7 @@ class Attribute_Sequence_Tests: XCTestCase {
             .custom("Foo", 42)
         ]
         #if swift(>=4.0)
-            let expected: [NSAttributedString.Key: Any] = [
+            let expected: [AttributeName: Any] = [
                 .kern: 3.5,
                 .link: URL(string: "www.google.com")!,
                 .init(rawValue: "Foo"): 42

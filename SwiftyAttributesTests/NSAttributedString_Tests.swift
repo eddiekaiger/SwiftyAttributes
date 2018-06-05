@@ -452,7 +452,7 @@ class NSAttributedString_Tests: XCTestCase {
     func testFontAttributes_onlyFontAttributes() {
         let subject = "Hello".withFont(.systemFont(ofSize: 19)).fontAttributes(in: 0 ..< 3).foundationAttributes
         #if swift(>=4.0)
-            let attributeName = NSAttributedString.Key.font
+            let attributeName = AttributeName.font
         #else
             let attributeName = NSFontAttributeName
         #endif
@@ -465,8 +465,8 @@ class NSAttributedString_Tests: XCTestCase {
         let url = URL(string: "www.google.com")!
         let subject = "Hello".withAttributes([.font(.systemFont(ofSize: 19)), .link(url)]).fontAttributes(in: 0 ..< 3).foundationAttributes
         #if swift(>=4.0)
-            let fontAttributeName = NSAttributedString.Key.font
-            let linkAttributeName = NSAttributedString.Key.link
+            let fontAttributeName = AttributeName.font
+            let linkAttributeName = AttributeName.link
         #else
             let fontAttributeName = NSFontAttributeName
             let linkAttributeName = NSLinkAttributeName
@@ -483,7 +483,7 @@ class NSAttributedString_Tests: XCTestCase {
         style.alignment = .center
         let subject = "Hello".withParagraphStyle(style).rulerAttributes(in: 1 ..< 3).foundationAttributes
         #if swift(>=4.0)
-            let attributeName = NSAttributedString.Key.paragraphStyle
+            let attributeName = AttributeName.paragraphStyle
         #else
             let attributeName = NSParagraphStyleAttributeName
         #endif

@@ -28,8 +28,10 @@ public typealias Shadow = NSShadow
 public typealias TextAttachment = NSTextAttachment
 #endif
 
-#if swift(>=4.0)
+#if swift(>=4.2)
     public typealias AttributeName = NSAttributedString.Key
+#elseif swift(>=4.0)
+    public typealias AttributeName = NSAttributedStringKey
 #else
     public typealias AttributeName = Attribute.Name
 #endif
