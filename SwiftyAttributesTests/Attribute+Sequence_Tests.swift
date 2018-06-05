@@ -13,47 +13,47 @@ class Attribute_Sequence_Tests: XCTestCase {
     
     func testDictionaryToSwiftyAttributes() {
         #if swift(>=4.0)
-            let dict: [NSAttributedStringKey: Any] = [
+            let dict: [AttributeName: Any] = [
                 .baselineOffset: 3.2,
                 .expansion: 5,
-                .underlineStyle: NSUnderlineStyle.styleDouble.rawValue
+                .foregroundColor: Color.red
             ]
             let sort: (Attribute, Attribute) -> Bool = { $0.keyName.rawValue < $1.keyName.rawValue }
         #else
             let dict: [String: Any] = [
                 NSBaselineOffsetAttributeName: 3.2,
                 NSExpansionAttributeName: 5,
-                NSUnderlineStyleAttributeName: NSUnderlineStyle.styleDouble.rawValue
+                NSForegroundColorAttributeName: Color.red
             ]
             let sort: (Attribute, Attribute) -> Bool = { $0.0.keyName < $0.1.keyName }
         #endif
         let expected: [Attribute] = [
             .baselineOffset(3.2),
             .expansion(5),
-            .underlineStyle(.styleDouble)
+            .textColor(.red)
         ].sorted(by: sort)
         XCTAssertEqual(dict.swiftyAttributes.sorted(by: sort), expected)
     }
 
     func testDictionaryToSwiftyAttributes_withCustomValues() {
         #if swift(>=4.0)
-            let dict: [NSAttributedStringKey: Any] = [
+            let dict: [AttributeName: Any] = [
                 .baselineOffset: 3.2,
-                .underlineStyle: NSUnderlineStyle.styleDouble.rawValue,
+                .foregroundColor: Color.red,
                 .init("Foo"): 5
             ]
             let sort: (Attribute, Attribute) -> Bool = { $0.keyName.rawValue < $1.keyName.rawValue }
         #else
             let dict: [String: Any] = [
                 NSBaselineOffsetAttributeName: 3.2,
-                NSUnderlineStyleAttributeName: NSUnderlineStyle.styleDouble.rawValue,
+                NSForegroundColorAttributeName: Color.red,
                 "Foo": 5
             ]
             let sort: (Attribute, Attribute) -> Bool = { $0.0.keyName < $0.1.keyName }
         #endif
         let expected: [Attribute] = [
             .baselineOffset(3.2),
-            .underlineStyle(.styleDouble),
+            .textColor(.red),
             .custom("Foo", 5)
         ].sorted(by: sort)
         XCTAssertEqual(dict.swiftyAttributes.sorted(by: sort), expected)
@@ -66,7 +66,7 @@ class Attribute_Sequence_Tests: XCTestCase {
             .custom("Foo", 42)
         ]
         #if swift(>=4.0)
-            let expected: [NSAttributedStringKey: Any] = [
+            let expected: [AttributeName: Any] = [
                 .kern: 3.5,
                 .link: URL(string: "www.google.com")!,
                 .init(rawValue: "Foo"): 42
