@@ -18,7 +18,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         subject.addAttributes([.link(URL(string: "https://google.com")!)], range: 1 ..< 3)
         XCTAssertNotEqual(subject, expected)
         #if swift(>=4.0)
-            let linkAttributeName = NSAttributedStringKey.link
+            let linkAttributeName = NSAttributedString.Key.link
         #else
             let linkAttributeName = NSLinkAttributeName
         #endif
@@ -33,7 +33,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         subject.addAttributes([.font(.boldSystemFont(ofSize: 17))], range: NSRange(location: 0, length: 1))
         XCTAssertNotEqual(subject, expected)
         #if swift(>=4.0)
-            let fontAttributeName = NSAttributedStringKey.font
+            let fontAttributeName = NSAttributedString.Key.font
         #else
             let fontAttributeName = NSFontAttributeName
         #endif
@@ -48,7 +48,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         subject.setAttributes([.backgroundColor(.orange)], range: 0 ..< 3)
         XCTAssertNotEqual(subject, expected)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.backgroundColor
+            let attributeName = NSAttributedString.Key.backgroundColor
         #else
             let attributeName = NSBackgroundColorAttributeName
         #endif
@@ -63,7 +63,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         subject.setAttributes([.backgroundColor(.orange)], range: NSRange(location: 2, length: 2))
         XCTAssertNotEqual(subject, expected)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.backgroundColor
+            let attributeName = NSAttributedString.Key.backgroundColor
         #else
             let attributeName = NSBackgroundColorAttributeName
         #endif
@@ -88,7 +88,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         subject.replaceCharacters(in: 0 ..< 2, with: "Chi".withBackgroundColor(.magenta))
         XCTAssertNotEqual(subject, expected)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.backgroundColor
+            let attributeName = NSAttributedString.Key.backgroundColor
         #else
             let attributeName = NSBackgroundColorAttributeName
         #endif
@@ -113,7 +113,7 @@ class NSMutableAttributedString_Tests: XCTestCase {
         subject.removeAttribute(.baselineOffset, range: 1 ..< 4)
         XCTAssertNotEqual(subject, expected)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.baselineOffset
+            let attributeName = NSAttributedString.Key.baselineOffset
         #else
             let attributeName = NSBaselineOffsetAttributeName
         #endif

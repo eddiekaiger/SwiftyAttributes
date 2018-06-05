@@ -14,7 +14,7 @@ class SwiftyAttributesTests: XCTestCase {
     func testString_withAttribute() {
         let subject = "Hello".withAttribute(.strokeWidth(4))
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.strokeWidth
+            let attributeName = NSAttributedString.Key.strokeWidth
         #else
             let attributeName = NSStrokeWidthAttributeName
         #endif
@@ -27,7 +27,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withFont(font)
         let subject2 = "Hello".attributedString.withFont(font)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.font
+            let attributeName = NSAttributedString.Key.font
         #else
             let attributeName = NSFontAttributeName
         #endif
@@ -43,7 +43,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withParagraphStyle(style)
         let subject2 = "Hello".attributedString.withParagraphStyle(style)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.paragraphStyle
+            let attributeName = NSAttributedString.Key.paragraphStyle
         #else
             let attributeName = NSParagraphStyleAttributeName
         #endif
@@ -56,7 +56,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withTextColor(.magenta)
         let subject2 = "Hello".attributedString.withTextColor(.magenta)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.foregroundColor
+            let attributeName = NSAttributedString.Key.foregroundColor
         #else
             let attributeName = NSForegroundColorAttributeName
         #endif
@@ -69,7 +69,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withBackgroundColor(.cyan)
         let subject2 = "Hello".attributedString.withBackgroundColor(.cyan)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.backgroundColor
+            let attributeName = NSAttributedString.Key.backgroundColor
         #else
             let attributeName = NSBackgroundColorAttributeName
         #endif
@@ -82,7 +82,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withLigatures(.none)
         let subject2 = "Hello".attributedString.withLigatures(.none)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.ligature
+            let attributeName = NSAttributedString.Key.ligature
         #else
             let attributeName = NSLigatureAttributeName
         #endif
@@ -95,7 +95,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withKern(12)
         let subject2 = "Hello".attributedString.withKern(12)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.kern
+            let attributeName = NSAttributedString.Key.kern
         #else
             let attributeName = NSKernAttributeName
         #endif
@@ -108,7 +108,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withStrikethroughStyle(.patternDashDot)
         let subject2 = "Hello".attributedString.withStrikethroughStyle(.patternDashDot)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.strikethroughStyle
+            let attributeName = NSAttributedString.Key.strikethroughStyle
         #else
             let attributeName = NSStrikethroughStyleAttributeName
         #endif
@@ -118,14 +118,21 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_underlineStyle() {
-        let subject = "Hello".withUnderlineStyle(.styleDouble)
-        let subject2 = "Hello".attributedString.withUnderlineStyle(.styleDouble)
+        let underlineStyle: NSUnderlineStyle
+        #if swift(>=4.2)
+            underlineStyle = .double
+        #else
+            underlineStyle = .styleDouble
+        #endif
+
+        let subject = "Hello".withUnderlineStyle(underlineStyle)
+        let subject2 = "Hello".attributedString.withUnderlineStyle(underlineStyle)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.underlineStyle
+            let attributeName = NSAttributedString.Key.underlineStyle
         #else
             let attributeName = NSUnderlineStyleAttributeName
         #endif
-        let expected = NSAttributedString(string: "Hello", attributes: [attributeName: NSNumber(value: UnderlineStyle.styleDouble.rawValue)])
+        let expected = NSAttributedString(string: "Hello", attributes: [attributeName: NSNumber(value: underlineStyle.rawValue)])
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject2, expected)
     }
@@ -134,7 +141,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withStrokeColor(.orange)
         let subject2 = "Hello".attributedString.withStrokeColor(.orange)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.strokeColor
+            let attributeName = NSAttributedString.Key.strokeColor
         #else
             let attributeName = NSStrokeColorAttributeName
         #endif
@@ -147,7 +154,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withStrokeWidth(3.2)
         let subject2 = "Hello".attributedString.withStrokeWidth(3.2)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.strokeWidth
+            let attributeName = NSAttributedString.Key.strokeWidth
         #else
             let attributeName = NSStrokeWidthAttributeName
         #endif
@@ -163,7 +170,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withShadow(shadow)
         let subject2 = "Hello".attributedString.withShadow(shadow)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.shadow
+            let attributeName = NSAttributedString.Key.shadow
         #else
             let attributeName = NSShadowAttributeName
         #endif
@@ -189,7 +196,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withAttachment(attachment)
         let subject2 = "Hello".attributedString.withAttachment(attachment)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.attachment
+            let attributeName = NSAttributedString.Key.attachment
         #else
             let attributeName = NSAttachmentAttributeName
         #endif
@@ -203,7 +210,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withLink(url)
         let subject2 = "Hello".attributedString.withLink(url)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.link
+            let attributeName = NSAttributedString.Key.link
         #else
             let attributeName = NSLinkAttributeName
         #endif
@@ -216,7 +223,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withBaselineOffset(5)
         let subject2 = "Hello".attributedString.withBaselineOffset(5)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.baselineOffset
+            let attributeName = NSAttributedString.Key.baselineOffset
         #else
             let attributeName = NSBaselineOffsetAttributeName
         #endif
@@ -229,7 +236,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withUnderlineColor(.magenta)
         let subject2 = "Hello".attributedString.withUnderlineColor(.magenta)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.underlineColor
+            let attributeName = NSAttributedString.Key.underlineColor
         #else
             let attributeName = NSUnderlineColorAttributeName
         #endif
@@ -242,7 +249,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withStrikethroughColor(.brown)
         let subject2 = "Hello".attributedString.withStrikethroughColor(.brown)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.strikethroughColor
+            let attributeName = NSAttributedString.Key.strikethroughColor
         #else
             let attributeName = NSStrikethroughColorAttributeName
         #endif
@@ -255,7 +262,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withObliqueness(4.5)
         let subject2 = "Hello".attributedString.withObliqueness(4.5)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.obliqueness
+            let attributeName = NSAttributedString.Key.obliqueness
         #else
             let attributeName = NSObliquenessAttributeName
         #endif
@@ -268,7 +275,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withExpansion(7)
         let subject2 = "Hello".attributedString.withExpansion(7)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.expansion
+            let attributeName = NSAttributedString.Key.expansion
         #else
             let attributeName = NSExpansionAttributeName
         #endif
@@ -281,7 +288,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withVerticalGlyphForm(.horizontal)
         let subject2 = "Hello".attributedString.withVerticalGlyphForm(.horizontal)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.verticalGlyphForm
+            let attributeName = NSAttributedString.Key.verticalGlyphForm
         #else
             let attributeName = NSVerticalGlyphFormAttributeName
         #endif
@@ -295,7 +302,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withWritingDirections([.rightToLeftOverride])
         let subject2 = "Hello".attributedString.withWritingDirections([.rightToLeftOverride])
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.writingDirection
+            let attributeName = NSAttributedString.Key.writingDirection
         #else
             let attributeName = NSWritingDirectionAttributeName
         #endif
@@ -308,7 +315,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withCustomAttribute(named: "Foo", value: 42)
         let subject2 = "Hello".attributedString.withCustomAttribute(named: "Foo", value: 42)
         #if swift(>=4.0)
-        let attributeName = NSAttributedStringKey(rawValue: "Foo")
+        let attributeName = NSAttributedString.Key(rawValue: "Foo")
         #else
         let attributeName = "Foo"
         #endif
@@ -324,7 +331,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withCursor(cursor)
         let subject2 = "Hello".attributedString.withCursor(cursor)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.cursor
+            let attributeName = NSAttributedString.Key.cursor
         #else
             let attributeName = NSCursorAttributeName
         #endif
@@ -337,7 +344,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withMarkedClauseSegment(3)
         let subject2 = "Hello".attributedString.withMarkedClauseSegment(3)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.markedClauseSegment
+            let attributeName = NSAttributedString.Key.markedClauseSegment
         #else
             let attributeName = NSMarkedClauseSegmentAttributeName
         #endif
@@ -350,7 +357,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withSpellingState(.grammar)
         let subject2 = "Hello".attributedString.withSpellingState(.grammar)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.spellingState
+            let attributeName = NSAttributedString.Key.spellingState
         #else
             let attributeName = NSSpellingStateAttributeName
         #endif
@@ -363,7 +370,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withSuperscript(4)
         let subject2 = "Hello".attributedString.withSuperscript(4)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.superscript
+            let attributeName = NSAttributedString.Key.superscript
         #else
             let attributeName = NSSuperscriptAttributeName
         #endif
@@ -377,7 +384,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withTextAlternatives(alternatives)
         let subject2 = "Hello".attributedString.withTextAlternatives(alternatives)
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.textAlternatives
+            let attributeName = NSAttributedString.Key.textAlternatives
         #else
             let attributeName = NSTextAlternativesAttributeName
         #endif
@@ -390,7 +397,7 @@ class SwiftyAttributesTests: XCTestCase {
         let subject = "Hello".withToolTip("Sah dude")
         let subject2 = "Hello".attributedString.withToolTip("Sah dude")
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.toolTip
+            let attributeName = NSAttributedString.Key.toolTip
         #else
             let attributeName = NSToolTipAttributeName
         #endif
@@ -404,7 +411,7 @@ class SwiftyAttributesTests: XCTestCase {
     func testMultipleAttributes_withSyntax() {
         let subject = "Hello".withTextColor(.darkGray).withBackgroundColor(.magenta).withStrikethroughStyle(.patternDashDotDot)
         #if swift(>=4.0)
-            let attrs: [NSAttributedStringKey: Any] = [
+            let attrs: [NSAttributedString.Key: Any] = [
                 .foregroundColor: Color.darkGray,
                 .backgroundColor: Color.magenta,
                 .strikethroughStyle: UnderlineStyle.patternDashDotDot.rawValue
@@ -422,20 +429,20 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testMultipleAttributes_arraySyntax() {
-        let attributes: [Attribute] = [.font(.boldSystemFont(ofSize: 19)), .link(URL(string: "https://google.com")!), .underlineStyle(.patternSolid)]
+        let attributes: [Attribute] = [.font(.boldSystemFont(ofSize: 19)), .link(URL(string: "https://google.com")!), .textColor(.blue)]
         let subject = "Hello".withAttributes(attributes)
         let subject2 = "Hello".attributedString.withAttributes(attributes)
         #if swift(>=4.0)
-            let attrs: [NSAttributedStringKey: Any] = [
+            let attrs: [NSAttributedString.Key: Any] = [
                 .font: Font.boldSystemFont(ofSize: 19),
                 .link: URL(string: "https://google.com")!,
-                .underlineStyle: UnderlineStyle.patternSolid.rawValue
+                .foregroundColor: Color.blue
             ]
         #else
             let attrs: [String: Any] = [
                 NSFontAttributeName: Font.boldSystemFont(ofSize: 19),
                 NSLinkAttributeName: URL(string: "https://google.com")!,
-                NSUnderlineStyleAttributeName: UnderlineStyle.patternSolid.rawValue
+                NSForegroundColorAttributeName: Color.blue
             ]
         #endif
         let expected = NSAttributedString(string: "Hello", attributes: attrs)

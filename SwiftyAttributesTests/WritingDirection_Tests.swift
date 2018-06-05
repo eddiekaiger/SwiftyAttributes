@@ -21,7 +21,7 @@ class WritingDirection_Tests: XCTestCase {
             NSWritingDirection.rightToLeft.rawValue | NSWritingDirectionFormatType.embedding.rawValue
         ]
         #if swift(>=4.0)
-            let writingAttributeName = NSAttributedStringKey.writingDirection
+            let writingAttributeName = NSAttributedString.Key.writingDirection
         #else
             let writingAttributeName = NSWritingDirectionAttributeName
         #endif

@@ -16,9 +16,9 @@ class Operators_Tests: XCTestCase {
         let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24))
         let newString = lhs + rhs
         #if swift(>=4.0)
-            let leftAttributes: [NSAttributedStringKey: NSObject] = [.font: Font.systemFont(ofSize: 19)]
+            let leftAttributes: [NSAttributedString.Key: NSObject] = [.font: Font.systemFont(ofSize: 19)]
             XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as NSDictionary, leftAttributes as NSDictionary)
-            let rightAttributes: [NSAttributedStringKey: NSObject] = [
+            let rightAttributes: [NSAttributedString.Key: NSObject] = [
                 .foregroundColor: Color.magenta,
                 .backgroundColor: Color.orange,
                 .font: Font.boldSystemFont(ofSize: 24)

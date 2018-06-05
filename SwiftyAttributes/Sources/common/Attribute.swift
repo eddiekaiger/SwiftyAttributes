@@ -29,7 +29,7 @@ public typealias TextAttachment = NSTextAttachment
 #endif
 
 #if swift(>=4.0)
-    public typealias AttributeName = NSAttributedStringKey
+    public typealias AttributeName = NSAttributedString.Key
 #else
     public typealias AttributeName = Attribute.Name
 #endif
@@ -188,11 +188,23 @@ public enum Attribute {
         case .strokeColor: ret = .strokeColor(validate(foundationValue))
         case .strokeWidth: ret = .strokeWidth(validateDouble(foundationValue))
         case .strikethroughColor: ret = .strikethroughColor(validate(foundationValue))
-        case .strikethroughStyle: ret = .strikethroughStyle(StrikethroughStyle(rawValue: validate(foundationValue))!)
+        case .strikethroughStyle:
+            #if swift(>=4.2)
+                let style = StrikethroughStyle(rawValue: validate(foundationValue))
+            #else
+                let style = StrikethroughStyle(rawValue: validate(foundationValue))!
+            #endif
+            ret = .strikethroughStyle(style)
         case .foregroundColor: ret = .textColor(validate(foundationValue))
         case .textEffect: ret = .textEffect(TextEffect(rawValue: validate(foundationValue))!)
         case .underlineColor: ret = .underlineColor(validate(foundationValue))
-        case .underlineStyle: ret = .underlineStyle(UnderlineStyle(rawValue: validate(foundationValue))!)
+        case .underlineStyle:
+            #if swift(>=4.2)
+                let style = UnderlineStyle(rawValue: validate(foundationValue))
+            #else
+                let style = UnderlineStyle(rawValue: validate(foundationValue))!
+            #endif
+            ret = .underlineStyle(style)
         case .verticalGlyphForm: ret = .verticalGlyphForm(VerticalGlyphForm(rawValue: validate(foundationValue))!)
         case .writingDirection:
             let values: [Int] = validate(foundationValue)

@@ -212,7 +212,14 @@ class NSAttributedString_Tests: XCTestCase {
     }
 
     func testAttributeAtLocation_strikethroughStyle() {
-        let str = "Hello".withStrikethroughStyle(.styleDouble)
+        let style: NSUnderlineStyle
+        #if swift(>=4.2)
+            style = .double
+        #else
+            style = .styleDouble
+        #endif
+
+        let str = "Hello".withStrikethroughStyle(style)
         let subject = str.swiftyAttribute(.strikethroughStyle, at: 0, effectiveRange: nil)!.value as! StrikethroughStyle
         #if swift(>=4.0)
             let expected = str.attribute(.strikethroughStyle, at: 0, effectiveRange: nil) as! Int
@@ -220,7 +227,11 @@ class NSAttributedString_Tests: XCTestCase {
             let expected = str.attribute(NSStrikethroughStyleAttributeName, at: 0, effectiveRange: nil) as! Int
         #endif
         XCTAssertEqual(subject.rawValue, expected)
-        XCTAssertEqual(subject, .styleDouble)
+        #if swift(>=4.2)
+            XCTAssertEqual(subject, .double)
+        #else
+            XCTAssertEqual(subject, .styleDouble)
+        #endif
     }
 
     func testAttributeAtLocation_textColor() {
@@ -441,7 +452,7 @@ class NSAttributedString_Tests: XCTestCase {
     func testFontAttributes_onlyFontAttributes() {
         let subject = "Hello".withFont(.systemFont(ofSize: 19)).fontAttributes(in: 0 ..< 3).foundationAttributes
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.font
+            let attributeName = NSAttributedString.Key.font
         #else
             let attributeName = NSFontAttributeName
         #endif
@@ -454,8 +465,8 @@ class NSAttributedString_Tests: XCTestCase {
         let url = URL(string: "www.google.com")!
         let subject = "Hello".withAttributes([.font(.systemFont(ofSize: 19)), .link(url)]).fontAttributes(in: 0 ..< 3).foundationAttributes
         #if swift(>=4.0)
-            let fontAttributeName = NSAttributedStringKey.font
-            let linkAttributeName = NSAttributedStringKey.link
+            let fontAttributeName = NSAttributedString.Key.font
+            let linkAttributeName = NSAttributedString.Key.link
         #else
             let fontAttributeName = NSFontAttributeName
             let linkAttributeName = NSLinkAttributeName
@@ -472,7 +483,7 @@ class NSAttributedString_Tests: XCTestCase {
         style.alignment = .center
         let subject = "Hello".withParagraphStyle(style).rulerAttributes(in: 1 ..< 3).foundationAttributes
         #if swift(>=4.0)
-            let attributeName = NSAttributedStringKey.paragraphStyle
+            let attributeName = NSAttributedString.Key.paragraphStyle
         #else
             let attributeName = NSParagraphStyleAttributeName
         #endif

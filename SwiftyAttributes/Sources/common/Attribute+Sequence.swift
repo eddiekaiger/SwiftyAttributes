@@ -10,7 +10,7 @@
  An extension on dictionaries that allows us to convert a Foundation-based dictionary of attributes to an array of `Attribute`s.
  */
 #if swift(>=4.0)
-    extension Dictionary where Key == NSAttributedStringKey {
+    extension Dictionary where Key == NSAttributedString.Key {
 
         /// Returns an array of `Attribute`s converted from the dictionary of attributes. Use this whenever you want to convert [NSAttributeStringKey: Any] to [Attribute].
         public var swiftyAttributes: [Attribute] {
