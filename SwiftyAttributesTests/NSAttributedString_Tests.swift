@@ -12,7 +12,7 @@ import SwiftyAttributes
 class NSAttributedString_Tests: XCTestCase {
     
     func testInit_withStringAndAttributes() {
-        let subject = NSAttributedString(string: "Hello World", attributes: [.strokeColor(.green), .strokeWidth(3)])
+        let subject = NSAttributedString(string: "Hello World", swiftyAttributes: [.strokeColor(.green), .strokeWidth(3)])
         #if swift(>=4.0)
             let expected = NSAttributedString(string: "Hello World", attributes: [.strokeColor: Color.green, .strokeWidth: 3])
         #else
