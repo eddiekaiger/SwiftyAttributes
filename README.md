@@ -68,7 +68,7 @@ Initializing attributed strings in `SwiftyAttributes` can be done several ways:
 
 - Using the `Attribute` enum in an initializer:
     ````swift
-    NSAttributedString(string: "Hello World", attributes: [.kern(5), .backgroundColor(.gray)])
+    NSAttributedString(string: "Hello World", swiftyAttributes: [.kern(5), .backgroundColor(.gray)])
     ````
     
 You can retrieve the attribute at a specific location using an attribute name from the `Attribute.Name` enum:
@@ -91,7 +91,7 @@ extension NSMutableAttributedString {
 }
 
 extension NSAttributedString {
-    convenience init(string str: String, attributes: [Attribute])
+    convenience init(string str: String, swiftyAttributes: [Attribute])
     func withAttributes(_ attributes: [Attribute]) -> NSMutableAttributedString
     func withAttribute(_ attribute: Attribute) -> NSMutableAttributedString
     func attributedSubstring(from range: Range<Int>) -> NSAttributedString
