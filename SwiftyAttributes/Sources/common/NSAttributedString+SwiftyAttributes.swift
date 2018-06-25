@@ -27,11 +27,11 @@ extension NSAttributedString {
     /**
      Creates a new `NSAttributedString` with the specified attributes.
      
-     - parameter    str:            The string for the new attributed string.
-     - parameter    attributes:     The attributes for the new attributed string.
+     - parameter    str:                The string for the new attributed string.
+     - parameter    swiftyAttributes:   The attributes for the new attributed string.
      */
-    public convenience init(string str: String, attributes: [Attribute]) {
-        self.init(string: str, attributes: dictionary(from: attributes))
+    public convenience init(string str: String, swiftyAttributes attrs: [Attribute]) {
+        self.init(string: str, attributes: dictionary(from: attrs))
     }
 
     /**

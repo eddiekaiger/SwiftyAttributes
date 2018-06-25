@@ -10,6 +10,16 @@ import XCTest
 import SwiftyAttributes
 
 class NSMutableAttributedString_Tests: XCTestCase {
+
+    func testInitMutable_withStringAndAttributes() {
+        let subject = NSMutableAttributedString(string: "Hello World", swiftyAttributes: [.strokeColor(.green), .strokeWidth(3)])
+        #if swift(>=4.0)
+        let expected = NSMutableAttributedString(string: "Hello World", attributes: [.strokeColor: Color.green, .strokeWidth: 3])
+        #else
+        let expected = NSMutableAttributedString(string: "Hello World", attributes: [NSStrokeColorAttributeName: Color.green, NSStrokeWidthAttributeName: 3])
+        #endif
+        XCTAssertEqual(subject, expected)
+    }
     
     func testAddAttributes_usingSwiftRange() {
         let subject = "Hello".withTextColor(.orange)
