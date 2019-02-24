@@ -16,3 +16,22 @@ public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSMutableAtt
     combinedString.append(rhs)
     return combinedString
 }
+
+/**
+ Addition and assign operator. Creates a concatenated string and assigns it to the left value.
+ */
+public func += (lhs: inout NSAttributedString, rhs: NSAttributedString) {
+    lhs = lhs + rhs
+}
+
+public func += (lhs: inout NSMutableAttributedString, rhs: NSAttributedString) {
+    lhs = lhs + rhs
+}
+
+public func += (lhs: inout NSAttributedString, rhs: NSMutableAttributedString) {
+    lhs = lhs + rhs
+}
+
+public func += (lhs: inout NSMutableAttributedString, rhs: NSMutableAttributedString) {
+    lhs = lhs + rhs
+}
