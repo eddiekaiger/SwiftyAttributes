@@ -2,8 +2,8 @@
 
 #### *A Swifty API for attributed strings.*
 
-![Swift Version](https://img.shields.io/badge/swift-4-orange.svg?style=flat)
-![Swift Version](https://img.shields.io/badge/swift-3.2-orange.svg?style=flat)
+![Swift Version](https://img.shields.io/badge/swift-5-orange.svg?style=flat)
+![Swift Version](https://img.shields.io/badge/swift-4.2-orange.svg?style=flat)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)](https://img.shields.io/cocoapods/v/SwiftyAttributes.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyAttributes.svg?style=flat)](http://cocoapods.org/pods/SwiftyAttributes)
@@ -39,8 +39,8 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 # Requirements
 
 * iOS 8.0+, macOS 10.11+, watchOS 2.0+, tvOS 9.0+
-* Swift 4 or 3
-* Xcode 9 or 10
+* Swift 4.2+
+* Xcode 10.0+
 
 # Installation
 
@@ -71,7 +71,7 @@ Initializing attributed strings in `SwiftyAttributes` can be done several ways:
     NSAttributedString(string: "Hello World", swiftyAttributes: [.kern(5), .backgroundColor(.gray)])
     ````
     
-You can retrieve the attribute at a specific location using an attribute name from the `Attribute.Name` enum:
+You can retrieve the attribute at a specific location using the built-in `NSAttributedString.Key` enum:
 ````swift
 let attr: Attribute? = myAttributedString.swiftyAttribute(.shadow, at: 5)
 ````

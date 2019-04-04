@@ -24,16 +24,8 @@ public typealias ParagraphStyle = NSParagraphStyle
 
 #if os(watchOS)
 #else
-public typealias Shadow = NSShadow
-public typealias TextAttachment = NSTextAttachment
-#endif
-
-#if swift(>=4.2)
-    public typealias AttributeName = NSAttributedString.Key
-#elseif swift(>=4.0)
-    public typealias AttributeName = NSAttributedStringKey
-#else
-    public typealias AttributeName = Attribute.Name
+    public typealias Shadow = NSShadow
+    public typealias TextAttachment = NSTextAttachment
 #endif
 
 /**
@@ -141,7 +133,7 @@ public enum Attribute {
     /// A custom attribute with a given attribute name and value.
     case custom(String, Any)
 
-    init(name: AttributeName, foundationValue: Any) {
+    init(name: NSAttributedString.Key, foundationValue: Any) {
         func validate<Type>(_ val: Any) -> Type {
             assert(val is Type, "Attribute with name \(name.rawValue) must have a value of type \(Type.self)")
             return val as! Type
@@ -190,31 +182,15 @@ public enum Attribute {
         case .strokeColor: ret = .strokeColor(validate(foundationValue))
         case .strokeWidth: ret = .strokeWidth(validateDouble(foundationValue))
         case .strikethroughColor: ret = .strikethroughColor(validate(foundationValue))
-        case .strikethroughStyle:
-            #if swift(>=4.2)
-                let style = StrikethroughStyle(rawValue: validate(foundationValue))
-            #else
-                let style = StrikethroughStyle(rawValue: validate(foundationValue))!
-            #endif
-            ret = .strikethroughStyle(style)
+        case .strikethroughStyle: ret = .strikethroughStyle(StrikethroughStyle(rawValue: validate(foundationValue)))
         case .foregroundColor: ret = .textColor(validate(foundationValue))
         case .textEffect: ret = .textEffect(TextEffect(rawValue: validate(foundationValue))!)
         case .underlineColor: ret = .underlineColor(validate(foundationValue))
-        case .underlineStyle:
-            #if swift(>=4.2)
-                let style = UnderlineStyle(rawValue: validate(foundationValue))
-            #else
-                let style = UnderlineStyle(rawValue: validate(foundationValue))!
-            #endif
-            ret = .underlineStyle(style)
+        case .underlineStyle: ret = .underlineStyle(UnderlineStyle(rawValue: validate(foundationValue)))
         case .verticalGlyphForm: ret = .verticalGlyphForm(VerticalGlyphForm(rawValue: validate(foundationValue))!)
         case .writingDirection:
             let values: [Int] = validate(foundationValue)
-            #if swift(>=4.1)
-                ret = .writingDirections(values.compactMap(WritingDirection.init))
-            #else
-                ret = .writingDirections(values.flatMap(WritingDirection.init))
-            #endif
+            ret = .writingDirections(values.compactMap(WritingDirection.init))
         default:
             if ret == nil {
                 ret = .custom(name.rawValue, foundationValue)
@@ -225,9 +201,8 @@ public enum Attribute {
     }
 
     /// The key name corresponding to the attribute.
-    public var keyName: StringKey {
-
-        var name: AttributeName!
+    public var keyName: NSAttributedString.Key {
+        var name: NSAttributedString.Key!
 
         // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
 
@@ -273,15 +248,11 @@ public enum Attribute {
         case .writingDirections: name = .writingDirection
         case .verticalGlyphForm: name = .verticalGlyphForm
         case .custom(let attributeName, _) where name == nil:
-            name = AttributeName(rawValue: attributeName)
+            name = NSAttributedString.Key(rawValue: attributeName)
         default: break
         }
 
-        #if swift(>=4.0)
-            return name
-        #else
-            return name.rawValue
-        #endif
+        return name
     }
 
     // Convenience getter variable for the associated value of the attribute. See each case to determine the return type.

@@ -8,14 +8,8 @@
 
 import Foundation
 
-#if swift(>=4.0)
-    public typealias StringKey = AttributeName
-#else
-    public typealias StringKey = String
-#endif
-
-func dictionary(from attributes: [Attribute]) -> [StringKey: Any] {
-    var dict = [StringKey: Any]()
+func dictionary(from attributes: [Attribute]) -> [NSAttributedString.Key: Any] {
+    var dict = [NSAttributedString.Key: Any]()
     for attr in attributes {
         dict[attr.keyName] = attr.foundationValue
     }
@@ -80,13 +74,8 @@ extension NSAttributedString {
      The range isn’t necessarily the maximum range covered by `attrName`, and its extent is implementation-dependent.
      If you need the maximum range, use attribute(_:at:longestEffectiveRange:in:). If you don't need this value, pass `nil`.
      */
-    public func swiftyAttribute(_ attrName: AttributeName, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
-        #if swift(>=4.0)
-            let name = attrName
-        #else
-            let name = attrName.rawValue
-        #endif
-        if let attributeValue: Any = attribute(name, at: location, effectiveRange: range) {
+    public func swiftyAttribute(_ attrName: NSAttributedString.Key, at location: Int, effectiveRange range: NSRangePointer? = nil) -> Attribute? {
+        if let attributeValue: Any = attribute(attrName, at: location, effectiveRange: range) {
             return Attribute(name: attrName, foundationValue: attributeValue)
         }
         return nil
@@ -143,16 +132,10 @@ extension NSAttributedString {
          + stop:    A reference to a Boolean value. The block can set the value to `true` to stop further processing of the set.
                     The stop argument is an out-only argument. You should only ever set this Boolean to `true` within the block.
      */
-    public func enumerateSwiftyAttribute(_ attrName: AttributeName, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
-        #if swift(>=4.0)
-            enumerateAttribute(attrName, in: NSRange(enumerationRange), options: options) { value, range, ptr in
-                block(value, range.location ..< (range.location + range.length), ptr)
-            }
-        #else
-            enumerateAttribute(attrName.rawValue, in: NSRange(enumerationRange), options: options) { value, range, ptr in
-                block(value, range.location ..< (range.location + range.length), ptr)
-            }
-        #endif
+    public func enumerateSwiftyAttribute(_ attrName: NSAttributedString.Key, in enumerationRange: Range<Int>, options: NSAttributedString.EnumerationOptions = [], using block: (_ value: Any?, _ range: Range<Int>, _ stop: UnsafeMutablePointer<ObjCBool>) -> Void) {
+        enumerateAttribute(attrName, in: NSRange(enumerationRange), options: options) { value, range, ptr in
+            block(value, range.location ..< (range.location + range.length), ptr)
+        }
     }
 
 }

@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftyAttributes"
-  s.version      = "5.0.0"
+  s.version      = "5.1.0"
   s.summary      = "A Swifty API for attributed strings."
 
   s.description  = <<-DESC

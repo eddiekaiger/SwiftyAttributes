@@ -16,19 +16,11 @@ class TextEffect_Tests: XCTestCase {
     }
 
     func testInit_letterpress() {
-        #if swift(>=4.0)
-            XCTAssertEqual(TextEffect(rawValue: NSAttributedString.TextEffectStyle.letterpressStyle.rawValue)!, .letterPressStyle)
-        #else
-            XCTAssertEqual(TextEffect(rawValue: NSTextEffectLetterpressStyle)!, .letterPressStyle)
-        #endif
+        XCTAssertEqual(TextEffect(rawValue: NSAttributedString.TextEffectStyle.letterpressStyle.rawValue)!, .letterPressStyle)
     }
 
     func testRawValue_letterpress() {
-        #if swift(>=4.0)
-            XCTAssertEqual(TextEffect.letterPressStyle.rawValue, NSAttributedString.TextEffectStyle.letterpressStyle.rawValue)
-        #else
-            XCTAssertEqual(TextEffect.letterPressStyle.rawValue, NSTextEffectLetterpressStyle)
-        #endif
+        XCTAssertEqual(TextEffect.letterPressStyle.rawValue, NSAttributedString.TextEffectStyle.letterpressStyle.rawValue)
     }
     
 }

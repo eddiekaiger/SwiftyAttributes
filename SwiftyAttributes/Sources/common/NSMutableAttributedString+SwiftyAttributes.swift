@@ -85,12 +85,8 @@ extension NSMutableAttributedString {
      - parameter    name:   The name of the attribute to remove.
      - parameter    range:  The range of characters from which the specified attribute is removed.
      */
-    public func removeAttribute(_ name: AttributeName, range: Range<Int>) {
-        #if swift(>=4.0)
-            removeAttribute(name, range: NSRange(range))
-        #else
-            removeAttribute(name.rawValue, range: NSRange(range))
-        #endif
+    public func removeAttribute(_ name: NSAttributedString.Key, range: Range<Int>) {
+        removeAttribute(name, range: NSRange(range))
     }
     
 }
