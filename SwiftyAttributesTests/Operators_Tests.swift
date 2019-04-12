@@ -25,28 +25,68 @@ class Operators_Tests: XCTestCase {
         XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as NSDictionary, rightAttributes as NSDictionary)
     }
     
-    func testOverloadedAssignedAdditionOperator() {
-        let lhs = "Hello".withFont(.systemFont(ofSize: 19))
-        let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24))
+    //  NSAttributedString + NSAttributedString
+    func testOverloadedAssignedAdditionOperator1() {
+        let lhs = "Hello".withFont(.systemFont(ofSize: 19)) as NSAttributedString
+        let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24)) as NSAttributedString
         var newString = lhs
         newString += rhs
-        #if swift(>=4.0)
-        let leftAttributes: [AttributeName: NSObject] = [.font: Font.systemFont(ofSize: 19)]
+        let leftAttributes: [NSAttributedString.Key: NSObject] = [.font: Font.systemFont(ofSize: 19)]
         XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as NSDictionary, leftAttributes as NSDictionary)
-        let rightAttributes: [AttributeName: NSObject] = [
+        let rightAttributes: [NSAttributedString.Key: NSObject] = [
             .foregroundColor: Color.magenta,
             .backgroundColor: Color.orange,
             .font: Font.boldSystemFont(ofSize: 24)
         ]
         XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as NSDictionary, rightAttributes as NSDictionary)
-        #else
-        let leftAttributes = [NSFontAttributeName: Font.systemFont(ofSize: 19)] as [String: NSObject]
-        XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as! [String: NSObject], leftAttributes)
-        let rightAttributes = [NSForegroundColorAttributeName: Color.magenta,
-        NSBackgroundColorAttributeName: Color.orange,
-        NSFontAttributeName: Font.boldSystemFont(ofSize: 24)] as [String: NSObject]
-        XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as! [String: NSObject], rightAttributes)
-        #endif
+    }
+    
+    //  NSMutableAttributedString + NSAttributedString
+    func testOverloadedAssignedAdditionOperator2() {
+        let lhs = "Hello".withFont(.systemFont(ofSize: 19))
+        let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24)) as NSAttributedString
+        var newString = lhs
+        newString += rhs
+        let leftAttributes: [NSAttributedString.Key: NSObject] = [.font: Font.systemFont(ofSize: 19)]
+        XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as NSDictionary, leftAttributes as NSDictionary)
+        let rightAttributes: [NSAttributedString.Key: NSObject] = [
+            .foregroundColor: Color.magenta,
+            .backgroundColor: Color.orange,
+            .font: Font.boldSystemFont(ofSize: 24)
+        ]
+        XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as NSDictionary, rightAttributes as NSDictionary)
+    }
+    
+    //  NSAttributedString + NSMutableAttributedString
+    func testOverloadedAssignedAdditionOperator3() {
+        let lhs = "Hello".withFont(.systemFont(ofSize: 19)) as NSAttributedString
+        let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24))
+        var newString = lhs
+        newString += rhs
+        let leftAttributes: [NSAttributedString.Key: NSObject] = [.font: Font.systemFont(ofSize: 19)]
+        XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as NSDictionary, leftAttributes as NSDictionary)
+        let rightAttributes: [NSAttributedString.Key: NSObject] = [
+            .foregroundColor: Color.magenta,
+            .backgroundColor: Color.orange,
+            .font: Font.boldSystemFont(ofSize: 24)
+        ]
+        XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as NSDictionary, rightAttributes as NSDictionary)
+    }
+    
+    //  NSMutableAttributedString + NSMutableAttributedString
+    func testOverloadedAssignedAdditionOperator4() {
+        let lhs = "Hello".withFont(.systemFont(ofSize: 19))
+        let rhs = "World".withTextColor(.magenta).withBackgroundColor(.orange).withFont(.boldSystemFont(ofSize: 24))
+        var newString = lhs
+        newString += rhs
+        let leftAttributes: [NSAttributedString.Key: NSObject] = [.font: Font.systemFont(ofSize: 19)]
+        XCTAssertEqual(newString.attributes(at: 0, effectiveRange: nil) as NSDictionary, leftAttributes as NSDictionary)
+        let rightAttributes: [NSAttributedString.Key: NSObject] = [
+            .foregroundColor: Color.magenta,
+            .backgroundColor: Color.orange,
+            .font: Font.boldSystemFont(ofSize: 24)
+        ]
+        XCTAssertEqual(newString.attributes(at: lhs.length + 1, effectiveRange: nil) as NSDictionary, rightAttributes as NSDictionary)
     }
 
 }
