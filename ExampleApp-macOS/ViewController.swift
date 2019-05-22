@@ -14,7 +14,7 @@ class ViewController: NSViewController {
     fileprivate let attributedStrings: [NSAttributedString] = [
         {
             let attachment = TextAttachment()
-            attachment.image = NSImage(named: "Star")!
+            attachment.image = NSImage(named: "Star")
             let str = "Attachment  With Image".attributedString
             str.replaceCharacters(in: 10 ..< 12, with: NSAttributedString(attachment: attachment))
             return str
@@ -36,16 +36,16 @@ class ViewController: NSViewController {
         }()),
         "Stroke Color".withStrokeColor(.orange).withStrokeWidth(1),
         "Stroke Width".withStrokeWidth(2.7),
-        "Strikethrough Style & Color".withStrikethroughColor(.green).withStrikethroughStyle(.styleDouble),
+        "Strikethrough Style & Color".withStrikethroughColor(.green).withStrikethroughStyle(.double),
         "Text Color".withTextColor(.brown),
         "Text Effect".withTextEffect(.letterPressStyle),
-        "Underline Style & Color".withUnderlineColor(.red).withUnderlineStyle(.styleDouble),
+        "Underline Style & Color".withUnderlineColor(.red).withUnderlineStyle(.double),
         "Writing Directions".withWritingDirections([.rightToLeftOverride]),
-        "Multiple Attributes".withAttributes([.baselineOffset(5), .font(.boldSystemFont(ofSize: 20)), .kern(4), .underlineStyle(.styleSingle), .underlineColor(.magenta), .strokeColor(.orange), .strokeWidth(3), .strikethroughColor(.green), .strikethroughStyle(.styleSingle), .backgroundColor(.yellow)]),
+        "Multiple Attributes".withAttributes([.baselineOffset(5), .font(.boldSystemFont(ofSize: 20)), .kern(4), .underlineStyle(.single), .underlineColor(.magenta), .strokeColor(.orange), .strokeWidth(3), .strikethroughColor(.green), .strikethroughStyle(.single), .backgroundColor(.yellow)]),
         {
-            let str = "Partial Range Attributes".withUnderlineStyle(.styleSingle)
-            str.addAttributes([.underlineStyle(.styleDouble), .textColor(.blue)], range: 3 ..< 8)
-            str.addAttributes([.strikethroughStyle(.styleThick), .strikethroughColor(.purple)], range: 16 ..< 22)
+            let str = "Partial Range Attributes".withUnderlineStyle(.single)
+            str.addAttributes([.underlineStyle(.double), .textColor(.blue)], range: 3 ..< 8)
+            str.addAttributes([.strikethroughStyle(.thick), .strikethroughColor(.purple)], range: 16 ..< 22)
             str.setAttributes([.textColor(.red)], range: 22 ..< 24)
             return str
         }()
