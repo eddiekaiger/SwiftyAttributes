@@ -22,10 +22,12 @@ extension NSString {
         draw(in: rect, withAttributes: attrs?.foundationAttributes)
     }
     
+    #if os(macOS)
     @available(macOS, deprecated: 10.12)
     public func draw(with rect: Rect, options: DrawingOptions = [], attributes: [Attribute]? = nil) {
         draw(with: rect, options: options, attributes: attributes?.foundationAttributes)
     }
+    #endif
     
     public func draw(with rect: Rect, options: DrawingOptions = [], attributes: [Attribute]? = nil, context: DrawingContext?) {
         draw(with: rect, options: options, attributes: attributes?.foundationAttributes, context: context)
@@ -39,8 +41,10 @@ extension NSString {
         return boundingRect(with: size, options: options, attributes: attributes?.foundationAttributes, context: context)
     }
     
+    #if os(macOS)
     @available(macOS, deprecated: 10.12)
     func boundingRect(with size: Size, options: DrawingOptions = [], attributes: [Attribute]? = nil) -> Rect {
         return boundingRect(with: size, options: options, attributes: attributes?.foundationAttributes)
     }
+    #endif
 }

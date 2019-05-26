@@ -20,7 +20,6 @@
     import UIKit
     public typealias Color = UIColor
     public typealias Font = UIFont
-    public typealias DrawingOptions = DrawingOptions
     public typealias Point = CGPoint
     public typealias Size = CGSize
     public typealias Rect = CGRect
