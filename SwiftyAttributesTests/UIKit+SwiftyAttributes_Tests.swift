@@ -33,6 +33,7 @@ class UIKit_SwiftyAttributes_Tests: XCTestCase {
         XCTAssertEqual(subject.swiftyTitleTextAttributes!.foundationAttributes as NSDictionary, exptected.titleTextAttributes! as NSDictionary)
     }
     
+    #if os(iOS)
     func testLargeTitleTextAttributes() {
         
         guard #available(iOS 11.0, *) else {
@@ -55,5 +56,6 @@ class UIKit_SwiftyAttributes_Tests: XCTestCase {
         XCTAssertNotNil(exptected.largeTitleTextAttributes)
         XCTAssertEqual(subject.swiftyLargeTitleTextAttributes!.foundationAttributes as NSDictionary, exptected.largeTitleTextAttributes! as NSDictionary)
     }
+    #endif
 }
 #endif

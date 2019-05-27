@@ -28,6 +28,7 @@ extension NavigationBar {
         }
     }
     
+    #if os(iOS)
     @available(iOS 11, *)
     public var swiftyLargeTitleTextAttributes: [Attribute]? {
         set {
@@ -38,5 +39,6 @@ extension NavigationBar {
             return largeTitleTextAttributes?.swiftyAttributes
         }
     }
+    #endif
 }
 #endif
