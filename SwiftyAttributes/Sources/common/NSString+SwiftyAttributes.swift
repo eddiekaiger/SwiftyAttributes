@@ -25,7 +25,7 @@ extension NSString {
     #if os(macOS)
     @available(macOS, deprecated: 10.12)
     public func draw(with rect: Rect, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) {
-        draw(with: rect, options: options, attributes: attributes?.foundationAttributes)
+        draw(with: rect, options: options, attributes: swiftyAttributes?.foundationAttributes)
     }
     #endif
     
@@ -44,7 +44,7 @@ extension NSString {
     #if os(macOS)
     @available(macOS, deprecated: 10.12)
     func boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) -> Rect {
-        return boundingRect(with: size, options: options, attributes: attributes?.foundationAttributes)
+        return boundingRect(with: size, options: options, attributes: swiftyAttributes?.foundationAttributes)
     }
     #endif
 }
