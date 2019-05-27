@@ -35,7 +35,7 @@ class UIKit_SwiftyAttributes_Tests: XCTestCase {
     
     func testLargeTitleTextAttributes() {
         
-        guard #available(iOS 11.0, tvOS 11.0, *) else {
+        guard #available(iOS 11.0, *) else {
             return
         }
         

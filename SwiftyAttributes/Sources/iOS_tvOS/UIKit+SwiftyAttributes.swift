@@ -28,7 +28,7 @@ extension NavigationBar {
         }
     }
     
-    @available(iOS 11, tvOS 11, *)
+    @available(iOS 11, *)
     public var swiftyLargeTitleTextAttributes: [Attribute]? {
         set {
             largeTitleTextAttributes = newValue?.foundationAttributes
