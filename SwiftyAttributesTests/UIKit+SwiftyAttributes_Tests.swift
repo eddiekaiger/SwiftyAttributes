@@ -16,13 +16,13 @@ class UIKit_SwiftyAttributes_Tests: XCTestCase {
 
     func testTitleTextAttributes() {
 
-        let subject = NavigationBar()
+        let subject = UINavigationBar()
         subject.swiftyTitleTextAttributes = [
             .backgroundColor(.yellow),
             .font(.systemFont(ofSize: 19))
         ]
         
-        let exptected = NavigationBar()
+        let exptected = UINavigationBar()
         exptected.titleTextAttributes = [
             NSAttributedString.Key.backgroundColor: UIColor.yellow,
             NSAttributedString.Key.font: Font.systemFont(ofSize: 19)
@@ -40,13 +40,13 @@ class UIKit_SwiftyAttributes_Tests: XCTestCase {
             return
         }
         
-        let subject = NavigationBar()
+        let subject = UINavigationBar()
         subject.swiftyLargeTitleTextAttributes = [
             .backgroundColor(.yellow),
             .font(.systemFont(ofSize: 19))
         ]
         
-        let exptected = NavigationBar()
+        let exptected = UINavigationBar()
         exptected.largeTitleTextAttributes = [
             NSAttributedString.Key.backgroundColor: UIColor.yellow,
             NSAttributedString.Key.font: Font.systemFont(ofSize: 19)

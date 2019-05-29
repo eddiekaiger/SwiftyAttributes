@@ -9,15 +9,10 @@
 #if os(macOS)
 #elseif os(watchOS)
 #else
-    import UIKit
-    public typealias NavigationBar = UINavigationBar
-#endif
+import UIKit
+extension UINavigationBar {
 
-#if os(macOS)
-#elseif os(watchOS)
-#else
-extension NavigationBar {
-
+    /// A swifty wrapper for UINavigationBar.titleTextAttributes. Use it if you prefer [Attribute] to [NSAttributedString.Key:Any].
     public var swiftyTitleTextAttributes: [Attribute]? {
         set {
             titleTextAttributes = newValue?.foundationAttributes
@@ -28,6 +23,7 @@ extension NavigationBar {
         }
     }
     
+    /// A swifty wrapper for UINavigationBar.largeTitleTextAttributes. Use it if you prefer [Attribute] to [NSAttributedString.Key:Any].
     #if os(iOS)
     @available(iOS 11, *)
     public var swiftyLargeTitleTextAttributes: [Attribute]? {
