@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0DA889229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DA888229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift */; };
+		9E0DA88E229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */; };
 		C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */; };
 		C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */; };
 		C03658FA1DC859D80051F06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658F91DC859D80051F06D /* AppDelegate.swift */; };
@@ -69,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E0DA888229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+SwiftyAttributes.swift"; sourceTree = "<group>"; };
+		9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+SwiftyAttributes_Tests.swift"; sourceTree = "<group>"; };
 		C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellingState_Tests.swift; sourceTree = "<group>"; };
 		C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attribute+Sequence_Tests.swift"; sourceTree = "<group>"; };
 		C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingDirection_Tests.swift; sourceTree = "<group>"; };
@@ -145,6 +149,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E0DA88A229B33F600E29BFD /* iOS_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				9E0DA888229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift */,
+			);
+			path = iOS_tvOS;
+			sourceTree = "<group>";
+		};
 		C03658F81DC859D80051F06D /* ExampleApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,8 +224,9 @@
 				C0335B651DC087A3009F9B51 /* Operators_Tests.swift */,
 				C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */,
 				C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */,
-				C09633DA1DD8016800059332 /* Info.plist */,
+				9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */,
 				C0F96A021DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift */,
+				C09633DA1DD8016800059332 /* Info.plist */,
 			);
 			path = SwiftyAttributesTests;
 			sourceTree = "<group>";
@@ -231,6 +244,7 @@
 				C05082261DFA72F700D39B3B /* TextEffect.swift */,
 				C05082271DFA72F700D39B3B /* VerticalGlyphForm.swift */,
 				C05082281DFA72F700D39B3B /* WritingDirection.swift */,
+				9E0DA88A229B33F600E29BFD /* iOS_tvOS */,
 				C0F001661DDD8E56009AD8E0 /* macOS */,
 			);
 			path = Sources;
@@ -469,6 +483,7 @@
 				C0F96A051DEDE23200D039A4 /* String+macOS.swift in Sources */,
 				C0F001761DDD8EA5009AD8E0 /* SpellingState.swift in Sources */,
 				C05082291DFA72F700D39B3B /* Attribute+Sequence.swift in Sources */,
+				9E0DA889229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +498,7 @@
 				C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */,
 				C0F96A031DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift in Sources */,
 				C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */,
+				9E0DA88E229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift in Sources */,
 				C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */,
 				C0E1C96C1DD31A0D0068E85C /* NSAttributedString_Tests.swift in Sources */,
 			);
