@@ -3,7 +3,7 @@
 //  SwiftyAttributes
 //
 //  Created by Roman Podymov on 02/06/2019.
-//  Copyright © 2019 Eddie Kaiger. All rights reserved.
+//  Copyright © 2019 Roman Podymov. All rights reserved.
 //
 
 #if os(macOS)
