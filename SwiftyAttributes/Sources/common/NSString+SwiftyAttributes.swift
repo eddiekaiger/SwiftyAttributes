@@ -33,21 +33,7 @@ extension NSString {
     public func draw(in rect: Rect, withSwiftyAttributes attrs: [Attribute]? = nil) {
         draw(in: rect, withAttributes: attrs?.foundationAttributes)
     }
-    
-    /**
-     Draws string with the specified attributes.
-     
-     - parameter    rect:               Rectangle to draw the string.
-     - parameter    options:            Aditional options.
-     - parameter    swiftyAttributes:   The attributes to use.
-     */
-    #if os(macOS)
-    @available(macOS, deprecated: 10.12)
-    public func draw(with rect: Rect, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) {
-        draw(with: rect, options: options, attributes: swiftyAttributes?.foundationAttributes)
-    }
-    #endif
-    
+        
     /**
      Draws string with the specified attributes.
      
@@ -65,7 +51,7 @@ extension NSString {
      
      - parameter    attrs:   The attributes to use.
      */
-    func size(withSwiftyAttributes attrs: [Attribute]? = nil) -> Size {
+    public func size(withSwiftyAttributes attrs: [Attribute]? = nil) -> Size {
         return size(withAttributes: attrs?.foundationAttributes)
     }
     
@@ -77,21 +63,7 @@ extension NSString {
      - parameter    swiftyAttributes:   The attributes to use.
      - parameter    context:            Drawing context.
      */
-    func boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil, context: DrawingContext?) -> Rect {
+    public func boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil, context: DrawingContext?) -> Rect {
         return boundingRect(with: size, options: options, attributes: swiftyAttributes?.foundationAttributes, context: context)
     }
-   
-    /**
-     Draws string with the specified attributes.
-     
-     - parameter    size:               Size of string.
-     - parameter    options:            Aditional options.
-     - parameter    swiftyAttributes:   The attributes to use.
-     */
-    #if os(macOS)
-    @available(macOS, deprecated: 10.12)
-    func boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) -> Rect {
-        return boundingRect(with: size, options: options, attributes: swiftyAttributes?.foundationAttributes)
-    }
-    #endif
 }
