@@ -10,23 +10,11 @@
 import AppKit
 
 extension NSString {
-
-    /**
-     Draws string with the specified attributes.
-     
-     - parameter    rect:               Rectangle to draw the string.
-     - parameter    options:            Aditional options.
-     - parameter    swiftyAttributes:   The attributes to use.
-     */
-    @available(macOS, deprecated: 10.12)
-    public func draw(with rect: Rect, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) {
-        draw(with: rect, options: options, attributes: swiftyAttributes?.foundationAttributes)
-    }
     
     /**
-     Draws string with the specified attributes.
+     Get string bounding rectangle with the specified attributes.
      
-     - parameter    size:               Size of string.
+     - parameter    size:               Size of bounding rectangle.
      - parameter    options:            Aditional options.
      - parameter    swiftyAttributes:   The attributes to use.
      */
