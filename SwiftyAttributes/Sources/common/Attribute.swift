@@ -12,24 +12,15 @@
     public typealias Font = NSFont
     public typealias Cursor = NSCursor
     public typealias TextAlternatives = NSTextAlternatives
-    public typealias Point = NSPoint
-    public typealias Size = NSSize
-    public typealias Rect = NSRect
-    public typealias DrawingOptions = NSString.DrawingOptions
 #else
     import UIKit
     public typealias Color = UIColor
     public typealias Font = UIFont
-    public typealias Point = CGPoint
-    public typealias Size = CGSize
-    public typealias Rect = CGRect
-    public typealias DrawingOptions = NSStringDrawingOptions
 #endif
 
 public typealias UnderlineStyle = NSUnderlineStyle
 public typealias StrikethroughStyle = NSUnderlineStyle
 public typealias ParagraphStyle = NSParagraphStyle
-public typealias DrawingContext = NSStringDrawingContext
 
 #if os(watchOS)
 #else

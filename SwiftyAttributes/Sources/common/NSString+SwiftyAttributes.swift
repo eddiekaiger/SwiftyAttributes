@@ -8,9 +8,19 @@
 
 #if os(macOS)
     import AppKit
+    public typealias Point = NSPoint
+    public typealias Size = NSSize
+    public typealias Rect = NSRect
+    public typealias DrawingOptions = NSString.DrawingOptions
 #else
     import UIKit
+    public typealias Point = CGPoint
+    public typealias Size = CGSize
+    public typealias Rect = CGRect
+    public typealias DrawingOptions = NSStringDrawingOptions
 #endif
+
+public typealias DrawingContext = NSStringDrawingContext
 
 extension NSString {
     
@@ -19,7 +29,7 @@ extension NSString {
      
      - parameter    attrs:   The attributes to use.
      */
-    public func size(withSwiftyAttributes attrs: [Attribute]? = nil) -> Size {
+    public func swifty_size(withSwiftyAttributes attrs: [Attribute]? = nil) -> Size {
         return size(withAttributes: attrs?.foundationAttributes)
     }
     
@@ -31,7 +41,7 @@ extension NSString {
      - parameter    swiftyAttributes:   The attributes to use.
      - parameter    context:            Drawing context.
      */
-    public func boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil, context: DrawingContext?) -> Rect {
+    public func swifty_boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil, context: DrawingContext?) -> Rect {
         return boundingRect(with: size, options: options, attributes: swiftyAttributes?.foundationAttributes, context: context)
     }
 }
