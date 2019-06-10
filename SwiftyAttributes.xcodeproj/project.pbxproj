@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9E0DA889229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DA888229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift */; };
 		9E0DA88E229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */; };
+		9E28077022A424320097CE8A /* NSString+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E28076F22A424320097CE8A /* NSString+macOS.swift */; };
+		9E351CDB22A3DDAC000FA7FC /* NSString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E351CDA22A3DDAC000FA7FC /* NSString_Tests.swift */; };
+		9EB6D1A322A1CAC300D00CFC /* NSString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB6D1A222A1CAC200D00CFC /* NSString+SwiftyAttributes.swift */; };
 		C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */; };
 		C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */; };
 		C03658FA1DC859D80051F06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03658F91DC859D80051F06D /* AppDelegate.swift */; };
@@ -73,6 +76,9 @@
 /* Begin PBXFileReference section */
 		9E0DA888229B2F8600E29BFD /* UIKit+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+SwiftyAttributes.swift"; sourceTree = "<group>"; };
 		9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+SwiftyAttributes_Tests.swift"; sourceTree = "<group>"; };
+		9E28076F22A424320097CE8A /* NSString+macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+macOS.swift"; sourceTree = "<group>"; };
+		9E351CDA22A3DDAC000FA7FC /* NSString_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString_Tests.swift; sourceTree = "<group>"; };
+		9EB6D1A222A1CAC200D00CFC /* NSString+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+SwiftyAttributes.swift"; path = "common/NSString+SwiftyAttributes.swift"; sourceTree = "<group>"; };
 		C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellingState_Tests.swift; sourceTree = "<group>"; };
 		C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attribute+Sequence_Tests.swift"; sourceTree = "<group>"; };
 		C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingDirection_Tests.swift; sourceTree = "<group>"; };
@@ -217,15 +223,16 @@
 			isa = PBXGroup;
 			children = (
 				C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */,
-				C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */,
 				C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */,
-				C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */,
-				C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */,
+				C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */,
+				9E351CDA22A3DDAC000FA7FC /* NSString_Tests.swift */,
 				C0335B651DC087A3009F9B51 /* Operators_Tests.swift */,
 				C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */,
+				C0E211581D9EC5C000623F02 /* SwiftyAttributes_Tests.swift */,
 				C0D753FA1DC5C77E00BB9754 /* TextEffect_Tests.swift */,
 				9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */,
 				C0F96A021DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift */,
+				C0335B631DC0877C009F9B51 /* WritingDirection_Tests.swift */,
 				C09633DA1DD8016800059332 /* Info.plist */,
 			);
 			path = SwiftyAttributesTests;
@@ -239,6 +246,7 @@
 				C05082211DFA72F700D39B3B /* Ligatures.swift */,
 				C05082221DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift */,
 				C05082231DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift */,
+				9EB6D1A222A1CAC200D00CFC /* NSString+SwiftyAttributes.swift */,
 				C05082241DFA72F700D39B3B /* Operators.swift */,
 				C05082251DFA72F700D39B3B /* String+SwiftyAttributes.swift */,
 				C05082261DFA72F700D39B3B /* TextEffect.swift */,
@@ -253,8 +261,9 @@
 		C0F001661DDD8E56009AD8E0 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				C0F001751DDD8EA5009AD8E0 /* SpellingState.swift */,
 				C0DB42EB1DDED3500093A6FA /* NSAttributedString+macOS.swift */,
+				9E28076F22A424320097CE8A /* NSString+macOS.swift */,
+				C0F001751DDD8EA5009AD8E0 /* SpellingState.swift */,
 				C0F96A041DEDE23200D039A4 /* String+macOS.swift */,
 			);
 			path = macOS;
@@ -475,11 +484,13 @@
 				C050822E1DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
 				C05082331DFA72F700D39B3B /* WritingDirection.swift in Sources */,
 				C050822C1DFA72F700D39B3B /* Ligatures.swift in Sources */,
+				9E28077022A424320097CE8A /* NSString+macOS.swift in Sources */,
 				C05082311DFA72F700D39B3B /* TextEffect.swift in Sources */,
 				C05082301DFA72F700D39B3B /* String+SwiftyAttributes.swift in Sources */,
 				C0DB42EC1DDED3500093A6FA /* NSAttributedString+macOS.swift in Sources */,
 				C05082321DFA72F700D39B3B /* VerticalGlyphForm.swift in Sources */,
 				C050822D1DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift in Sources */,
+				9EB6D1A322A1CAC300D00CFC /* NSString+SwiftyAttributes.swift in Sources */,
 				C0F96A051DEDE23200D039A4 /* String+macOS.swift in Sources */,
 				C0F001761DDD8EA5009AD8E0 /* SpellingState.swift in Sources */,
 				C05082291DFA72F700D39B3B /* Attribute+Sequence.swift in Sources */,
@@ -498,6 +509,7 @@
 				C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */,
 				C0F96A031DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift in Sources */,
 				C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */,
+				9E351CDB22A3DDAC000FA7FC /* NSString_Tests.swift in Sources */,
 				9E0DA88E229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift in Sources */,
 				C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */,
 				C0E1C96C1DD31A0D0068E85C /* NSAttributedString_Tests.swift in Sources */,
