@@ -25,7 +25,7 @@ class NSString_Tests: XCTestCase {
     
     func testSizeWithSwiftyAttributes() {
         let testString = "Hello World" as NSString
-        let subject = testString.swifty_size(withSwiftyAttributes: subjectAttributes)
+        let subject = testString.swiftySize(withSwiftyAttributes: subjectAttributes)
         let expected = testString.size(withAttributes: expectedAttributes)
         XCTAssertEqual(subject, expected)
     }
@@ -33,7 +33,7 @@ class NSString_Tests: XCTestCase {
     func testBoundingRectWithSizeOptionsSwiftyAttributesContext() {
         let testString = "Hello World" as NSString
         let testSize = CGSize(width: 50, height: 100)
-        let subject = testString.swifty_boundingRect(
+        let subject = testString.swiftyBoundingRect(
             with: testSize,
             options: [],
             swiftyAttributes: subjectAttributes,
@@ -52,7 +52,7 @@ class NSString_Tests: XCTestCase {
     func testBoundingRectWithSizeOptionsSwiftyAttributes() {
         let testString = "Hello World" as NSString
         let testSize = CGSize(width: 50, height: 100)
-        let subject = testString.swifty_boundingRect(
+        let subject = testString.swiftyBoundingRect(
             with: testSize,
             options: [],
             swiftyAttributes: subjectAttributes

@@ -29,7 +29,7 @@ extension NSString {
      
      - parameter    attrs:   The attributes to use.
      */
-    public func swifty_size(withSwiftyAttributes attrs: [Attribute]? = nil) -> Size {
+    public func swiftySize(withSwiftyAttributes attrs: [Attribute]? = nil) -> Size {
         return size(withAttributes: attrs?.foundationAttributes)
     }
     
@@ -41,7 +41,7 @@ extension NSString {
      - parameter    swiftyAttributes:   The attributes to use.
      - parameter    context:            Drawing context.
      */
-    public func swifty_boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil, context: DrawingContext?) -> Rect {
+    public func swiftyBoundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil, context: DrawingContext?) -> Rect {
         return boundingRect(with: size, options: options, attributes: swiftyAttributes?.foundationAttributes, context: context)
     }
 }
