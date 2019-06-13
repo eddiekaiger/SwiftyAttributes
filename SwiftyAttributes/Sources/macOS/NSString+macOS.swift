@@ -19,7 +19,7 @@ extension NSString {
      - parameter    swiftyAttributes:   The attributes to use.
      */
     @available(macOS, deprecated: 10.12)
-    public func swifty_boundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) -> Rect {
+    public func swiftyBoundingRect(with size: Size, options: DrawingOptions = [], swiftyAttributes: [Attribute]? = nil) -> Rect {
         return boundingRect(with: size, options: options, attributes: swiftyAttributes?.foundationAttributes)
     }
 }
