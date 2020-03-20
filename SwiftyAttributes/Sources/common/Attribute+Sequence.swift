@@ -6,6 +6,8 @@
 //  Copyright © 2016 Eddie Kaiger. All rights reserved.
 //
 
+import Foundation
+
 /**
  An extension on dictionaries that allows us to convert a Foundation-based dictionary of attributes to an array of `Attribute`s.
  */
