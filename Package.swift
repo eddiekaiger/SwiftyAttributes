@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftyAttributes",
     platforms: [
-        .iOS(.v8),
+        .iOS(.v9),
         .macOS(.v10_11),
         .tvOS(.v9)
     ],
