@@ -144,32 +144,21 @@ public enum Attribute {
             return (val as! NSNumber).doubleValue
         }
 
-        var ret: Attribute!
+        let ret: Attribute
 
-        // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
-
-        #if os(watchOS)
-        #else
-            switch name {
+        switch name {
+        #if !os(watchOS)
             case .attachment: ret = .attachment(validate(foundationValue))
             case .shadow: ret = .shadow(validate(foundationValue))
-            default: break
-            }
         #endif
-
         #if os(macOS)
-            switch name {
             case .cursor: ret = .cursor(validate(foundationValue))
             case .markedClauseSegment: ret = .markedClauseSegment(validate(foundationValue))
             case .spellingState: ret = .spellingState(SpellingState(rawValue: validate(foundationValue))!)
             case .superscript: ret = .superscript(validate(foundationValue))
             case .textAlternatives: ret = .textAlternatives(validate(foundationValue))
             case .toolTip: ret = .toolTip(validate(foundationValue))
-            default: break
-            }
         #endif
-
-        switch name {
         case .baselineOffset: ret = .baselineOffset(validateDouble(foundationValue))
         case .backgroundColor: ret = .backgroundColor(validate(foundationValue))
         case .expansion: ret = .expansion(validateDouble(foundationValue))
@@ -192,9 +181,7 @@ public enum Attribute {
             let values: [Int] = validate(foundationValue)
             ret = .writingDirections(values.compactMap(WritingDirection.init))
         default:
-            if ret == nil {
-                ret = .custom(name.rawValue, foundationValue)
-            }
+            ret = .custom(name.rawValue, foundationValue)
         }
 
         self = ret
@@ -202,32 +189,21 @@ public enum Attribute {
 
     /// The key name corresponding to the attribute.
     public var keyName: NSAttributedString.Key {
-        var name: NSAttributedString.Key!
+        let name: NSAttributedString.Key
 
-        // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
-
-        #if os(watchOS)
-        #else
-            switch self {
+        switch self {
+        #if !os(watchOS)
             case .attachment: name = .attachment
             case .shadow: name = .shadow
-            default: break
-            }
         #endif
-
         #if os(macOS)
-            switch self {
             case .cursor: name = .cursor
             case .markedClauseSegment: name = .markedClauseSegment
             case .spellingState: name = .spellingState
             case .superscript: name = .superscript
             case .textAlternatives: name = .textAlternatives
             case .toolTip: name = .toolTip
-            default: break
-            }
         #endif
-
-        switch self {
         case .baselineOffset: name = .baselineOffset
         case .backgroundColor: name = .backgroundColor
         case .expansion: name = .expansion
@@ -247,9 +223,8 @@ public enum Attribute {
         case .underlineStyle: name = .underlineStyle
         case .writingDirections: name = .writingDirection
         case .verticalGlyphForm: name = .verticalGlyphForm
-        case .custom(let attributeName, _) where name == nil:
+        case .custom(let attributeName, _):
             name = NSAttributedString.Key(rawValue: attributeName)
-        default: break
         }
 
         return name
@@ -258,30 +233,19 @@ public enum Attribute {
     // Convenience getter variable for the associated value of the attribute. See each case to determine the return type.
     public var value: Any {
 
-        // Bug in Swift prevents us from putting directives inside switch statements (https://bugs.swift.org/browse/SR-2)
-
-        #if os(watchOS)
-        #else
-            switch self {
+        switch self {
+        #if !os(watchOS)
             case .attachment(let attachment): return attachment
             case .shadow(let shadow): return shadow
-            default: break
-            }
         #endif
-
         #if os(macOS)
-            switch self {
             case .cursor(let cursor): return cursor
             case .markedClauseSegment(let segment): return segment
             case .spellingState(let state): return state
             case .superscript(let superscript): return superscript
             case .textAlternatives(let alternatives): return alternatives
             case .toolTip(let text): return text
-            default: break
-            }
         #endif
-
-        switch self {
         case .baselineOffset(let offset): return offset
         case .backgroundColor(let color): return color
         case .expansion(let expansion): return expansion
@@ -302,21 +266,15 @@ public enum Attribute {
         case .verticalGlyphForm(let form): return form
         case .writingDirections(let directions): return directions
         case .custom(_, let value): return value
-        default:
-            fatalError("No value found for attribute \(self)")
         }
     }
 
     /// The value that is passed into the original attribute dictionary of Foundation's API for NSAttributedStrings. Consists of basic types such as Int, Color, Font, etc.
     public var foundationValue: Any {
-        #if os(macOS)
-            switch self {
-            case .spellingState(let state): return state.rawValue
-            default: break
-            }
-        #endif
-
         switch self {
+        #if os(macOS)
+            case .spellingState(let state): return state.rawValue
+        #endif
         case .ligatures(let ligatures): return ligatures.rawValue
         case .strikethroughStyle(let style): return style.rawValue
         case .textEffect(let effect): return effect.rawValue
