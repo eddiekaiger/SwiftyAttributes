@@ -48,7 +48,7 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/eddiekaiger/SwiftyAttributes.git")
+    .package(url: "https://github.com/eddiekaiger/SwiftyAttributes.git", from: "5.3.0")
 ]
 ```
 
