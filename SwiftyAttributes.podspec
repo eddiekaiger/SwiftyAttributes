@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftyAttributes"
-  s.version      = "5.2.0"
+  s.version      = "5.3.0"
   s.summary      = "A Swifty API for attributed strings."
 
   s.description  = <<-DESC
@@ -22,9 +22,7 @@ Pod::Spec.new do |s|
   s.osx.source_files = "SwiftyAttributes/Sources/macOS/*.swift"
 
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.11'
-  s.tvos.deployment_target = '9.0'
-  s.watchos.deployment_target = '2.0'
+  s.osx.deployment_target = '10.13'
 
-  s.swift_versions = ['5.0', '5.1', '5.4']
+  s.swift_versions = ['5.0', '5.1', '5.4', '5.5', '5.6', '5.7']
 end
