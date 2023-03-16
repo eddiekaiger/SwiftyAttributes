@@ -28,6 +28,18 @@ extension NSAttributedString {
         self.init(string: str, attributes: dictionary(from: attrs))
     }
 
+    #if swift(>=5.4)
+    /**
+     Creates a new `NSAttributedString` with the specified attributes.
+     
+     - parameter    str:                The string for the new attributed string.
+     - parameter    swiftyAttributes:   The attributes for the new attributed string.
+     */
+    public convenience init(string str: String, @SwiftyAttributedStringBuilder swiftyAttributes attrs: () -> [NSAttributedString.Key: Any]) {
+        self.init(string: str, attributes: attrs())
+    }
+    #endif
+
     /**
      Returns an attributed string with the specified attributes added.
 
@@ -39,6 +51,20 @@ extension NSAttributedString {
         mutable.addAttributes(dictionary(from: attributes), range: NSRange(location: 0, length: length))
         return mutable
     }
+
+    #if swift(>=5.4)
+    /**
+     Returns an attributed string with the specified attributes added.
+
+     - parameter    attributes:     The attributes to add to the new attributed string.
+     - returns:                     An `NSMutableAttributedString` with the new attributes applied.
+     */
+    public func withAttributes(@SwiftyAttributedStringBuilder _ attributes: () -> [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
+        let mutable = mutableCopy() as! NSMutableAttributedString
+        mutable.addAttributes(attributes(), range: NSRange(location: 0, length: length))
+        return mutable
+    }
+    #endif
 
     /**
      Returns an attributed string with the specified attribute added.
