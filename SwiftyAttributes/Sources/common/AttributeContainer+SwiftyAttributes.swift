@@ -21,8 +21,10 @@ public extension AttributeContainer {
         #endif
         case .baselineOffset(let value):
             self[AttributeScopes.UIKitAttributes.BaselineOffsetAttribute.self] = value
-        case .backgroundColor(let value): self[AttributeScopes.UIKitAttributes.BackgroundColorAttribute.self] = value
-        case .expansion(let value): self[AttributeScopes.UIKitAttributes.ExpansionAttribute.self] = value
+        case .backgroundColor(let value):
+            self[AttributeScopes.UIKitAttributes.BackgroundColorAttribute.self] = value
+        case .expansion(let value):
+            self[AttributeScopes.UIKitAttributes.ExpansionAttribute.self] = value
         case .font(let value):
             self[AttributeScopes.UIKitAttributes.FontAttribute.self] = value
         case .kern(let value):
