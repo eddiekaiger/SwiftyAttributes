@@ -20,6 +20,18 @@ extension String {
         return attributedString.withAttributes(attributes)
     }
 
+    #if swift(>=5.4)
+    /**
+     Returns an attributed string with the specified attributes added.
+
+     - parameter    attributes:     The attributes to add to the new attributed string.
+     - returns:                     An `NSMutableAttributedString` with the new attributes applied.
+     */
+    public func withAttributes(@SwiftyAttributedStringBuilder _ attributes: () -> [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
+        return attributedString.withAttributes(attributes)
+    }
+    #endif
+
     /**
      Returns an attributed string with the specified attribute added.
 

@@ -44,6 +44,14 @@ let fancyString = "Hello".withFont(.systemFont(ofSize: 12)) + " World!".withFont
 
 # Installation
 
+### Swift Package Manager
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/eddiekaiger/SwiftyAttributes.git", from: "5.3.0")
+]
+```
+
 ### With CocoaPods
 
 `pod 'SwiftyAttributes'`

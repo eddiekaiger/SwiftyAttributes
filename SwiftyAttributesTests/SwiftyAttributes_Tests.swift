@@ -11,6 +11,25 @@ import SwiftyAttributes
 
 class SwiftyAttributesTests: XCTestCase {
 
+    #if swift(>=5.4)
+    func testString_withAttributes_SwiftyAttributedStringBuilder() {
+        let shouldAddStrokeWidth = true
+        let subject = "Hello".withAttributes {
+            Attribute.strokeColor(.green)
+            if let link = URL(string: "").map { Attribute.link($0) } {
+                link
+            }
+            if shouldAddStrokeWidth {
+                Attribute.strokeWidth(3)
+            } else {
+                Attribute.strokeColor(.yellow)
+            }
+        }
+        let expected = NSAttributedString(string: "Hello", attributes: [.strokeColor: Color.green, .strokeWidth: 3])
+        XCTAssertEqual(subject, expected)
+    }
+    #endif
+
     func testString_withAttribute() {
         let subject = "Hello".withAttribute(.strokeWidth(4))
         let expected = NSAttributedString(string: "Hello", attributes: [.strokeWidth: NSNumber(value: 4)])
