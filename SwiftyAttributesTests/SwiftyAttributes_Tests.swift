@@ -103,6 +103,7 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_shadow() {
+        #if !os(watchOS)
         let shadow = Shadow()
         shadow.shadowBlurRadius = 4
         shadow.shadowColor = Color.brown
@@ -111,6 +112,7 @@ class SwiftyAttributesTests: XCTestCase {
         let expected = NSAttributedString(string: "Hello", attributes: [.shadow: shadow])
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject2, expected)
+        #endif
     }
 
     func testAttribute_textEffect() {
@@ -122,12 +124,14 @@ class SwiftyAttributesTests: XCTestCase {
     }
 
     func testAttribute_attachment() {
+        #if !os(watchOS)
         let attachment = TextAttachment(data: nil, ofType: nil)
         let subject = "Hello".withAttachment(attachment)
         let subject2 = "Hello".attributedString.withAttachment(attachment)
         let expected = NSAttributedString(string: "Hello", attributes: [.attachment: attachment])
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject2, expected)
+        #endif
     }
 
     func testAttribute_link() {

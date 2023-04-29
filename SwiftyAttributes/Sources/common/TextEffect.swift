@@ -32,7 +32,14 @@ public enum TextEffect: RawRepresentable {
     public var rawValue: String {
         switch self {
         case .letterPressStyle:
-            return NSAttributedString.TextEffectStyle.letterpressStyle.rawValue
+            return textEffectStyle.rawValue
+        }
+    }
+
+    public var textEffectStyle: NSAttributedString.TextEffectStyle {
+        switch self {
+        case .letterPressStyle:
+            return NSAttributedString.TextEffectStyle.letterpressStyle
         }
     }
 }
