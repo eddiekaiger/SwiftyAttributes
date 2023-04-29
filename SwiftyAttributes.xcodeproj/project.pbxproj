@@ -12,6 +12,8 @@
 		9E0DA88E229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */; };
 		9E28077022A424320097CE8A /* NSString+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E28076F22A424320097CE8A /* NSString+macOS.swift */; };
 		9E351CDB22A3DDAC000FA7FC /* NSString_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E351CDA22A3DDAC000FA7FC /* NSString_Tests.swift */; };
+		9E54879329FD2E2A009EB1D6 /* AttributeContainer+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E54879229FD2E2A009EB1D6 /* AttributeContainer+SwiftyAttributes.swift */; };
+		9E54879529FD2E47009EB1D6 /* AttributeContainer+SwiftyAttributes_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E54879429FD2E47009EB1D6 /* AttributeContainer+SwiftyAttributes_Tests.swift */; };
 		9EB6D1A322A1CAC300D00CFC /* NSString+SwiftyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB6D1A222A1CAC200D00CFC /* NSString+SwiftyAttributes.swift */; };
 		C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */; };
 		C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */; };
@@ -80,6 +82,8 @@
 		9E0DA88D229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+SwiftyAttributes_Tests.swift"; sourceTree = "<group>"; };
 		9E28076F22A424320097CE8A /* NSString+macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+macOS.swift"; sourceTree = "<group>"; };
 		9E351CDA22A3DDAC000FA7FC /* NSString_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString_Tests.swift; sourceTree = "<group>"; };
+		9E54879229FD2E2A009EB1D6 /* AttributeContainer+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AttributeContainer+SwiftyAttributes.swift"; path = "common/AttributeContainer+SwiftyAttributes.swift"; sourceTree = "<group>"; };
+		9E54879429FD2E47009EB1D6 /* AttributeContainer+SwiftyAttributes_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributeContainer+SwiftyAttributes_Tests.swift"; sourceTree = "<group>"; };
 		9EB6D1A222A1CAC200D00CFC /* NSString+SwiftyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+SwiftyAttributes.swift"; path = "common/NSString+SwiftyAttributes.swift"; sourceTree = "<group>"; };
 		C027C0C81DEA0A0100953C09 /* SpellingState_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellingState_Tests.swift; sourceTree = "<group>"; };
 		C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attribute+Sequence_Tests.swift"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				C027C0CA1DEA452500953C09 /* Attribute+Sequence_Tests.swift */,
+				9E54879429FD2E47009EB1D6 /* AttributeContainer+SwiftyAttributes_Tests.swift */,
 				C08D04141DC3B16A00575F98 /* NSAttributedString_Tests.swift */,
 				C08D04121DC39B5500575F98 /* NSMutableAttributedString_Tests.swift */,
 				9E351CDA22A3DDAC000FA7FC /* NSString_Tests.swift */,
@@ -245,6 +250,7 @@
 			children = (
 				C050821F1DFA72F700D39B3B /* Attribute.swift */,
 				C050821E1DFA72F700D39B3B /* Attribute+Sequence.swift */,
+				9E54879229FD2E2A009EB1D6 /* AttributeContainer+SwiftyAttributes.swift */,
 				C05082211DFA72F700D39B3B /* Ligatures.swift */,
 				C05082221DFA72F700D39B3B /* NSAttributedString+SwiftyAttributes.swift */,
 				C05082231DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift */,
@@ -483,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E04C4D126EA09A5009BA429 /* SwiftyAttributedStringBuilder.swift in Sources */,
+				9E54879329FD2E2A009EB1D6 /* AttributeContainer+SwiftyAttributes.swift in Sources */,
 				C050822A1DFA72F700D39B3B /* Attribute.swift in Sources */,
 				C050822F1DFA72F700D39B3B /* Operators.swift in Sources */,
 				C050822E1DFA72F700D39B3B /* NSMutableAttributedString+SwiftyAttributes.swift in Sources */,
@@ -513,6 +520,7 @@
 				C027C0C91DEA0A0100953C09 /* SpellingState_Tests.swift in Sources */,
 				C0F96A031DEDE1D300D039A4 /* VerticalGlyphForm_Tests.swift in Sources */,
 				C027C0CB1DEA452500953C09 /* Attribute+Sequence_Tests.swift in Sources */,
+				9E54879529FD2E47009EB1D6 /* AttributeContainer+SwiftyAttributes_Tests.swift in Sources */,
 				9E351CDB22A3DDAC000FA7FC /* NSString_Tests.swift in Sources */,
 				9E0DA88E229B34D800E29BFD /* UIKit+SwiftyAttributes_Tests.swift in Sources */,
 				C0E1C96F1DD31A0D0068E85C /* Operators_Tests.swift in Sources */,
