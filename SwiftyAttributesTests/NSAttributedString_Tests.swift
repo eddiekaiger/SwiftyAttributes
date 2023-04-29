@@ -17,6 +17,42 @@ class NSAttributedString_Tests: XCTestCase {
         XCTAssertEqual(subject, expected)
     }
 
+    #if swift(>=5.4)
+    func testInit_withSwiftyAttributedStringBuilder() {
+        let shouldAddStrokeWidth = true
+        let subject = NSAttributedString(string: "Hello World") {
+            Attribute.strokeColor(.green)
+            if let link = URL(string: "").map { Attribute.link($0) } {
+                link
+            }
+            if shouldAddStrokeWidth {
+                Attribute.strokeWidth(3)
+            } else {
+                Attribute.strokeColor(.yellow)
+            }
+        }
+        let expected = NSAttributedString(string: "Hello World", attributes: [.strokeColor: Color.green, .strokeWidth: 3])
+        XCTAssertEqual(subject, expected)
+    }
+
+    func testWithAttributes_SwiftyAttributedStringBuilder() {
+        let shouldAddStrokeWidth = true
+        let subject = NSAttributedString(string: "Hello World").withAttributes {
+            Attribute.strokeColor(.green)
+            if let link = URL(string: "").map { Attribute.link($0) } {
+                link
+            }
+            if shouldAddStrokeWidth {
+                Attribute.strokeWidth(3)
+            } else {
+                Attribute.strokeColor(.yellow)
+            }
+        }
+        let expected = NSAttributedString(string: "Hello World", attributes: [.strokeColor: Color.green, .strokeWidth: 3])
+        XCTAssertEqual(subject, expected)
+    }
+    #endif
+
     func testSubstringFromRange() {
         let str = "Hello".withStrikethroughColor(.blue).withUnderlineStyle(.patternDash)
         str.addAttributes([.backgroundColor(.brown)], range: 0 ..< 3)
