@@ -64,6 +64,7 @@ class NSAttributedString_Tests: XCTestCase {
     // MARK: - Attribute At Location
 
     func testAttributeAtLocation_attachment() {
+        #if !os(watchOS)
         let attachment = TextAttachment()
         #if os(macOS)
             attachment.image = NSImage()
@@ -75,6 +76,7 @@ class NSAttributedString_Tests: XCTestCase {
         let expected = str.attribute(.attachment, at: 0, effectiveRange: nil) as! TextAttachment
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, attachment)
+        #endif
     }
 
     func testAttributeAtLocation_baselineOffet() {
@@ -154,6 +156,7 @@ class NSAttributedString_Tests: XCTestCase {
     }
 
     func testAttributeAtLocation_shadow() {
+        #if !os(watchOS)
         let shadow = Shadow()
         shadow.shadowOffset = CGSize(width: 3, height: 5)
         let str = "Hello".withShadow(shadow)
@@ -161,6 +164,7 @@ class NSAttributedString_Tests: XCTestCase {
         let expected = str.attribute(.shadow, at: 0, effectiveRange: nil) as! Shadow
         XCTAssertEqual(subject, expected)
         XCTAssertEqual(subject, shadow)
+        #endif
     }
 
     func testAttributeAtLocation_strokeColor() {
