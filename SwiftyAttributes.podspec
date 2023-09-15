@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
   s.tvos.source_files = "SwiftyAttributes/Sources/iOS_tvOS/*.swift"
   s.osx.source_files = "SwiftyAttributes/Sources/macOS/*.swift"
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
   s.osx.deployment_target = '10.13'
 
-  s.swift_versions = ['5.0', '5.1', '5.4', '5.5', '5.6', '5.7', '5.8']
+  s.swift_versions = ['5.6', '5.7', '5.8']
 end
